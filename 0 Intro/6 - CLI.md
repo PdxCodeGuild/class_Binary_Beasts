@@ -19,10 +19,13 @@ In Linux, you can open a terminal with `Ctrl + Alt + T`.
     - `cd` alone will return you to your 'home' directory
 - `mkdir <foldername>` create a new folder 
 - `touch <filename>` creates a new file 
-- `rmdir <foldername>` removes an empty folder
-- `rmdir -R NewFolder` removes a nonempty folder 
+- `rm -r <foldername>` removes a folder and all files
 - `rm <filename>` removes a file
-- `mv filename1 filename2` moves or renames a file
+- `mv filename1 filename2` moves or renames a file:
+
+1) Create a folder in your Desktop. Cd into that and add a file.
+2) Type `mv hello.txt ~/Desktop`
+
 - `cp filename1 filename2` copies a file
 - `up-arrow` will bring up the last command entered
 - `tab` will attempt to autocomplete whatever you're typing

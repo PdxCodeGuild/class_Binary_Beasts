@@ -13,7 +13,7 @@
 
 ## Slack
 
-Please send an email to `merritt@pdxcodeguild.com`, so I have your email address. I'll then send you an invitation to Slack. Slack is an instant-messaging app we'll use to communicate. You can install the Slack desktop app rather than use a browser tab if that's easier for you.
+Please send an email to `alex@pdxcodeguild.com`, so I have your email address. I'll then send you an invitation to Slack. Slack is an instant-messaging app we'll use to communicate. You can install the Slack desktop app rather than use a browser tab if that's easier for you.
 
 
 ## Version Control: Git & GitHub

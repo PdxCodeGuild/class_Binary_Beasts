@@ -1,27 +1,41 @@
-def getGrade(score):
-    if score >= 90:
-        return "A"
-    elif score >= 80:
-        return "B"
-    elif score >= 70:
-        return "C"
-    elif score >= 60:
-        return "D"
-    else:
-        return "F"
+#Minimized Approach
 
-def getFinalGrade(score):
-    grade = getGrade(score)
-    
-    if grade == "F":
-        return grade
-    
-    if score % 10 > 6:
-        return grade + "+"
-    elif score % 10 < 4:
-        return grade + "-"
-    else:
-        return grade
+g = ["A", "B", "C", "D"]
 
-score = input("What is your score?")
-print(getFinalGrade(score))
+def getGrade(s):
+    return "F" if s<60 else g[-4 if s==100 else -(s-59)//10] + "++" if s==100\
+        else "-" if s%10<4 else "+" if s%10>6 else ""
+
+while True:
+    print(getGrade(int(input("What is your score?"))))
+    if input("Play again?") == "no":
+        break
+
+
+#Expanded Approach
+
+def getGradeExpanded(score):
+    g.append("F")
+    grades = g
+    mod = ""
+    if score > 59 and score % 10 < 4:
+        mod = "-"
+    elif score > 59 and score % 10 > 6:
+        mod = "+"
+    index = -(score - 49) // 10
+    
+    if score == 100:
+        return "A++"
+    else:
+        grade = grades[index]
+        return grade + mod
+    
+
+while True:
+    score = input("What is your score?")
+    score = int(score)
+    grade = getGradeExpanded(score)
+    print(grade)
+    again = input("Play again?")
+    if again == "no":
+        break

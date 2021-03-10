@@ -231,7 +231,7 @@ print(math.ceil(5.5)) # 6
 
 ```python
 import math
-print(math.floor(9)) # 3
+print(math.sqrt(49)) # 7.0
 ```
 
 ### Pi `math.pi`

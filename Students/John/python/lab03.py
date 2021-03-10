@@ -58,13 +58,13 @@ def getGradeExpanded(score):
 
 def getGradeExpanded(score):
     grade = "F"
-    if score > 90:
+    if score >= 90:
         grade = "A"
-    elif score > 80:
+    elif score >= 80:
         grade = "B"
-    elif score > 70:
+    elif score >= 70:
         grade = "C"
-    elif grade > 60:
+    elif grade >= 60:
         grade = "D"
         
     mod = ""

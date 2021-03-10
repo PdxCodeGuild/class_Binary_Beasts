@@ -1,7 +1,18 @@
+"""
+
+all codes are written and created by John Robson Wed Mar 10, 2021
+
+"""
+
+from string import ascii_lowercase as lowers
+from string import ascii_uppercase as uppers
+from string import punctuation as specials
+from string import digits as numbers
+
+
 #Version 1
 
 def runVersion1():
-    english = "abcdefghijklmnopqrstuvwxyz"
     index = 0
     
     string = input("Please input your phrase")
@@ -11,18 +22,17 @@ def runVersion1():
         if i == " ":
             buf += " "
         else:
-            index = english.find(i)
+            index = lowers.find(i)
             index += 13
-            if index > 25:
-                index = index - 26
-            buf += english[index]
+            if index > len(lowers) - 1:
+                index = index - len(lowers)
+            buf += lowers[index]
         
     print(buf)
     
 #Version 2
 
 def runVersion2():
-    english = "abcdefghijklmnopqrstuvwxyz"
     index = 0
     offset = int(input("How many numbers should we offset?"))
     
@@ -33,18 +43,19 @@ def runVersion2():
         if i == " ":
             buf += " "
         else:
-            index = english.find(i)
+            index = lowers.find(i)
             index += offset
-            if index > 25:
-                index = index - 26
-            buf += english[index]
+            if index > len(lowers) - 1:
+                index = index - len(lowers)
+            buf += lowers[index]
         
     print(buf)
     
 #Version 3
 
 def runVersion3():
-    english = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ !@#$%^&*()<>?"
+    all = lowers + uppers + specials + numbers
+    
     index = 0
     offset = int(input("How many numbers should we offset?"))
     
@@ -52,10 +63,33 @@ def runVersion3():
     buf = ""
     
     for i in string:
-        index = english.find(i)
-        index += offset
-        if index > 65:
-            index = index - 66
-        buf += english[index]
+        if i == " ":
+            buf += " "
+        else:
+            index = all.find(i)
+            index += offset
+            if index > len(all) - 1:
+                index = index - len(all)
+            buf += all[index]
         
     print(buf)
+
+    
+versions = [runVersion1, runVersion2, runVersion3]
+
+while True:
+    strategy = 0
+
+    print('Welcome. You can type "done" at any time to exit.')
+
+    while strategy < 1 or strategy > 3:
+        strategy = int(input("Which version would you like to run: 1 - 3"))
+        if strategy == "done":
+            break
+        
+    if strategy == "done":
+        break
+
+    strategy = versions[strategy - 1]
+
+    strategy()

@@ -1,13 +1,15 @@
 """
-all codes are written and created by John Robson Wed Mar 9, 2021
+
+all codes are written and created by John Robson Wed Mar 10, 2021
+
 """
 
 g = ["A", "B", "C", "D", "F"] #global grades as list
 
-#Minimized Approach (JS Style)
+#Minimized Approach (JavaScript Style)
 #Super fast, but not recommended for best coding practices
 
-i = input; p = print; m = max; z = int; t = True; q = "What is your score?"; a = "Play again?"; n = "no";
+i = input; p = print; m = max; l = str.lower; z = int; t = True; q = "Score?"; a = "Again?"; n = "no";
 
 def j(a, b, c):
     return b if a else c
@@ -17,13 +19,12 @@ def f(s):
 
 while t:
     p(f(z(i(q))))
-    if i(a)==n:
+    if l(i(a))==n:
         break
 
 
 
 
-#Expanded Approach
 #Best Approach
 
 def getGradeExpanded(score):
@@ -33,21 +34,16 @@ def getGradeExpanded(score):
         mod = "-"
     elif score > 59 and score % 10 > 6:
         mod = "+"
-    index = -(max(10, score - 50)) // 10   #The magic:
-                                #we reduce the score to a number between 50 and 0
-                                #then we get the highest number between the reduced score and 10
-                                #we set 10 as the base, so that as the lowest number we
-                                #get -(10/10) which equals -1 (if we have a 0 index it returns wrong value)
-                                #then divide and floor to get a number 1 - 5
-                                #we negate the number to get a negative index used to find our grade
+    index = -(max(10, score - 50)) // 10   #The magic
     
-    if score == 100:    #100 is index -5 which breaks our list range, so we write an exception
+    if score == 100:
         return "A++"
     else:
         grade = grades[index]
         return grade + mod
     
 
+#Uncomment lines below to test this approach
 # while True:
 #     score = int(input("What is your score?"))
 #     grade = getGradeExpanded(score)
@@ -56,7 +52,8 @@ def getGradeExpanded(score):
 #     if again == "no":
 #         break
     
-#Super Expanded Approach
+    
+    
 #Beginner approach
 
 def getGradeExpanded(score):
@@ -81,6 +78,8 @@ def getGradeExpanded(score):
     else:
         return grade + mod
     
+
+#Uncomment lines below to test this approach
 
 # while True:
 #     score = input("What is your score?")

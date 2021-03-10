@@ -1,3 +1,9 @@
+"""
+
+all codes are written and created by John Robson Wed Mar 10, 2021
+
+"""
+
 import random
 
 while True:

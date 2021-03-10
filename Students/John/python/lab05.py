@@ -1,4 +1,10 @@
-import random
+"""
+
+all codes are written and created by John Robson Wed Mar 10, 2021
+
+"""
+
+from random import choice
 
 eyes = [":", ";", "8"]
 noses = ["-", "", "^"]
@@ -6,20 +12,20 @@ mouths = [")", "(", "P"]
 
 i = 0
 while i < 5:
-    buf = random.choice(eyes)
-    buf += random.choice(noses)
-    buf += random.choice(mouths)
+    buf = choice(eyes) + choice(noses) + choice(mouths)
     print(buf)
-    i = i + 1
+    i += 1
     
     
     
 #Vertical
 
+cheeks = ["()","[]"]
 eyes = ["^^", "--", "**"]
 mouths = ["_", ".", "o"]
 
-buf = random.choice(eyes)
-buf = buf[0] + random.choice(mouths) + buf[1]
+buf = choice(cheeks)
+buf = buf[0] + choice(eyes) + buf[1]
+buf = buf[0:2] + choice(mouths) + buf[2::]
 
 print(buf)

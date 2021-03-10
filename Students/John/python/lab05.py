@@ -15,12 +15,10 @@ while i < 5:
     buf = choice(eyes) + choice(noses) + choice(mouths)
     print(buf)
     i += 1
-    
-    
-    
+
 #Vertical
 
-cheeks = ["()","[]"]
+cheeks = ["()","[]", "  "]
 eyes = ["^^", "--", "**"]
 mouths = ["_", ".", "o"]
 

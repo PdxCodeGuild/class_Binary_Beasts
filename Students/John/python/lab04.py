@@ -29,8 +29,6 @@ responses = ["It is certain",
 
 while True:
     input("What is your question?")
-    response = random.choice(responses)
-    print(response)
-    answer = input("Ask again?")
-    if answer == "no":
+    print(random.choice(responses))
+    if input("Ask again?") == "no":
         break

@@ -57,7 +57,7 @@ def runVersion2():
             print(str(i) + ": " + "X " * i)
             
     def drawVertical(data):
-        h = max(data)
+        h = max(data) + 5 #add padding for graphs
         while h > -1:
             buf = ""
             for i in data:
@@ -74,4 +74,38 @@ def runVersion2():
     drawHorizontal(data)
     drawVertical(data)
     
-runVersion2()
+
+#Version 3
+
+def runVersion3():
+    
+    data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
+    
+    def drawHorizontal(data):
+        for i in data:
+            print(str(i) + ": " + "X " * i)
+            
+    def drawVertical(data):
+        h = max(data) + 5 # add padding for graphs
+        while h > -1:
+            buf = ""
+            bar = 0
+            for i in data:
+                if i > bar:
+                    bar = i
+                if h == 0:
+                    buf += str(i) + " "
+                else:
+                    if i >= h:
+                        buf += "X "
+                    elif i < bar and bar >= h:
+                        buf += "O "
+                    else:
+                        buf += "  "
+            print(buf)
+            h -= 1
+            
+    drawHorizontal(data)
+    drawVertical(data)
+    
+runVersion3()

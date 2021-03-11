@@ -1,3 +1,9 @@
+"""
+
+all codes are written and created by John Robson Wed Mar 10, 2021
+
+"""
+
 import random
 
 responses = ["It is certain",
@@ -23,8 +29,6 @@ responses = ["It is certain",
 
 while True:
     input("What is your question?")
-    response = random.choice(responses)
-    print(response)
-    answer = input("Ask again?")
-    if answer == "no":
+    print(random.choice(responses))
+    if input("Ask again?") == "no":
         break

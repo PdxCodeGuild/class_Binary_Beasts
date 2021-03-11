@@ -1,36 +1,35 @@
 from random import randint as random
 
-computer = random(1,10)
+user = input('Pick a number between 1 and 10: ')
+user = int(user)
 
 count = 0
 
 last_guess = 0
 
 while True:
-    user = input('Pick a number between 1 and 10: ')
-    
-    user = int(user)
+    computer = random(1,10)
     
     count += 1
     
-    if user == computer:
-        print(f'Correct! You guessed {count} times.')
+    if computer == user:
+        print(f'The computer got it! The computer guessed {count} times.')
         break
     
     if count > 1:
-        if abs(user - computer) > abs(last_guess - computer):
+        if abs(computer - user) > abs(last_guess - user):
             print('Colder')
-        elif abs(user - computer) < abs(last_guess - computer):
+        elif abs(computer - user) < abs(last_guess - user):
             print('Warmer')
             
-    elif user > computer:
+    elif computer > user:
         print('Too high!')
 
     
-    elif user < computer:
+    elif computer < user:
         print('Too low!')
     
-    last_guess = user
+    last_guess = computer
 
 
 

@@ -9,7 +9,7 @@ g = ["A", "B", "C", "D", "F"] #global grades as list
 #Minimized Approach (JavaScript Style)
 #Super fast, but not recommended for best coding practices
 
-i = input; p = print; m = max; l = str.lower; z = int; t = True; q = "Score?"; a = "Again?"; n = "no";
+i = input; p = print; m = max; l = str.lower; z = int; t = True; q = "Score?"; a = "Again?"; n = "no"
 
 def j(a, b, c):
     return b if a else c

@@ -48,8 +48,8 @@ def makeChange2(amount):
 
     print(change)
 
-# Version 3 (my own way of doing it)
 
+# Version 3 (my own way of doing it)
 
 def makeChange3(amount):
     coins = {
@@ -62,15 +62,9 @@ def makeChange3(amount):
     
     change = {}
     
-    #python 3
-    for c, v in coins.items():
-        change[c] = int(amount // v)
-        amount -= change[c] * v
-        
-    #python 2
-    # for c, v in coins.iteritems():
-    #     change[c] = int(amount // v)
-    #     amount -= change[c] * v
+    for k, v in coins.items():
+        change[k] = int(amount // v)
+        amount -= change[k] * v
 
     print(change)
     

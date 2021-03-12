@@ -12,7 +12,7 @@ from string import digits as numbers
 
 #Version 1
 
-def runVersion1():
+def run_version1():
     index = 0
     
     string = input("Please input your phrase")
@@ -32,7 +32,7 @@ def runVersion1():
     
 #Version 2
 
-def runVersion2():
+def run_version2():
     index = 0
     offset = int(input("How many numbers should we offset?"))
     
@@ -53,7 +53,7 @@ def runVersion2():
     
 #Version 3
 
-def runVersion3():
+def run_version3():
     all = lowers + uppers + specials + numbers
     
     index = 0
@@ -75,7 +75,7 @@ def runVersion3():
     print(buf)
 
     
-versions = [runVersion1, runVersion2, runVersion3]
+versions = [run_version1, run_version2, run_version3]
 
 while True:
     strategy = 0

@@ -7,13 +7,13 @@ all codes are written and created by John Robson Wed Mar 10, 2021
 import random
 
 while True:
-    nounlist = input("List 3 nouns: ").split()
-    adjlist = input("List 3 emotions: ").split()
-    clothinglist = input("list 3 articles of clothing: ").split()
+    noun_list = input("List 3 nouns: ").split()
+    adj_list = input("List 3 emotions: ").split()
+    clothing_list = input("list 3 articles of clothing: ").split()
     
-    noun = random.choice(nounlist)
-    adjective = random.choice(adjlist)
-    clothing = random.choice(clothinglist)
+    noun = random.choice(noun_list)
+    adjective = random.choice(adj_list)
+    clothing = random.choice(clothing_list)
 
     lyrics = f"""
     Be our {noun}
@@ -22,6 +22,6 @@ while True:
     Tighten up your bow tie round your neck and wear your favorite {clothing}
     """
     print(lyrics);
-    playAgain = input("Would you like to continue? ")
-    if playAgain.lower() == "no":
+    play_again = input("Would you like to continue? ")
+    if play_again.lower() == "no":
         break

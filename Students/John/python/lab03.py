@@ -6,28 +6,25 @@ all codes are written and created by John Robson Wed Mar 10, 2021
 
 g = ["A", "B", "C", "D", "F"] #global grades as list
 
-#Minimized Approach (JavaScript Style)
+#Minified Approach (JavaScript Style)
 #Super fast, but not recommended for best coding practices
 
-i = input; p = print; m = max; l = str.lower; z = int; t = True; q = "Score?"; a = "Again?"; n = "no"
+def run_approach1(s):
 
-def j(a, b, c):
-    return b if a else c
+    m = max
 
-def f(s):
-    return g[j(s==100,-5,-(m(10,s-40))//10)]+j(s==100,"++",j(s<60,"",j(s%10<4,"-",j(s%10>6,"+",""))))
+    def j(a, b, c):
+        return b if a else c
 
-while t:
-    p(f(z(i(q))))
-    if l(i(a))==n:
-        break
+    def f(s): #the madness
+        return g[j(s==100,-5,-(m(10,s-40))//10)]+j(s==100,"++",\
+            j(s<60,"",j(s%10<4,"-",j(s%10>6,"+",""))))
 
-
-
+    f(s)
 
 #Best Approach
 
-def getGradeExpanded(score):
+def run_approach2(score):
     grades = g     #reassigning grades to a better variable name
     mod = ""
     if score > 59 and score % 10 < 4:
@@ -42,21 +39,11 @@ def getGradeExpanded(score):
         grade = grades[index]
         return grade + mod
     
-
-#Uncomment lines below to test this approach
-# while True:
-#     score = int(input("What is your score?"))
-#     grade = getGradeExpanded(score)
-#     print(grade)
-#     again = input("Play again?")
-#     if again == "no":
-#         break
-    
     
     
 #Beginner approach
 
-def getGradeExpanded(score):
+def run_approach3(score):
     grade = "F"
     if score >= 90:
         grade = "A"
@@ -77,15 +64,33 @@ def getGradeExpanded(score):
         return "A++"
     else:
         return grade + mod
+
+
+approaches = [run_approach1, run_approach2]
+
+while True:
+    strategy = 0
+
+    print('Welcome. You can type "done" at any time to exit.')
+
+    while strategy < 1 or strategy > 3:
+        strategy = int(input("Which approach would you like to run: 1 - 3"))
+        if strategy == "done":
+            break
+        
+    if strategy == "done":
+        break
+
+    strategy = approaches[strategy - 1]
     
+    score = ""
+    
+    while True:
+        score = input("Enter a score 0 - 100")
+        try:
+            score = int(score)
+            break
+        except:
+            continue
 
-#Uncomment lines below to test this approach
-
-# while True:
-#     score = input("What is your score?")
-#     score = int(score)
-#     grade = getGradeExpanded(score)
-#     print(grade)
-#     again = input("Play again?")
-#     if again == "no":
-#         break
+    print(strategy(score))

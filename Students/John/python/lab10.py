@@ -9,7 +9,7 @@ data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
 # Version 1
 
 
-def runVersion1():
+def run_version1():
 
     peaks = []
     valleys = []
@@ -49,13 +49,13 @@ def runVersion1():
 # Version 2
 
 
-def runVersion2(layout):
+def run_version2(layout):
 
-    def drawHorizontal(data):
+    def draw_horizontal(data):
         for i in data:
             print(str(i) + ": " + "X " * i)
 
-    def drawVertical(data):
+    def draw_vertical(data):
         h = max(data) + 5  # add padding for graphs
         while h > -1:
             buf = ""
@@ -71,19 +71,19 @@ def runVersion2(layout):
             h -= 1
 
     if layout == "h":
-        drawHorizontal(data)
+        draw_horizontal(data)
     elif layout == "v":
-        drawVertical(data)
+        draw_vertical(data)
     else:
-        drawHorizontal(data)
-        drawVertical(data)
+        draw_horizontal(data)
+        draw_vertical(data)
 
 
 # Version 3
 
-def runVersion3(layout):
+def run_version3(layout):
 
-    def drawHorizontal(data):
+    def draw_horizontal(data):
         buf = ""
         bar = 0
         for i in data:
@@ -96,7 +96,7 @@ def runVersion3(layout):
             buf += "O " * diff
             print(buf)
 
-    def drawVertical(data):
+    def draw_vertical(data):
         h = max(data) + 5  # add padding for graphs
         while h > -1:
             buf = ""
@@ -118,15 +118,15 @@ def runVersion3(layout):
 
 
     if layout == "h":
-        drawHorizontal(data)
+        draw_horizontal(data)
     elif layout == "v":
-        drawVertical(data)
+        draw_vertical(data)
     else:
-        drawHorizontal(data)
-        drawVertical(data)
+        draw_horizontal(data)
+        draw_vertical(data)
 
 
-versions = [runVersion1, runVersion2, runVersion3]
+versions = [run_version1, run_version2, run_version3]
 
 while True:
     strategy = 0

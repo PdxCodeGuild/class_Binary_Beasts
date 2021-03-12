@@ -6,8 +6,6 @@ all codes are written and created by John Robson Thu Mar 11, 2021
 
 # Version 1
 
-from os import replace
-
 
 def run_version1(num):
     teens = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]

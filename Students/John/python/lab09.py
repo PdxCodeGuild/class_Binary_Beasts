@@ -23,9 +23,7 @@ def run_version1():
             buf += " "
         else:
             index = lowers.find(i)
-            index += 13
-            if index > len(lowers) - 1:
-                index = index - len(lowers)
+            index -= 13
             buf += lowers[index]
         
     print(buf)
@@ -34,7 +32,7 @@ def run_version1():
 
 def run_version2():
     index = 0
-    offset = int(input("How many numbers should we offset?"))
+    rot = int(input("How many numbers should we offset?"))
     
     string = input("Please input your phrase")
     buf = ""
@@ -44,9 +42,7 @@ def run_version2():
             buf += " "
         else:
             index = lowers.find(i)
-            index += offset
-            if index > len(lowers) - 1:
-                index = index - len(lowers)
+            index -= rot
             buf += lowers[index]
         
     print(buf)
@@ -57,7 +53,7 @@ def run_version3():
     all = lowers + uppers + specials + numbers
     
     index = 0
-    offset = int(input("How many numbers should we offset?"))
+    rot = int(input("How many numbers should we offset?"))
     
     string = input("Please input your phrase")
     buf = ""
@@ -67,9 +63,7 @@ def run_version3():
             buf += " "
         else:
             index = all.find(i)
-            index += offset
-            if index > len(all) - 1:
-                index = index - len(all)
+            index -= rot
             buf += all[index]
         
     print(buf)
@@ -83,9 +77,10 @@ while True:
     print('Welcome. You can type "done" at any time to exit.')
 
     while strategy < 1 or strategy > 3:
-        strategy = int(input("Which version would you like to run: 1 - 3"))
+        strategy = input("Which version would you like to run: 1 - 3")
         if strategy == "done":
             break
+        strategy = int(strategy)
         
     if strategy == "done":
         break

@@ -9,9 +9,9 @@ g = ["A", "B", "C", "D", "F"]  # global grades as list
 # Minified Approach (JavaScript Style)
 # Super fast, but not recommended for best coding practices
 
-m = max
-
 def run_approach1(s):
+    
+    m = max
 
     def j(a, b, c):
         return b if a else c
@@ -32,7 +32,7 @@ def run_approach2(score):
         mod = "-"
     elif score > 59 and score % 10 > 6:
         mod = "+"
-    index = -(m(0, score - 50)) // 10  # The magic
+    index = -(max(0, score - 50)) // 10  # The magic
 
     if score == 100:
         return "A++"
@@ -72,12 +72,12 @@ while True:
 
     print('Welcome. You can type "done" at any time to exit.')
     
-    max = len(approaches)
+    m = len(approaches)
 
     strategy = 0
-    while strategy not in range(1, max):
+    while strategy not in range(1, m + 1):
         try:
-            strategy = input(f"Which approach would you like to run: 1 - {max}")
+            strategy = input(f"Which approach would you like to run: 1 - {m}")
             if strategy == "done":
                 break
             strategy = int(strategy)

@@ -115,14 +115,19 @@ while True:
     strategy = 0
 
     print('Welcome. You can type "done" at any time to exit.')
+    
+    m = len(versions)
 
-    while strategy < 1 or strategy > 4:
-        strategy = int(input("Which version would you like to run: 1 - 4"))
+    while strategy not in range(1, m + 1):
+        try:
+            strategy = input(f"Which version would you like to run: 1 - {m}")
+            if strategy == "done":
+                break
+            strategy = int(strategy)
+        except:
+            continue
         if strategy == "done":
             break
-        
-    if strategy == "done":
-        break
     
     num = 0
     h = -1
@@ -150,5 +155,3 @@ while True:
     strategy = versions[strategy - 1]
 
     print(strategy(num))
-    
-    

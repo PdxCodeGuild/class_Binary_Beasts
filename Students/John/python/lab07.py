@@ -77,13 +77,18 @@ while True:
 
     print('Welcome. You can type "done" at any time to exit.')
 
-    while strategy < 1 or strategy > 2:
-        strategy = int(input("Which approach would you like to run: 1 - 2"))
+    m = len(approaches)
+    
+    while strategy not in range(1, m + 1):
+        try:
+            strategy = input(f"Which approach would you like to run: 1 - {m}")
+            if strategy == "done":
+                break
+            strategy = int(strategy)
+        except:
+            continue
         if strategy == "done":
             break
-        
-    if strategy == "done":
-        break
 
     strategy = approaches[strategy - 1]
 

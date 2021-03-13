@@ -7,19 +7,15 @@ def phraser(x):
     ten_dig = (x//10)%10
     one_dig = x%10
 
-    print(f"{hun_dig}")
-    print(f"{ten_dig}")
-    print(f"{one_dig}")
-
     if x <= 9:
         return f"{ones[one_dig]}"
-
     elif x <= 19:
         return f"{odds[one_dig]}"
     elif x <= 99:
         return f"{tens[ten_dig-2]} {ones[one_dig]}"
-
-    if x >= 100:
+    elif x <= 119:
+        return f"{ones[hun_dig]}-hundred {odds[one_dig]}"
+    elif x >= 120:
         return f"{ones[hun_dig]}-hundred {tens[ten_dig-2]} {ones[one_dig]}"
 
 num = int(input("Enter a number\n>"))

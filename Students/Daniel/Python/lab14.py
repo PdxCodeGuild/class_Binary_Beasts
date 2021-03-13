@@ -6,10 +6,13 @@ hundreds = {"1":"One Hundred ", "2":"Two Hundred ", "3":"Three Hundred ", "4":"F
 number = input("Please enter a number to be converted to a phrase: ")
 
 if len(number) == 3:
-    print(hundreds[number[0]] + tens[number[2]])
+    print(hundreds[number[0]] + tens[number[1]] + ones[number[2]])
 
 if len(number) == 2:
     if number [0] == "1":
         print(teens[number[1]])
     else:
         print(tens[number[0]] + ones[number[1]])
+
+if len(number) == 1:
+    print(ones[number[0]])

@@ -9,4 +9,7 @@ if len(number) == 3:
     print(hundreds[number[0]] + tens[number[2]])
 
 if len(number) == 2:
-    print(tens[number[0]] + ones[number[1]])
+    if number [0] == "1":
+        print(teens[number[1]])
+    else:
+        print(tens[number[0]] + ones[number[1]])

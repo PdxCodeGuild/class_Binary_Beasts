@@ -12,7 +12,7 @@ from string import digits as numbers
 
 #Version 1
 
-def runVersion1():
+def run_version1():
     index = 0
     
     string = input("Please input your phrase")
@@ -23,18 +23,16 @@ def runVersion1():
             buf += " "
         else:
             index = lowers.find(i)
-            index += 13
-            if index > len(lowers) - 1:
-                index = index - len(lowers)
+            index -= 13
             buf += lowers[index]
         
     print(buf)
     
 #Version 2
 
-def runVersion2():
+def run_version2():
     index = 0
-    offset = int(input("How many numbers should we offset?"))
+    rot = int(input("How many numbers should we offset?"))
     
     string = input("Please input your phrase")
     buf = ""
@@ -44,20 +42,18 @@ def runVersion2():
             buf += " "
         else:
             index = lowers.find(i)
-            index += offset
-            if index > len(lowers) - 1:
-                index = index - len(lowers)
+            index -= rot
             buf += lowers[index]
         
     print(buf)
     
 #Version 3
 
-def runVersion3():
+def run_version3():
     all = lowers + uppers + specials + numbers
     
     index = 0
-    offset = int(input("How many numbers should we offset?"))
+    rot = int(input("How many numbers should we offset?"))
     
     string = input("Please input your phrase")
     buf = ""
@@ -67,28 +63,31 @@ def runVersion3():
             buf += " "
         else:
             index = all.find(i)
-            index += offset
-            if index > len(all) - 1:
-                index = index - len(all)
+            index -= rot
             buf += all[index]
         
     print(buf)
 
     
-versions = [runVersion1, runVersion2, runVersion3]
+versions = [run_version1, run_version2, run_version3]
 
 while True:
     strategy = 0
 
     print('Welcome. You can type "done" at any time to exit.')
 
-    while strategy < 1 or strategy > 3:
-        strategy = int(input("Which version would you like to run: 1 - 3"))
+    m = len(versions)
+
+    while strategy not in range(1, m + 1):
+        try:
+            strategy = input(f"Which version would you like to run: 1 - {m}")
+            if strategy == "done":
+                break
+            strategy = int(strategy)
+        except:
+            continue
         if strategy == "done":
             break
-        
-    if strategy == "done":
-        break
 
     strategy = versions[strategy - 1]
 

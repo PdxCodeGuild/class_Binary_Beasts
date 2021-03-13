@@ -8,7 +8,6 @@ all codes are written and created by John Robson Thu Mar 11, 2021
 
 
 def run_version1(num):
-    teens = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
     teen_words = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
                   "seventeen", "eighteen", "nineteen"]
     ones = ["one", "two", "three", "four",
@@ -17,8 +16,8 @@ def run_version1(num):
             "sixty", "seventy", "eighty", "ninety"]
 
     def convert_to_word(num):
-        if num in teens:
-            return teen_words[teens.index(num)]
+        if num in range(10, 20):
+            return teen_words[num - 10]
         elif num < 10:
             return ones[num - 1]
         elif num % 10 == 0:
@@ -32,7 +31,6 @@ def run_version1(num):
 
 
 def run_version2(num):
-    teens = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
     teen_words = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
                   "seventeen", "eighteen", "nineteen"]
     ones = ["one", "two", "three", "four",
@@ -48,8 +46,8 @@ def run_version2(num):
         elif num > 100:
             buf += ones[num // 100 - 1] + h + " and "
             num = num % 100
-        if num in teens:
-            buf += teen_words[teens.index(num)]
+        if num in range(10, 20):
+            return teen_words[num - 10]
         elif num < 10:
             buf += ones[num - 1]
         elif num % 10 == 0:
@@ -117,14 +115,19 @@ while True:
     strategy = 0
 
     print('Welcome. You can type "done" at any time to exit.')
+    
+    m = len(versions)
 
-    while strategy < 1 or strategy > 4:
-        strategy = int(input("Which version would you like to run: 1 - 4"))
+    while strategy not in range(1, m + 1):
+        try:
+            strategy = input(f"Which version would you like to run: 1 - {m}")
+            if strategy == "done":
+                break
+            strategy = int(strategy)
+        except:
+            continue
         if strategy == "done":
             break
-        
-    if strategy == "done":
-        break
     
     num = 0
     h = -1
@@ -152,5 +155,3 @@ while True:
     strategy = versions[strategy - 1]
 
     print(strategy(num))
-    
-    

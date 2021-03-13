@@ -8,7 +8,7 @@ import random
 
 # Version 1
 
-def runVersion1():
+def run_version1():
     x = random.randint(1, 10)
     count = 1
 
@@ -28,7 +28,7 @@ def runVersion1():
 
 # Version 2
 
-def runVersion2():
+def run_version2():
     x = random.randint(1, 10)
     count = 1
 
@@ -46,7 +46,7 @@ def runVersion2():
 
 # Version 3
 
-def runVersion3():
+def run_version3():
     x = random.randint(1, 10)
     count = 1
 
@@ -68,7 +68,7 @@ def runVersion3():
 
 # Version 4
 
-def runVersion4():
+def run_version4():
     x = random.randint(1, 10)
     guess = -1
     count = 1
@@ -98,13 +98,13 @@ def runVersion4():
 
 # Version 5
 
-def runVersion5():
+def run_version5():
     x = int(input("Pick a number 1-10"))
     count = 1
 
     if x < 1 or x > 10:
         print("Your number was out of the range. Try again:")
-        runVersion5()
+        run_version5()
     else:
         while True:
             guess = random.randint(1, 10)
@@ -118,20 +118,25 @@ def runVersion5():
             count += 1
 
 
-versions = [runVersion1, runVersion2, runVersion3, runVersion4, runVersion5]
+versions = [run_version1, run_version2, run_version3, run_version4, run_version5]
 
 while True:
     strategy = 0
 
     print('Welcome. You can type "done" at any time to exit.')
 
-    while strategy < 1 or strategy > 5:
-        strategy = int(input("Which version would you like to run: 1 - 5"))
+    m = len(versions)
+
+    while strategy not in range(1, m + 1):
+        try:
+            strategy = input(f"Which version would you like to run: 1 - {m}")
+            if strategy == "done":
+                break
+            strategy = int(strategy)
+        except:
+            continue
         if strategy == "done":
             break
-        
-    if strategy == "done":
-        break
 
     strategy = versions[strategy - 1]
 

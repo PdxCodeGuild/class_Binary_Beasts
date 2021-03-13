@@ -6,19 +6,19 @@ all codes are written and created by John Robson Wed Mar 10, 2021
 
 # Version 1
 
-def unitConverterVersion1():
-    v1Dict = {
+def run_version1():
+    units = {
         "feet": 0.3048
     }
     feet = int(input("What is the distance in feet? "))
-    m = feet * v1Dict["feet"]
+    m = feet * units["feet"]
     m = str(round(m, 4))
     print(f"{feet}ft is {m}m.")
     
 # Version 2 + 3
 
-def unitConverterVersion2And3():
-    v3Dict = {
+def run_version2_and_3():
+    units = {
         "ft": 0.3048,
         "mi": 1609.34,
         "m": 1,
@@ -28,14 +28,14 @@ def unitConverterVersion2And3():
     }
     amount = int(input("What is the distance?"))
     unit = input("What is the unit? (ft, mi, m, km, yd, in").lower()
-    m = amount * v3Dict[unit]
+    m = amount * units[unit]
     m = str(round(m, 4))
     print(f"{amount}{unit} is {m}m")
 
 # Extra Challenge
 
-def unitConverterExtraChallenge():
-    fromDict = {
+def run_version_extra():
+    from_units = {
         "ft": 0.3048,
         "mi": 1609.34,
         "m": 1,
@@ -44,7 +44,7 @@ def unitConverterExtraChallenge():
         "in": 0.0254
     }
     
-    toDict = {
+    to_units = {
         "ft": 3.28084,
         "mi": 0.000621371,
         "m": 1,
@@ -53,29 +53,47 @@ def unitConverterExtraChallenge():
         "in": 39.3701
     }
     
-    fromAmount = int(input("What is the distance?"))
-    fromUnit = input("Convert from what unit? (ft, mi, m, km, yd, in)").lower()
-    toUnit = input("Convert to what unit? (ft, mi, m, km, yd, in)").lower()
-    m = fromAmount * fromDict[fromUnit]
-    toAmount = m * toDict[toUnit]
-    toAmount = str(round(toAmount, 4))
-    print(f"{fromAmount}{fromUnit} is {toAmount}{toUnit}")
+    while True:
+        try:
+            from_amount = int(input("What is the distance? (in whole numbers)"))
+            break
+        except:
+            continue
+        
+    from_unit = ""
+    to_unit = ""
+    
+    while from_unit not in list(from_units.keys()):
+        from_unit = input("Convert from what unit? (ft, mi, m, km, yd, in)").lower()
+        
+    while to_unit not in list(to_units.keys()):
+        to_unit = input("Convert to what unit? (ft, mi, m, km, yd, in)").lower()
+        
+    m = from_amount * from_units[from_unit]
+    to_amount = m * to_units[to_unit]
+    to_amount = str(round(to_amount, 4))
+    print(f"{from_amount}{from_unit} is {to_amount}{to_unit}")
     
     
-versions = [unitConverterVersion1, unitConverterVersion2And3, unitConverterExtraChallenge]
+versions = [run_version1, run_version2_and_3, run_version_extra]
 
 while True:
     strategy = 0
 
     print('Welcome. You can type "done" at any time to exit.')
+    
+    m = len(versions)
 
-    while strategy < 1 or strategy > 3:
-        strategy = int(input("Which version would you like to run: 1 - 3"))
+    while strategy not in range(1, m + 1):
+        try:
+            strategy = input(f"Which version would you like to run: 1 - {m}")
+            if strategy == "done":
+                break
+            strategy = int(strategy)
+        except:
+            continue
         if strategy == "done":
             break
-        
-    if strategy == "done":
-        break
 
     strategy = versions[strategy - 1]
 

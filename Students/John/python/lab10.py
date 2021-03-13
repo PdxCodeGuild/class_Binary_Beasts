@@ -9,10 +9,13 @@ data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
 # Version 1
 
 
-def runVersion1(layout):
+def run_version1():
 
-    def peaks(data):
-        peaks = []
+    peaks = []
+    valleys = []
+    all = []
+    
+    def find_peaks():
         i = 0
         while i < len(data):
             if i == 0 or i == len(data) - 1:
@@ -20,11 +23,10 @@ def runVersion1(layout):
             else:
                 if data[i - 1] < data[i] and data[i + 1] < data[i]:
                     peaks.append(i)
+                    all.append(i)
                 i += 1
-        return(peaks)
 
-    def valleys(data):
-        valleys = []
+    def find_valleys():
         i = 0
         while i < len(data):
             if i == 0 or i == len(data) - 1:
@@ -32,39 +34,28 @@ def runVersion1(layout):
             else:
                 if data[i - 1] > data[i] and data[i + 1] > data[i]:
                     valleys.append(i)
-                i += 1
-        return(valleys)
-
-    def peaksAndValleys(data):
-        all = []
-        i = 0
-        while i < len(data):
-            if i == 0 or i == len(data) - 1:
-                i += 1
-            else:
-                if data[i - 1] > data[i] and data[i + 1] > data[i]:
-                    all.append(i)
-                if data[i - 1] < data[i] and data[i + 1] < data[i]:
                     all.append(i)
                 i += 1
-        return(all)
+    
+    find_peaks()
+    find_valleys()
     print("Peaks: ")
-    print(peaks(data))
+    print(peaks)
     print("Valleys: ")
-    print(valleys(data))
+    print(valleys)
     print("Peaks and Valleys: ")
-    print(peaksAndValleys(data))
+    print(all)
 
 # Version 2
 
 
-def runVersion2(layout):
+def run_version2(layout):
 
-    def drawHorizontal(data):
+    def draw_horizontal(data):
         for i in data:
             print(str(i) + ": " + "X " * i)
 
-    def drawVertical(data):
+    def draw_vertical(data):
         h = max(data) + 5  # add padding for graphs
         while h > -1:
             buf = ""
@@ -80,19 +71,19 @@ def runVersion2(layout):
             h -= 1
 
     if layout == "h":
-        drawHorizontal(data)
+        draw_horizontal(data)
     elif layout == "v":
-        drawVertical(data)
+        draw_vertical(data)
     else:
-        drawHorizontal(data)
-        drawVertical(data)
+        draw_horizontal(data)
+        draw_vertical(data)
 
 
 # Version 3
 
-def runVersion3(layout):
+def run_version3(layout):
 
-    def drawHorizontal(data):
+    def draw_horizontal(data):
         buf = ""
         bar = 0
         for i in data:
@@ -105,7 +96,7 @@ def runVersion3(layout):
             buf += "O " * diff
             print(buf)
 
-    def drawVertical(data):
+    def draw_vertical(data):
         h = max(data) + 5  # add padding for graphs
         while h > -1:
             buf = ""
@@ -127,36 +118,43 @@ def runVersion3(layout):
 
 
     if layout == "h":
-        drawHorizontal(data)
+        draw_horizontal(data)
     elif layout == "v":
-        drawVertical(data)
+        draw_vertical(data)
     else:
-        drawHorizontal(data)
-        drawVertical(data)
+        draw_horizontal(data)
+        draw_vertical(data)
 
 
-versions = [runVersion1, runVersion2, runVersion3]
+versions = [run_version1, run_version2, run_version3]
 
 while True:
     strategy = 0
 
     print('Welcome. You can type "done" at any time to exit.')
 
-    while strategy < 1 or strategy > 3:
-        strategy = int(input("Which version would you like to run: 1 - 3"))
+    m = len(versions)
+
+    while strategy not in range(1, m + 1):
+        try:
+            strategy = input(f"Which version would you like to run: 1 - {m}")
+            if strategy == "done":
+                break
+            strategy = int(strategy)
+        except:
+            continue
         if strategy == "done":
             break
-        
-    if strategy == "done":
-        break
-
+    
+    choice = strategy
     strategy = versions[strategy - 1]
     
     layout = ""
     
-    print("Do you want to print the horizontal graph, vertical graph, or both?")
-    while layout != "h" and layout != "v" and layout != "b":
-        layout = input('Enter "h" for horizontal, "v" for vertical, or "b" for both').lower()
-        
-
-    strategy(layout)
+    if choice != 1:
+        print("Do you want to print the horizontal graph, vertical graph, or both?")
+        while layout != "h" and layout != "v" and layout != "b":
+            layout = input('Enter "h" for horizontal, "v" for vertical, or "b" for both').lower()
+            strategy(layout)
+    else:
+        strategy()

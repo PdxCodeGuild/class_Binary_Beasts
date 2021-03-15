@@ -13,7 +13,7 @@ for word in response:
     else:
         word_dict[word] = 1
 
-words = list(word_dict.items()) # .items() returns a list of tuples
-words.sort(key=lambda tup: tup[1], reverse=True)  # sort largest to smallest, based on count
-for i in range(min(10, len(words))):  # print the top 10 words, or all of them, whichever is smaller
+words = list(word_dict.items()) 
+words.sort(key=lambda tup: tup[1], reverse=True) 
+for i in range(min(10, len(words))):
     print(words[i])

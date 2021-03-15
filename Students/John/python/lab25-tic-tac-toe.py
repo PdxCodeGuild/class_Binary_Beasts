@@ -4,9 +4,6 @@ all codes are written and created by John Robson Sun Mar 14, 2021
 
 """
 
-from os import X_OK
-
-
 class Player():
     __name = ""
     __token = ""
@@ -48,9 +45,9 @@ class Game():
     def __show_info(self):
         print("Board squares are labeled 1 through 9. When it's your turn, \n" + 
             "just enter a number between 1 and 9 to place your token.")
-        self.__draw_board("numbers")
+        self.__repr__("numbers")
         
-    def __draw_board(self, type):
+    def __repr__(self, type):
         buf = ""
         t = self.__board_slots
         if type == "numbers":
@@ -73,7 +70,7 @@ class Game():
         token = p.get_token()
         self.__board_slots[pos - 1] = token
         self.__open_slots[pos - 1] = ""
-        self.__draw_board("slot")
+        self.__repr__("slot")
         
     def __get_move(self, p):
         player = p.get_name()

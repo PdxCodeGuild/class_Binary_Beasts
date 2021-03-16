@@ -9,15 +9,10 @@ all codes are written and created by John Robson Sun Mar 14, 2021
 
 import random
 
-class LCR():
-    __players = []
-    __center_pot = 0
-    __no_chips = []
-    __won = False
-    __die = []
-    __rolls = []
+class LCR:
     
     def __init__(self):
+        self.__players = []
         self.__center_pot = 0
         self.__no_chips = []
         self.__won = False

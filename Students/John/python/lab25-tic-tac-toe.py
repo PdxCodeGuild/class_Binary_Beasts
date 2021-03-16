@@ -4,12 +4,7 @@ all codes are written and created by John Robson Sun Mar 14, 2021
 
 """
 
-from os import X_OK
-
-
-class Player():
-    __name = ""
-    __token = ""
+class Player:
     
     def __init__(self, token):
         self.__set_name()
@@ -28,13 +23,7 @@ class Player():
     def get_token(self):
         return self.__token
             
-class Game():
-    __board_slots = ""
-    __board_numbers = ""
-    __open_slots = []
-    __players = []
-    __game_over = False
-    __winner = ""
+class Game:
     
     def __init__(self, p1, p2):
         self.__board_slots = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
@@ -43,15 +32,15 @@ class Game():
         self.__players = [p1, p2]
         self.__game_over = False
         self.__winner = ""
+        self.__board = ""
         self.__show_info()
         
     def __show_info(self):
         print("Board squares are labeled 1 through 9. When it's your turn, \n" + 
             "just enter a number between 1 and 9 to place your token.")
-        self.__draw_board("numbers")
+        self.__repr__("numbers")
         
-    def __draw_board(self, type):
-        buf = ""
+    def __repr__(self, type):
         t = self.__board_slots
         if type == "numbers":
             s = t
@@ -62,18 +51,18 @@ class Game():
                     t[i] = "-"
                 i += 1
             
-        buf += " " + t[0] + " | " + t[1] + " | " + t[2] + "\n"
-        buf += "---|---|---\n"
-        buf += " " + t[3] + " | " + t[4] + " | " + t[5] + "\n"
-        buf += "---|---|---\n"
-        buf += " " + t[6] + " | " + t[7] + " | " + t[8] + "\n"
-        print(buf)
+        self.__board = " " + t[0] + " | " + t[1] + " | " + t[2] + "\n"
+        self.__board += "---|---|---\n"
+        self.__board += " " + t[3] + " | " + t[4] + " | " + t[5] + "\n"
+        self.__board += "---|---|---\n"
+        self.__board += " " + t[6] + " | " + t[7] + " | " + t[8] + "\n"
+        print(self.__board)
         
     def __move(self, p, pos):
         token = p.get_token()
         self.__board_slots[pos - 1] = token
         self.__open_slots[pos - 1] = ""
-        self.__draw_board("slot")
+        self.__repr__("slot")
         
     def __get_move(self, p):
         player = p.get_name()

@@ -82,7 +82,7 @@ def run_version1():
 #Version 2 (Class and methods)
 #Verification runs once, then deletes itself. Must verify every time you want verification
 
-class Card():
+class Card:
     __number = "4556737586899855"
     __verify = "Verification Required"
     

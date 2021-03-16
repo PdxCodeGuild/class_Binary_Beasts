@@ -1,3 +1,5 @@
+#Version 2
+
 import random
 
 class Population:

@@ -26,6 +26,7 @@ class Player():
         return self.__token
             
 class Game():
+    __board = ""
     __board_slots = ""
     __board_numbers = ""
     __open_slots = []
@@ -40,6 +41,7 @@ class Game():
         self.__players = [p1, p2]
         self.__game_over = False
         self.__winner = ""
+        self.__board = ""
         self.__show_info()
         
     def __show_info(self):
@@ -48,7 +50,6 @@ class Game():
         self.__repr__("numbers")
         
     def __repr__(self, type):
-        buf = ""
         t = self.__board_slots
         if type == "numbers":
             s = t
@@ -59,12 +60,12 @@ class Game():
                     t[i] = "-"
                 i += 1
             
-        buf += " " + t[0] + " | " + t[1] + " | " + t[2] + "\n"
-        buf += "---|---|---\n"
-        buf += " " + t[3] + " | " + t[4] + " | " + t[5] + "\n"
-        buf += "---|---|---\n"
-        buf += " " + t[6] + " | " + t[7] + " | " + t[8] + "\n"
-        print(buf)
+        self.__board = " " + t[0] + " | " + t[1] + " | " + t[2] + "\n"
+        self.__board += "---|---|---\n"
+        self.__board += " " + t[3] + " | " + t[4] + " | " + t[5] + "\n"
+        self.__board += "---|---|---\n"
+        self.__board += " " + t[6] + " | " + t[7] + " | " + t[8] + "\n"
+        print(self.__board)
         
     def __move(self, p, pos):
         token = p.get_token()

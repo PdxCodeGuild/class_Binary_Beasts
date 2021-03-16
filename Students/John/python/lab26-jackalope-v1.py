@@ -17,7 +17,7 @@ class Population:
                 self.jackalopes.remove(self.jackalopes[j])
             j -= 1
                 
-        print(f"{self.time}: {len(self.jackalopes)}")
+        print(f"Year: {self.time}, Population: {len(self.jackalopes)}")
         if len(self.jackalopes) < 1000:
             self.tick()
         else:
@@ -26,7 +26,8 @@ class Population:
 class Jackalope:
     age = 0
     
-    def reproduce(self):
+    @staticmethod
+    def reproduce():
         return Jackalope()
     
     def tick(self):

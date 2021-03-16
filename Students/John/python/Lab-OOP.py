@@ -13,7 +13,7 @@ class Bank_Account:
         self.balance -= amount
         
     def bank_fees(self):
-        self.balance *= 1.05
+        self.balance *= 0.95
         
     def display(self):
         print(self.balance)

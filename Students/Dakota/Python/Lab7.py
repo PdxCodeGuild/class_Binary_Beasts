@@ -12,7 +12,6 @@ print(f'You chose {user_move}')
 #prints computers choice
 print(f'The computer chose {computer_move}')
 while True: 
-
     #user and computer choose the same move
     if user_move == computer_move:
         print('Looks like yall tied')

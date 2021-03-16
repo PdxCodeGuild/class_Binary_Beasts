@@ -4,9 +4,7 @@ all codes are written and created by John Robson Sun Mar 14, 2021
 
 """
 
-class Player():
-    __name = ""
-    __token = ""
+class Player:
     
     def __init__(self, token):
         self.__set_name()
@@ -25,14 +23,7 @@ class Player():
     def get_token(self):
         return self.__token
             
-class Game():
-    __board = ""
-    __board_slots = ""
-    __board_numbers = ""
-    __open_slots = []
-    __players = []
-    __game_over = False
-    __winner = ""
+class Game:
     
     def __init__(self, p1, p2):
         self.__board_slots = [" ", " ", " ", " ", " ", " ", " ", " ", " "]

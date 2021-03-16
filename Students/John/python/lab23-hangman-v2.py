@@ -9,7 +9,7 @@ import random
 # Version 2
 #This version was created using a Class and methods
 
-class Hangman():
+class Hangman:
     __movie_titles = ["snakes on a plane", "kill bill", "good will hunting",
                 "mad max", "spiderman", "black panther", "ex machina",
                 "avengers", "inception", "toy story", "star wars",
@@ -93,15 +93,6 @@ class Hangman():
 ./ \. |
       |
 ========="""]
-    
-    __movie = ""
-    __answer = ""
-    __already_guessed = []
-    __wrong = []
-    __board = ""
-    __guesses_remaining = 10
-    __won = ""
-    __guess = ""
     
     def __init__(self):
         self.__movie = random.choice(self.__movie_titles).upper()

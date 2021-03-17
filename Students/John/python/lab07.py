@@ -33,7 +33,7 @@ def run_approach1():
             c = 3
         if user == computer:
             print("You tied")
-        elif u == (c - 1):
+        elif u == c - 1:
             print("You lose!")
         else:
             print("You win!")

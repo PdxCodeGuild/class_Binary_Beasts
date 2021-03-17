@@ -18,44 +18,34 @@ def get_value(card):
         return card
 
 
-def check_aces(cards):
-    ace = ""
-    sum = 0
+def check_aces(hand):
     index = 0
-    for card in cards:
-        if card == "A" and ace != "found":
-            ace = "found"
-            cards[index] = 1
-            sum += 1
-        else:
-            sum += get_value(card)
+    for card in hand:
+        sum = 0
+        for c in hand:
+            sum += get_value(c)
+        if card == "A" and sum > 21:
+            hand[index] = 1
+            check_aces(hand)
         index += 1
-        
-    if sum > 21 and ace == "found":
-        check_aces(cards)
-
-    return cards
-
-def get_advice(cards):
-    hand = 0
-    for card in cards:
-        hand += get_value(card)
-        
-    if hand > 21:
-        hand = 0
-        cards = check_aces(cards)
-        
-        for card in cards:
-            hand += get_value(card)
-        
-        
-    print("Your hand is " + str(hand))
     
-    if hand > 21:
+    return hand, sum
+
+def get_advice(hand):
+    sum = 0
+    for card in hand:
+        sum += get_value(card)
+        
+    if sum > 21:
+        hand, sum = check_aces(hand)
+        
+    print("Your hand is " + str(sum))
+    
+    if sum > 21:
         print("Already Busted")
-    elif hand == 21:
+    elif sum == 21:
         print("Blackjack!")
-    elif hand >= 17:
+    elif sum >= 17:
         print("Stay")
     else:
         print("Hit")
@@ -71,8 +61,6 @@ while True:
         print(card)
         hand.append(card)
         i += 1
-        
-    get_advice(hand)
     
     if input("Play again?").lower() == "no":
         break

@@ -11,10 +11,7 @@ g = ["A", "B", "C", "D", "F"]  # global grades as list
 
 def run_approach1(s):
     
-    m = max
-
-    def j(a, b, c):
-        return b if a else c
+    m = max; j = lambda a,b,c: b if a else c
 
     def f(s):  # the madness
         return g[j(s==100,-5,-(m(0,s-50))//10)]+j(s==100,"++",\
@@ -32,7 +29,7 @@ def run_approach2(score):
         mod = "-"
     elif score >= 60 and score % 10 > 6:
         mod = "+"
-    index = -(max(0, score - 50)) // 10  # The magic
+    index = -(max(10, score - 49)) // 10  # The magic
 
     if score == 100:
         return "A++"
@@ -91,7 +88,7 @@ while True:
     score = ""
     
     while True:
-        score = input("Enter a score 0 - 100")
+        score = input("Enter a score 0 - 100\n")
         try:
             score = int(score)
             if score in range(0, 101):

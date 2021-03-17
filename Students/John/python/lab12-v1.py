@@ -4,6 +4,9 @@ all codes are written and created by John Robson Wed Mar 10, 2021
 
 """
 
+#Version 1
+#This version was built using only functions
+
 import random
 
 cards = ["A", 2, 3, 4, 5, 6, 7, 8, 9, "J", "Q", "K"]

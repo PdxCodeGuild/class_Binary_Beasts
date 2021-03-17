@@ -28,9 +28,9 @@ def run_approach1(s):
 def run_approach2(score):
     grades = g  # reassigning grades to a better variable name
     mod = ""
-    if score > 59 and score % 10 < 4:
+    if score >= 60 and score % 10 < 4:
         mod = "-"
-    elif score > 59 and score % 10 > 6:
+    elif score >= 60 and score % 10 > 6:
         mod = "+"
     index = -(max(0, score - 50)) // 10  # The magic
 
@@ -94,7 +94,8 @@ while True:
         score = input("Enter a score 0 - 100")
         try:
             score = int(score)
-            break
+            if score in range(0, 101):
+                break
         except:
             continue
 

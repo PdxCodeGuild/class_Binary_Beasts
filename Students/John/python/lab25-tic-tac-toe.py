@@ -31,7 +31,6 @@ class Game:
         self.__players = [p1, p2]
         self.__game_over = False
         self.__winner = ""
-        self.__board = ""
         self.__show_info()
 
     def __show_info(self):
@@ -57,20 +56,19 @@ class Game:
         self.__draw_board("slot")
 
     def __get_move(self, p):
-        player = p.get_name()
         while True:
             pos = input(
-                f'{player} - Where would you like to move? Enter "help" for help or "done" to quit.').lower()
+                f'{p.get_name()} - Where would you like to move? Enter "help" for help or "done" to quit. ').lower()
             if pos == "help":
                 self.__show_info()
             elif pos == "done":
                 self.__game_over = True
-                return
+                break
             else:
                 try:
                     if int(pos) in self.__open_slots:
                         self.__move(p, int(pos))
-                        return
+                        break
                 except:
                     continue
 
@@ -96,6 +94,8 @@ class Game:
         while True:
             for p in self.__players:
                 self.__get_move(p)
+                if self.__game_over:
+                    return "done"
                 self.__check_board()
                 if self.__game_over:
                     if self.__winner in self.__players:
@@ -103,7 +103,7 @@ class Game:
                         print(f"The winner is {name}")
                     else:
                         print("It's a tie game!")
-                    return
+                    break
 
 
 def get_player(token):

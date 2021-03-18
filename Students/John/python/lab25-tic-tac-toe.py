@@ -128,7 +128,7 @@ while True:
         print("Game ended.")
 
     play = ""
-    while play != "yes" and play != "no":
+    while play not in ["yes", "no"]:
         play = input("Play again?").lower()
 
     if play == "no":

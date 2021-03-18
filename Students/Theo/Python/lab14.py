@@ -40,14 +40,18 @@ ones = {
     9: 'nine',
 }
 
+whole_numbers = [1,2,3,4,5,6,7,8,9]
+
 x = 45
 
 if 9 < x <= 20:
     print(f'{tens[x]}')
-elif x > 20:
-    print(f'{tens[x // 10]}-{ones[x % 10]}')
-else:
+elif x < 9:
     print(f'{ones[x]}')
+elif x / 10 in whole_numbers:
+    print(f'{tens[x]}')
+else:
+    
 '''
 
 # Version 2
@@ -99,7 +103,7 @@ hundreds = {
 
 whole_numbers = [1,2,3,4,5,6,7,8,9]
 
-x = 221
+x = 840
 
 if 9 < x <= 20:
     print(f'{tens[x]}')
@@ -107,6 +111,12 @@ elif x > 20 and x < 100:
     print(f'{tens[x // 10]}-{ones[x % 10]}')
 elif x / 100 in whole_numbers:
     print(f'{hundreds[x // 100]}')
+elif x / 10 in whole_numbers:
+    print(f'{tens[x]}')
+elif x % 100 / 10 in whole_numbers:
+    print(f'{hundreds[x // 100]} and {tens[x % 100 / 10]}')
+elif 9 < x % 100 <=20:
+    print(f'{hundreds[x // 100]} and {tens[x % 100]}')
 elif x > 100:
     print(f'{hundreds[x // 100]} and {tens[x % 100 // 10]}-{ones[x % 100 % 10]}')
 elif x < 10:

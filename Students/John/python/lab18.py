@@ -6,10 +6,12 @@ all codes are written and created by John Robson Fri Mar 12, 2021
 
 #Version 1 and 2
 
-class ATM():
-    __balance = 0
-    __interest_rate = 0.0002
-    __history = []
+class ATM:
+    
+    def __init__(self):
+        self.__balance = 0
+        self.__interest_rate = 0.0002
+        self.__history = []
         
     def balance(self):
         return self.__balance

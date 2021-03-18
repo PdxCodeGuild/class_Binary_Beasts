@@ -26,7 +26,7 @@ def run_version1(amount):
 
 def run_version2(amount):
     coins = [
-        ("half-dollars", 0.5),
+        ("half-dollars", 0.50),
         ("quarters", 0.25),
         ("dimes", 0.10),
         ("nickels", 0.05),
@@ -67,6 +67,7 @@ def run_version3(amount):
         amount -= change[k] * v
 
     print(change)
+    
     
 versions = [run_version1, run_version2, run_version3]
 

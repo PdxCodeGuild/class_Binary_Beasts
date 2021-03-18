@@ -48,7 +48,7 @@ class Game:
                 i += 1
 
         print(f" {t[0]} | {t[1]} | {t[2]}\n---|---|---\n {t[3]} | {t[4]} | {t[5]}\n---|---|---\n"\
-            f"{t[6]} | {t[7]} | {t[8]}")
+            f" {t[6]} | {t[7]} | {t[8]}")
 
     def __move(self, p, pos):
         token = p.get_token()
@@ -80,12 +80,12 @@ class Game:
         wins = [(s[0], s[1], s[2]), (s[0], s[3], s[6]), (s[0], s[4], s[8]), (s[1], s[4], s[7]),
                        (s[2], s[4], s[6]), (s[2], s[5], s[8]), (s[3], s[4], s[5]), (s[6], s[7], s[8])]
         for x in wins:
-            winner = self.__check_winning_conditions(x[0], x[1], x[2])
+            winner = self.__check_winning_conditions(x)
             if winner in self.__players:
                 self.__winner = winner; self.__game_over = True
                 return winner
 
-    def __check_winning_conditions(self, *args):
+    def __check_winning_conditions(self, args):
         if all(a == args[0] and a in ["X", "O"] for a in args):
             return self.__check_winner(args[0])
 

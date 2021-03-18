@@ -31,7 +31,6 @@ class Game:
         self.__players = [p1, p2]
         self.__game_over = False
         self.__winner = ""
-        self.__board = ""
         self.__show_info()
 
     def __show_info(self):
@@ -48,7 +47,7 @@ class Game:
                 i += 1
 
         print(f" {t[0]} | {t[1]} | {t[2]}\n---|---|---\n {t[3]} | {t[4]} | {t[5]}\n---|---|---\n"\
-            f"{t[6]} | {t[7]} | {t[8]}")
+            f" {t[6]} | {t[7]} | {t[8]}")
 
     def __move(self, p, pos):
         token = p.get_token()
@@ -57,20 +56,19 @@ class Game:
         self.__draw_board("slot")
 
     def __get_move(self, p):
-        player = p.get_name()
         while True:
             pos = input(
-                f'{player} - Where would you like to move? Enter "help" for help or "done" to quit.').lower()
+                f'{p.get_name()} - Where would you like to move? Enter "help" for help or "done" to quit. ').lower()
             if pos == "help":
                 self.__show_info()
             elif pos == "done":
                 self.__game_over = True
-                return
+                break
             else:
                 try:
                     if int(pos) in self.__open_slots:
                         self.__move(p, int(pos))
-                        return
+                        break
                 except:
                     continue
 
@@ -80,12 +78,12 @@ class Game:
         wins = [(s[0], s[1], s[2]), (s[0], s[3], s[6]), (s[0], s[4], s[8]), (s[1], s[4], s[7]),
                        (s[2], s[4], s[6]), (s[2], s[5], s[8]), (s[3], s[4], s[5]), (s[6], s[7], s[8])]
         for x in wins:
-            winner = self.__check_winning_conditions(x[0], x[1], x[2])
+            winner = self.__check_winning_conditions(x)
             if winner in self.__players:
                 self.__winner = winner; self.__game_over = True
                 return winner
 
-    def __check_winning_conditions(self, *args):
+    def __check_winning_conditions(self, args):
         if all(a == args[0] and a in ["X", "O"] for a in args):
             return self.__check_winner(args[0])
 
@@ -96,6 +94,8 @@ class Game:
         while True:
             for p in self.__players:
                 self.__get_move(p)
+                if self.__game_over:
+                    return "done"
                 self.__check_board()
                 if self.__game_over:
                     if self.__winner in self.__players:
@@ -103,7 +103,7 @@ class Game:
                         print(f"The winner is {name}")
                     else:
                         print("It's a tie game!")
-                    return
+                    break
 
 
 def get_player(token):
@@ -128,7 +128,7 @@ while True:
         print("Game ended.")
 
     play = ""
-    while play != "yes" and play != "no":
+    while play not in ["yes", "no"]:
         play = input("Play again?").lower()
 
     if play == "no":

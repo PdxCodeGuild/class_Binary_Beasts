@@ -11,16 +11,10 @@ g = ["A", "B", "C", "D", "F"]  # global grades as list
 
 def run_approach1(s):
     
-    m = max
+    m=max;j=lambda a,b,c: b if a else c
 
-    def j(a, b, c):
-        return b if a else c
+    return g[j(s==100,-5,-(m(10,s-49))//10)]+j(s==100,"++",j(s<60,"",j(s%10<4,"-",j(s%10>6,"+",""))))
 
-    def f(s):  # the madness
-        return g[j(s==100,-5,-(m(0,s-50))//10)]+j(s==100,"++",\
-            j(s<60,"",j(s%10<4,"-",j(s%10>6,"+",""))))
-
-    return f(s)
 
 # Best Approach
 
@@ -28,11 +22,11 @@ def run_approach1(s):
 def run_approach2(score):
     grades = g  # reassigning grades to a better variable name
     mod = ""
-    if score > 59 and score % 10 < 4:
+    if score >= 60 and score % 10 < 4:
         mod = "-"
-    elif score > 59 and score % 10 > 6:
+    elif score >= 60 and score % 10 > 6:
         mod = "+"
-    index = -(max(0, score - 50)) // 10  # The magic
+    index = -(max(10, score - 49)) // 10  # The magic
 
     if score == 100:
         return "A++"
@@ -91,10 +85,11 @@ while True:
     score = ""
     
     while True:
-        score = input("Enter a score 0 - 100")
+        score = input("Enter a score 0 - 100\n")
         try:
             score = int(score)
-            break
+            if score in range(0, 101):
+                break
         except:
             continue
 

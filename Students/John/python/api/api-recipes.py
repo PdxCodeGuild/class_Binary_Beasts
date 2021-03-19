@@ -6,21 +6,23 @@ all codes are written and created by John Robson Thu Mar 18, 2021
 
 import requests
 from string import ascii_letters as letters
+response = ""
 
 while True:
     
-    print("Welcome to the Name Nationality Estimator. Enter your name to estimate your nationality.")
+    print("Welcome to the Recipe Finder.")
     
-    while True:
-        ingredients = input("Please list ingredients to search by separated with a comma (,): ")
-        if all(x in (letters + " " + ",") for x in ingredients):
-            ingredients = str(ingredients.replace(" ",""))
-            break
-        
-    url = f"http://www.recipepuppy.com/api/?i={ingredients}"
+    if response == "":
+        while True:
+            ingredients = input("Please list ingredients to search by separated with a comma (,): ")
+            if all(x in (letters + " " + ",") for x in ingredients):
+                ingredients = str(ingredients.replace(" ",""))
+                break
+            
+        url = f"http://www.recipepuppy.com/api/?i={ingredients}"
 
-    response = requests.get(url);
-    response = response.json()
+        response = requests.get(url);
+        response = response.json()
     
     try:
         i = 0
@@ -51,8 +53,15 @@ while True:
     
     again = ""
     while again not in ["yes", "no"]:
-        again = input("Check another name?").lower()
+        again = input("Get another recipe?").lower()
         
     if again == "no":
         print("Goodbye.")
         break
+    
+    same = ""
+    while same not in ["yes", "no"]:
+        same = input("Keep same ingredients?").lower()
+    
+    if same == "no":
+        response = ""

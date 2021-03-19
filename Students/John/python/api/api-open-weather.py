@@ -8,6 +8,7 @@ import requests
 from string import ascii_letters as letters
 
 key = "884cfd64f3a52a3354c76c381207cf1e"
+key1 = "8af2aa7fa978da0c3dc608a85406875c"
 city = ""
 
 while True:
@@ -24,6 +25,13 @@ while True:
 
     response = requests.get(url);
     response = response.json()
+    print(response)
+    
+    if int(response["cod"]) != 200:
+        response = requests.get(url + "1")
+        response = response.json()
+    
+    print(response)
     
     options = ["humidity", "temperature", "feels like", "low", "high", "pressure", "all"]
     keys = ["humidity", "temp", "feels_like", "temp_min", "temp_max", "pressure"]
@@ -46,7 +54,7 @@ while True:
             opt = response["main"][keys[options.index(option)]]
             print(f"The {option} in {city.capitalize()} is {opt}")
     except:
-        print("Invalid city. Please try again.")
+        print("Unable to retrieve data. Please try again.")
         city = ""
         continue  
     

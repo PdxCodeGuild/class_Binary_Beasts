@@ -34,7 +34,7 @@ while True:
         print(line3)
         print(line4)
     except:
-        print("Name not found. Please try again.")
+        print("Unable to retrieve data. Please try again.")
         continue
     
     again = ""

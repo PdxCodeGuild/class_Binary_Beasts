@@ -14,8 +14,8 @@ while True:
     while True:
         name = input("Name: ")
         if all(x in letters for x in name):
-            break;
-
+            break
+        
     url = f"https://api.nationalize.io?name={name}"
 
     response = requests.get(url);

@@ -5,6 +5,7 @@ all codes are written and created by John Robson Thu Mar 18, 2021
 """
 
 import requests
+from string import ascii_letters as letters
 
 key = "884cfd64f3a52a3354c76c381207cf1e"
 city = ""
@@ -12,8 +13,12 @@ city = ""
 while True:
 
     print("Welcome. Find the weather info in your city.")
+    
     if city == "":
-        city = input("Please enter city name: ")
+        while True:
+            city = input("Please enter city name: ")
+            if all(x in letters for x in city):
+                break
 
     url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={key}"
 

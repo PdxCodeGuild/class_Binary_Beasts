@@ -7,19 +7,18 @@ all codes are written and created by John Robson Wed Mar 10, 2021
 # Version 1
 
 def run_version1(amount):
-
-    change = {"quarters": 0, "dimes": 0, "nickles": 0, "pennies": 0}
-
-    change["quarters"] = int(amount // 0.25)
-    amount -= change["quarters"] * 0.25
-    change["dimes"] = int(amount // 0.10)
-    amount -= change["dimes"] * 0.10
-    change["nickles"] = int(amount // 0.05)
-    amount -= change["nickles"] * 0.05
-    change["pennies"] = int(amount // 0.01)
-    amount -= change["pennies"] * 0.01
-
-    print(change)
+    
+    coins = [("quarters", 0.25), ("dimes", 0.1), ("nickles", 0.05), ("pennies", 0.01)]
+    
+    def make_change(amount, value):
+        return int(amount // value)
+    
+    for c in coins:
+        qty_coins = make_change(amount, c[1])
+        if c[0] == "pennies":
+            qty_coins += 1
+        amount -= qty_coins * c[1]
+        print(f"{c[0]}: {qty_coins}")
 
 
 # Version 2

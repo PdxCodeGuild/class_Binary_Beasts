@@ -17,7 +17,7 @@ while True:
     if city == "":
         while True:
             city = input("Please enter city name: ")
-            if all(x in letters for x in city):
+            if all(x in (letters + " ") for x in city):
                 break
 
     url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={key}"
@@ -25,20 +25,30 @@ while True:
     response = requests.get(url);
     response = response.json()
     
-    options = ["humidity", "temperature", "feels like", "low", "high", "pressure"]
+    options = ["humidity", "temperature", "feels like", "low", "high", "pressure", "all"]
     keys = ["humidity", "temp", "feels_like", "temp_min", "temp_max", "pressure"]
     
     print("What would you like to know?")
     while True:
-        option = input("The options are: Humidity, Temperature, Feels Like, Low, High, or Pressure.\n").lower()
+        option = input("The options are: Humidity, Temperature, Feels Like, Low, High, Pressure, or All.\n").lower()
         
         if option in options:
             break
         else:
             print("Invalid answer.")
     
-    opt = response["main"][keys[options.index(option)]]
-    print(f"The {option} in {city} is {opt}")
+    try:
+        if option == "all":
+            for k in keys:
+                data = response["main"][k]
+                print(f"The {options[keys.index(k)]} in {city.capitalize()} is {data}.")
+        else:
+            opt = response["main"][keys[options.index(option)]]
+            print(f"The {option} in {city.capitalize()} is {opt}")
+    except:
+        print("Invalid city. Please try again.")
+        city = ""
+        continue  
     
     again = ""
     while again not in ["yes", "no"]:

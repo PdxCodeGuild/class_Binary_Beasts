@@ -20,15 +20,22 @@ while True:
 
     response = requests.get(url);
     response = response.json()
-    print(response)
     
-    print(f"Name: {name.capitalize()}")
-    print(f"First Guess: {response['country'][0]['country_id']} | Probability: "\
-        f"{round(response['country'][0]['probability'], 3)}%")
-    print(f"Second Guess: {response['country'][1]['country_id']} | Probability: "\
-        f"{round(response['country'][1]['probability'], 3)}%")
-    print(f"Third Guess: {response['country'][2]['country_id']} | Probability: "\
-        f"{round(response['country'][2]['probability'], 3)}%")
+    try:
+        line1 = f"Name: {name.capitalize()}"
+        line2 = f"First Guess: {response['country'][0]['country_id']} | Probability: "\
+            f"{round(response['country'][0]['probability'] * 100, 1)}%"
+        line3 = f"Second Guess: {response['country'][1]['country_id']} | Probability: "\
+            f"{round(response['country'][1]['probability'] * 100, 1)}%"
+        line4 = f"Third Guess: {response['country'][2]['country_id']} | Probability: "\
+            f"{round(response['country'][2]['probability'] * 100, 1)}%"
+        print(line1)
+        print(line2)
+        print(line3)
+        print(line4)
+    except:
+        print("Name not found. Please try again.")
+        continue
     
     again = ""
     while again not in ["yes", "no"]:

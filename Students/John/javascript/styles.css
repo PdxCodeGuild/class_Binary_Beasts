@@ -61,7 +61,12 @@ p {
   margin: 20px;
 }
 
-.score {
+button {
+  padding: 5px 20px;
+}
+
+.score,
+.pw-input {
   border: none;
   border-bottom: 1px solid black;
   width: 150px;
@@ -73,7 +78,7 @@ p {
   font-size: 25pt;
 }
 
-aside.history {
+:is(aside.history, .pw-aside) {
   position: absolute;
   top: 160px;
   left: 400px;
@@ -104,4 +109,17 @@ aside.history p:hover {
   background-color: lightgray;
   font-size: 15pt;
   width: 500px;
+}
+
+:is(.emo, .pw, .rps-result) {
+  font-size: 16pt;
+  cursor: default;
+}
+
+:is(.emo, .pw, .rps-result):hover {
+  color: blue;
+}
+
+.rps {
+  margin: 10px;
 }

@@ -11,9 +11,7 @@ data = [1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 8, 9, 8, 7, 6, 7, 8, 9]
 
 def run_version1():
 
-    peaks = []
-    valleys = []
-    all = []
+    peaks = []; valleys = []; all = []
     
     def find_peaks():
         i = 0
@@ -84,8 +82,7 @@ def run_version2(layout):
 def run_version3(layout):
 
     def draw_horizontal(data):
-        buf = ""
-        bar = 0
+        buf = ""; bar = 0
         for i in data:
             diff = 0
             if i > bar:

@@ -53,8 +53,10 @@ function calcGrade() {
 }
 
 function addToHistory() {
+  limit($$(".hist-item"), 10);
+
   $(".grade").innerText.split(": ")[1];
 
   let query = $(".score").value + ": " + $(".grade").innerText.split(": ")[1];
-  renApp({ el: "p", text: query }, $(".hist-container"));
+  renApp({ el: "p", cl: "hist-item", text: query }, $(".hist-container"));
 }

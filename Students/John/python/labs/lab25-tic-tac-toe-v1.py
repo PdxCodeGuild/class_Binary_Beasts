@@ -85,7 +85,7 @@ class Game:
 
     def __check_board(self):
         s = self.__board_slots
-        self.__over = True if len(s) - len([x in ["X", "O"] for x in s]) == 0 else self.__over
+        self.__over = True if len(s) - len([x for x in s if x in ["X", "O"]]) == 0 else self.__over
             #This just checks if the board is full or not if amount of tokens = board size, game over
             #this is a ternary statement (A if B else C) with a list comprehension [A for A in B]
             #if length of board slots minus length (amount) of tokens in board slots == 0

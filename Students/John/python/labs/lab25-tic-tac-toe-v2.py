@@ -81,7 +81,7 @@ class Game:
 
     def __check_board(self):
         s = self.__board_slots
-        self.__over = True if len(s) - len([x in ["X", "O"] for x in s]) == 0 else self.__over
+        self.__over = True if len(s) - len([x for x in s if x in ["X", "O"]]) == 0 else self.__over
         wins = [s[0:3], s[3:6], s[6:9], s[0:7:3], s[1:8:3], s[2:9:3], s[2:7:2], s[0:9:4]]
         for w in wins:
             winner = self.__check_winning_conditions(w)

@@ -54,10 +54,12 @@ class Person:
     def display(self):
          print(self.name + ' ' + self.age)
 class Student(Person):
-    def section(self, section):
+    def __init__(self, section):
         self.section = str(section)    
     def displayStudent(self):
         return self.name + ' ' + self.age + ' ' + self.section
 
 person = Person('Dakota', '31')
+section = displayStudent('Masters')
 person.display()
+section.displayStudent()

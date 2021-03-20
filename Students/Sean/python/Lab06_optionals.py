@@ -5,10 +5,10 @@ lowers = string.ascii_lowercase
 uppers = string.ascii_uppercase
 numbers = string.digits
 specials = string.punctuation
+
 while True:
-    def pw(l,u,n,s):
-        
-    
+    password = ''
+
     try:
         lower_choice = int(input("How many lowercase letters do you want in your password?\n>"))
         upper_choice = int(input("How many uppercase letters do you want in your password?\n>"))
@@ -16,8 +16,9 @@ while True:
         special_choice = int(input("How many special characters do you want in your password?\n>"))
     except Exception as exc:
         print(exc)
+        continue
     for x in range(lower_choice):
-        password = random.choice(lowers)
+        password += random.choice(lowers)
 
     for x in range(upper_choice):
         password += random.choice(uppers)

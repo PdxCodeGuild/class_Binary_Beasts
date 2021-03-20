@@ -31,20 +31,20 @@ def guesser(x):
             print(f"Wrong {count} times so far!")
             print("Guess lower!")
 
-com = random.randint(1,10)
 count = 0
 lastguess = 0
 
 while True:
     try:
-
-        guess = int(input("Guess the number I've chosen between 1 and 10.\n> "))
-        if guess > 0 and guess < 11:
-            count += 1
-            guesser(guess)
-            if guess == com:
-                break
-            else:
-                lastguess = guess
+        com = int(input("Pick a number between 1 and 10:    "))
+        if com > 0 and com < 11:
+            while True:
+                count += 1
+                guess = random.randint(1,10)
+                guesser(guess)
+                if guess == com:
+                    break
+                else:
+                    lastguess = guess                
     except Exception as exc:
         print(exc)

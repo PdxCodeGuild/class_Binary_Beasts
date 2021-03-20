@@ -112,5 +112,16 @@ const within = (el, arr) => {
 
   if (el === " ") return el;
 
-  return (check === "true" ? el : "");
+  return check === "true" ? el : "";
+};
+
+const build = (value, count, d = "", bar, fill) => {
+  let buf = "";
+  j = 0;
+  for (let i = 0; i < count; i++) {
+    buf += value + d;
+    j++;
+  }
+  for (j; j < bar; j++) buf += fill + d;
+  return buf;
 };

@@ -12,6 +12,7 @@ import { runLab06 } from "./lab06.js";
 import { runLab07 } from "./lab07.js";
 import { runLab08 } from "./lab08.js";
 import { runLab09 } from "./lab09.js";
+import { runLab10 } from "./lab10.js";
 
 const labs = [
   "Lab 02",
@@ -22,6 +23,7 @@ const labs = [
   "Lab 07",
   "Lab 08",
   "Lab 09",
+  "Lab 10",
 ];
 const links = [
   runLab02,
@@ -32,6 +34,7 @@ const links = [
   runLab07,
   runLab08,
   runLab09,
+  runLab10,
 ];
 const body = document.body;
 generateLabInput();

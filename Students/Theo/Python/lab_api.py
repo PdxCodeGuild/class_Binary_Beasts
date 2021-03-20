@@ -25,8 +25,6 @@ while True:
 # Public API(Genre Generator)
 
 
-
-
 while True:
     x = input('Are you ready to create a new Genre? "Yes or No?" ').lower()
 

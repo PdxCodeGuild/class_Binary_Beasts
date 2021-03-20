@@ -1,0 +1,107 @@
+/*
+
+all codes are written and created by John Robson Thu Mar 18, 2021
+
+*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+label.nav-label + select {
+  font-size: 15pt;
+  width: 120px;
+  border: none;
+  border-bottom: 2px solid gray;
+  background-color: #ffffffaa;
+}
+
+label:not(.nav-label),
+input {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+select {
+  width: 100px;
+  margin: 0 20px;
+}
+
+input:hover,
+select:hover {
+  background-color: #88d1ff !important;
+}
+
+section:first-of-type {
+  background-color: darkgray;
+  padding: 20px;
+  font-size: 15pt;
+}
+
+main {
+  position: relative;
+  padding: 100px;
+}
+
+h1 {
+  font-size: 30pt;
+  margin-bottom: 20px;
+}
+
+p {
+  margin: 20px;
+}
+
+.score {
+  border: none;
+  border-bottom: 1px solid black;
+  width: 150px;
+  font-size: 25pt;
+  text-align: center;
+}
+
+.grade {
+  font-size: 25pt;
+}
+
+aside.history {
+  position: absolute;
+  top: 160px;
+  left: 400px;
+}
+
+aside.history div {
+  max-height: 60vh;
+  overflow-y: scroll;
+}
+
+aside.history p {
+  padding: 5px 10px;
+  margin: 0;
+  cursor: default;
+}
+
+aside.history p:nth-of-type(odd) {
+  background-color: lightgray;
+}
+
+aside.history p:hover {
+  background-color: #5dc1ff;
+}
+
+.magic8 {
+  border: none;
+  border-bottom: 1px solid black;
+  background-color: lightgray;
+  font-size: 15pt;
+  width: 500px;
+}

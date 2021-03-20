@@ -126,3 +126,5 @@ while True:
     strategy = versions[strategy - 1]
 
     strategy()
+    
+    

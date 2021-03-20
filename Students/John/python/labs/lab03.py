@@ -11,13 +11,10 @@ g = ["A", "B", "C", "D", "F"]  # global grades as list
 
 def run_approach1(s):
     
-    m = max; j = lambda a,b,c: b if a else c
+    m=max;j=lambda a,b,c: b if a else c
 
-    def f(s):  # the madness
-        return g[j(s==100,-5,-(m(10,s-49))//10)]+j(s==100,"++",\
-            j(s<60,"",j(s%10<4,"-",j(s%10>6,"+",""))))
+    return g[j(s==100,-5,-(m(10,s-49))//10)]+j(s==100,"++",j(s<60,"",j(s%10<4,"-",j(s%10>6,"+",""))))
 
-    return f(s)
 
 # Best Approach
 

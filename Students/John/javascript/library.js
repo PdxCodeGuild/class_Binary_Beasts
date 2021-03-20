@@ -17,9 +17,9 @@ const renApp = (els, el) => {
   arr(els).forEach((e) => el.append(ren(e)));
 };
 
-const arr = (arr) => !Array.isArray(arr) ? [arr] : arr;
+const arr = (arr) => (!Array.isArray(arr) ? [arr] : arr);
 
-const rand = (list) => list[Math.round(Math.random() * (list.length - 1))];
+const rand = (list) => list[Math.floor(Math.random() * list.length)];
 
 const randI = (list, t) => {
   let arr = [];
@@ -29,6 +29,8 @@ const randI = (list, t) => {
 
   return arr;
 };
+
+const randN = (min, max) => Math.floor(Math.random() * max + min);
 
 const ren = ({ el, cl, text, type, html, value, min, max }) => {
   const elem = document.createElement(el);
@@ -99,4 +101,16 @@ const checkValue = (el, min, max) => {
 
 const equals = (a, b) => a.length === b.length && a.every((v, i) => v === b[i]);
 
-const limit = (els, i) => arr(els).length > i - 1 ? arr(els)[0].remove() : "";
+const limit = (els, i) => (els.length > i - 1 ? els[0].remove() : "");
+
+const within = (el, arr) => {
+  if (typeof arr === "string") arr = arr.split("");
+  check = "false";
+  arr.forEach((a) => {
+    if (a === el) check = "true";
+  });
+
+  if (el === " ") return el;
+
+  return (check === "true" ? el : "");
+};

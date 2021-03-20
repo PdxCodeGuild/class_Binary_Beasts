@@ -65,8 +65,7 @@ button {
   padding: 5px 20px;
 }
 
-.score,
-.pw-input {
+:is(.score, .pw-input, .guess, .rot) {
   border: none;
   border-bottom: 1px solid black;
   width: 150px;
@@ -122,4 +121,45 @@ aside.history p:hover {
 
 .rps {
   margin: 10px;
+}
+
+:is(.rot-eng, .rot-ciph) {
+  width: 100px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 15pt;
+  display: inline-block;
+  border: 1px solid black;
+}
+
+.rot-div {
+  width: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 15pt;
+  display: inline-block;
+  border: 1px solid black;
+}
+
+.english {
+  display: inline-block;
+  width: 320px;
+  margin-right: 80px;
+  border: none;
+  border-left: 1px solid black;
+  text-indent: 10px;
+  font-size: 15pt;
+}
+
+.cipher {
+  position: relative;
+  font-size: 15pt;
+}
+
+.cipher::before {
+  content: "=>";
+  position: absolute;
+  top: 0;
+  left: -50px;
+  font-size: 15pt;
 }

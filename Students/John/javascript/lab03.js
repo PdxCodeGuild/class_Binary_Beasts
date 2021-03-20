@@ -24,28 +24,16 @@ export function runLab03() {
     $(".history")
   );
 
-  $(".score").addEventListener("input", checkInput);
-  $(".score").onchange = checkValue;
-}
-
-function checkInput() {
-  const el = $(".score");
-  if (!parseInt(el.value)) el.value = null;
-  if (el.value.length > 3) el.value = el.value.substring(1);
-}
-
-function checkValue() {
-  const el = $(".score");
-  if (el.value < 0) el.value = 0;
-  else if (el.value > 100) el.value = 100;
-  else el.value = Math.round(el.value);
-
-  if (el.value != null) updateGrade();
+  $(".score").addEventListener("input", () => {
+    checkInput($(".score"), 3);
+  });
+  $(".score").onchange = updateGrade;
 }
 
 function updateGrade() {
-  const el = $(".grade");
-  el.innerText = "Grade: " + calcGrade();
+  checkValue($(".score"), 0, 100);
+  if ($(".score").value == null || $(".score").value === "") return;
+  $(".grade").innerText = "Grade: " + calcGrade();
 
   addToHistory();
 }
@@ -65,9 +53,8 @@ function calcGrade() {
 }
 
 function addToHistory() {
-  $(".hist-container");
   $(".grade").innerText.split(": ")[1];
 
   let query = $(".score").value + ": " + $(".grade").innerText.split(": ")[1];
-  renApp({ el: "p", text: query }, $(".hist-container"))
+  renApp({ el: "p", text: query }, $(".hist-container"));
 }

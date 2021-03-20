@@ -44,7 +44,7 @@ export function runLab04() {
 }
 
 const respond = () => {
-  if ($(".response")) $(".response").remove();
+  limit($$(".response"), 1)
   if ($("input").value !== "")
     renApp({ el: "p", cl: "response", text: rand(responses) }, $("main"));
   else

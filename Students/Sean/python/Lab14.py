@@ -13,7 +13,41 @@ def phraser(x):
         return f"{odds[one_dig]}"
     elif x <= 99:
         return f"{tens[ten_dig-2]} {ones[one_dig]}"
+    elif x <= 109:
+        return f"{ones[hun_dig]}-hundred {ones[one_dig]}"
     elif x <= 119:
+        return f"{ones[hun_dig]}-hundred {odds[one_dig]}"
+    elif x <= 209:
+        return f"{ones[hun_dig]}-hundred {ones[one_dig]}"
+    elif x <= 219:
+        return f"{ones[hun_dig]}-hundred {odds[one_dig]}"
+    elif x <= 309:
+        return f"{ones[hun_dig]}-hundred {ones[one_dig]}"
+    elif x <= 319:
+        return f"{ones[hun_dig]}-hundred {odds[one_dig]}"
+    elif x <= 409:
+        return f"{ones[hun_dig]}-hundred {ones[one_dig]}"
+    elif x <= 419:
+        return f"{ones[hun_dig]}-hundred {odds[one_dig]}"
+    elif x <= 509:
+        return f"{ones[hun_dig]}-hundred {ones[one_dig]}"
+    elif x <= 519:
+        return f"{ones[hun_dig]}-hundred {odds[one_dig]}"
+    elif x <= 609:
+        return f"{ones[hun_dig]}-hundred {ones[one_dig]}"
+    elif x <= 619:
+        return f"{ones[hun_dig]}-hundred {odds[one_dig]}"
+    elif x <= 709:
+        return f"{ones[hun_dig]}-hundred {ones[one_dig]}"
+    elif x <= 719:
+        return f"{ones[hun_dig]}-hundred {odds[one_dig]}"
+    elif x <= 809:
+        return f"{ones[hun_dig]}-hundred {ones[one_dig]}"
+    elif x <= 819:
+        return f"{ones[hun_dig]}-hundred {odds[one_dig]}"
+    elif x <= 909:
+        return f"{ones[hun_dig]}-hundred {ones[one_dig]}"
+    elif x <= 919:
         return f"{ones[hun_dig]}-hundred {odds[one_dig]}"
     elif x >= 120:
         return f"{ones[hun_dig]}-hundred {tens[ten_dig-2]} {ones[one_dig]}"

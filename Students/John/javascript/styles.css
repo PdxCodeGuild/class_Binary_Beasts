@@ -1,6 +1,6 @@
 /*
 
-all codes are written and created by John Robson Thu Mar 18, 2021
+All styles are written and created by John Robson Thu Mar 18, 2021
 
 */
 
@@ -20,8 +20,7 @@ label.nav-label + select {
   background-color: #ffffffaa;
 }
 
-label:not(.nav-label),
-input {
+:is(label:not(.nav-label), input) {
   display: block;
   margin-bottom: 10px;
 }
@@ -36,8 +35,7 @@ select {
   margin: 0 20px;
 }
 
-input:hover,
-select:hover {
+:is(input, select):hover {
   background-color: #88d1ff !important;
 }
 

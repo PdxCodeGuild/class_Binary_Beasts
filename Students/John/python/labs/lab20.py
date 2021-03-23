@@ -9,6 +9,7 @@ import random
 #Version 1 and 2
 
 while True:
+    high = 0
     wins = []
     while len(wins) < 6:
         wins.append(random.randint(1, 99))
@@ -31,30 +32,22 @@ while True:
                 match += 1
             x += 1
         
-        if match == 1:
-            balance += 4
-            earnings += 4
-        elif match == 2:
-            balance += 7
-            earnings += 7
-        elif match == 3:
-            balance += 100
-            earnings += 100
-        elif match == 4:
-            balance += 50000
-            earnings += 50000
-        elif match == 5:
-            balance += 1000000
-            earnings += 1000000
-        elif match == 6:
-            balance += 25000000
-            earnings += 25000000
+        cashout = [(1, 4), (2, 7), (3, 100), (4, 50000), (5, 1000000), (6, 25000000)]
+
+        for x, y in cashout:
+            if x == match:
+                if y > high:
+                    high = y
+                earnings += y
+                balance += y
             
         i += 1
         
     roi = (earnings - expenses) / expenses
             
     print(balance)
+    print(earnings)
+    print(high)
     print(roi)
     
     again = ""

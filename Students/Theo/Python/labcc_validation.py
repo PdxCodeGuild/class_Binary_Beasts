@@ -13,9 +13,6 @@ def make_list(x):
     y = list(m)
     return y
 
-def setc(x):
-    c = x[-1]
-    x.pop()
 
 def double(x):
     y = 0
@@ -50,20 +47,3 @@ def run(x):
 
 run(ccn)
 
-
-
-
-
-
-
-
-
-
-
-
-'''
-x = list(ccn)
-x = map(int, x)
-y = list(x)
-print(y)
-'''

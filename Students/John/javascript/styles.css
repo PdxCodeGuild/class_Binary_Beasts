@@ -1,6 +1,6 @@
 /*
 
-all codes are written and created by John Robson Thu Mar 18, 2021
+All styles are written and created by John Robson Thu Mar 18, 2021
 
 */
 
@@ -20,8 +20,7 @@ label.nav-label + select {
   background-color: #ffffffaa;
 }
 
-label:not(.nav-label),
-input {
+:is(label:not(.nav-label), input) {
   display: block;
   margin-bottom: 10px;
 }
@@ -36,8 +35,7 @@ select {
   margin: 0 20px;
 }
 
-input:hover,
-select:hover {
+:is(input, select):hover {
   background-color: #88d1ff !important;
 }
 
@@ -65,8 +63,7 @@ button {
   padding: 5px 20px;
 }
 
-.score,
-.pw-input {
+:is(.score, .pw-input, .guess, .rot) {
   border: none;
   border-bottom: 1px solid black;
   width: 150px;
@@ -120,6 +117,55 @@ aside.history p:hover {
   color: blue;
 }
 
-.rps {
+:is(.rps, .horizontal, .vertical) {
   margin: 10px;
+}
+
+:is(.rot-eng, .rot-ciph) {
+  width: 100px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 15pt;
+  display: inline-block;
+  border: 1px solid black;
+}
+
+.rot-div {
+  width: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 15pt;
+  display: inline-block;
+  border: 1px solid black;
+}
+
+.english {
+  display: inline-block;
+  width: 320px;
+  margin-right: 80px;
+  border: none;
+  border-left: 1px solid black;
+  text-indent: 10px;
+  font-size: 15pt;
+}
+
+.cipher {
+  position: relative;
+  font-size: 15pt;
+}
+
+.cipher::before {
+  content: "=>";
+  position: absolute;
+  top: 0;
+  left: -50px;
+  font-size: 15pt;
+}
+
+.data {
+  margin-bottom: 10px;
+}
+
+:is(pre, .line) {
+  font-family: "Courier New", Courier, monospace;
 }

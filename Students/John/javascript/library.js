@@ -6,28 +6,24 @@ This Library was written and created by John Robson Thu Mar 18, 2021
 
 const lowers = "abcdefghijklmnopqrstuvwxyz";
 const uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const special = "!@#$%^&*()_+-=[]{};':\",./<>?\\|`~";
+const specials = "!@#$%^&*()_+-=[]{};':\",./<>?\\|`~";
 const numbers = "0123456789";
 
-const app = (els, el) => {
-  arr(els).forEach((e) => el.append(e));
-};
+const app = (els, el) => arr(els).forEach((e) => el.append(e));
 
-const renApp = (els, el) => {
-  arr(els).forEach((e) => el.append(ren(e)));
-};
+const renApp = (els, el) => arr(els).forEach((e) => el.append(ren(e)));
 
 const arr = (arr) => (!Array.isArray(arr) ? [arr] : arr);
 
-const rand = (list) => list[Math.floor(Math.random() * list.length)];
+const rand = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-const randI = (list, t) => {
-  let arr = [];
+const randI = (arr, t) => {
+  let arr2 = [];
   for (let i = 0; i < t; i++) {
-    arr.push(rand(list));
+    arr2.push(rand(arr));
   }
 
-  return arr;
+  return arr2;
 };
 
 const randN = (min, max) => Math.floor(Math.random() * max + min);

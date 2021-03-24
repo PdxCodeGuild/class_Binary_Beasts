@@ -85,14 +85,16 @@ const shuffle = (arr) => {
 };
 
 const checkInput = (el, i) => {
-  if (!parseInt(el.value)) el.value = null;
+  el.value = el.value.replace(/[^0-9.]/gi, "");
+  if (!parseFloat(el.value)) el.value = null;
   if (i != null) if (el.value.length > i) el.value = el.value.substring(1);
 };
 
-const checkValue = (el, min, max) => {
+const checkValue = (el, min, max, r = "true") => {
   if (el.value < min) el.value = min;
   else if (el.value > max) el.value = max;
-  else el.value = Math.round(el.value);
+  else if (r === "true") el.value = Math.round(el.value);
+  else el.value = el.value;
 };
 
 const equals = (a, b) => a.length === b.length && a.every((v, i) => v === b[i]);

@@ -8,28 +8,27 @@ all codes are written and created by John Robson Wed Mar 10, 2021
 
 def run_version1(amount):
     
-    coins = [("quarters", 0.25), ("dimes", 0.1), ("nickles", 0.05), ("pennies", 0.01)]
+    coins = [("quarters", 25), ("dimes", 10), ("nickles", 5), ("pennies", 1)]
     
     def make_change(amount, value):
         return int(amount // value)
     
-    for c in coins:
-        qty_coins = make_change(amount, c[1])
-        if c[0] == "pennies":
-            qty_coins += 1
-        amount -= qty_coins * c[1]
-        print(f"{c[0]}: {qty_coins}")
+    for c, v in coins:
+        amount = round(amount, 2) 
+        qty_coins = make_change(amount, v)
+        amount -= qty_coins * v
+        print(f"{c}: {qty_coins}")
 
 
 # Version 2
 
 def run_version2(amount):
     coins = [
-        ("half-dollars", 0.50),
-        ("quarters", 0.25),
-        ("dimes", 0.10),
-        ("nickels", 0.05),
-        ("pennies", 0.01)
+        ("half-dollars", 50),
+        ("quarters", 25),
+        ("dimes", 10),
+        ("nickels", 5),
+        ("pennies", 1)
     ]
 
     change = {}
@@ -52,11 +51,11 @@ def run_version2(amount):
 
 def run_version3(amount):
     coins = {
-        "half-dollars": 0.5,
-        "quarters": 0.25,
-        "dimes": 0.10,
-        "nickels": 0.05,
-        "pennies": 0.01
+        "half-dollars": 50,
+        "quarters": 25,
+        "dimes": 10,
+        "nickels": 5,
+        "pennies": 1
         }
     
     change = {}
@@ -100,4 +99,4 @@ while True:
         except:
             continue
 
-    strategy(amount)
+    strategy(amount * 100)

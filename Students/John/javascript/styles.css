@@ -63,7 +63,7 @@ button {
   padding: 5px 20px;
 }
 
-:is(.score, .pw-input, .guess, .rot) {
+:is(.score, .pw-input, .guess, .rot, .change) {
   border: none;
   border-bottom: 1px solid black;
   width: 150px;
@@ -75,7 +75,7 @@ button {
   font-size: 25pt;
 }
 
-:is(aside.history, .pw-aside) {
+:is(aside.history, .pw-aside, aside.coin-options) {
   position: absolute;
   top: 160px;
   left: 400px;
@@ -86,8 +86,9 @@ aside.history div {
   overflow-y: scroll;
 }
 
-aside.history p {
+:is(aside.history p, .change-returned) {
   padding: 5px 10px;
+  font-size: 13pt;
   margin: 0;
   cursor: default;
 }
@@ -113,7 +114,7 @@ aside.history p:hover {
   cursor: default;
 }
 
-:is(.emo, .pw, .rps-result):hover {
+:is(.emo, .pw, .rps-result, .change-returned):hover {
   color: blue;
 }
 
@@ -168,4 +169,30 @@ aside.history p:hover {
 
 :is(pre, .line) {
   font-family: "Courier New", Courier, monospace;
+}
+
+.change {
+  display: inline-block !important;
+}
+
+.change-span {
+  font-size: 25pt;
+}
+
+aside.coin-options {
+  width: 300px;
+}
+
+.ckbox {
+  width: 20px;
+  display: inline-block !important;
+}
+
+.ckbox + label {
+  display: inline-block !important;
+  width: 280px;
+}
+
+.change-return {
+  max-width: 300px;
 }

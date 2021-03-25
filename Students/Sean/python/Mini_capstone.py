@@ -4,10 +4,13 @@ import string
 from bs4 import BeautifulSoup
 import webbrowser
 from twilio.rest import Client
+import getpass
+
 account_sid = "ACcf4157aa5ff6399764b81d6044fdfb65"
 auth_token = "b4df4f4963402380dc5d1dc4678fdde5"
 client = Client(account_sid, auth_token)
 uppers = string.ascii_uppercase
+
 hangman = ['''
 x-----
 |
@@ -73,15 +76,13 @@ def RetrieveWord():
     soup = BeautifulSoup(response.content, 'html.parser')
     title = soup.find(id="firstHeading")
     links = [item['href'] if item.get('href') is not None else item['src'] for item in soup.select('[href^="http"], [src^="http"]') ]
-    print(links[0])
-    
+
     # Finds just the header from the wikipedia page, and turns it into uppercase ASCII
     random_word = title.string
     random_word = random_word.upper()
 
     # Filters out everything except ASCII characters
     random_word = ''.join(filter(uppers.__contains__,random_word))
-    print(random_word)
     return random_word, links
 
 def ShowBoard(incorrect_guesses,correct_guesses):
@@ -115,6 +116,22 @@ def PlayAgain():
     print("Do you want to play again? (y/n)")
     return input().lower()
 
+def email():
+    port = 465
+    smtp_server = "smtp.gmail.com"
+    sender_email = 'codersontesting@gmail.com'
+    receiver_email = 'seanwilcox@comcast.net'
+    pw = input("Enter your password: ")
+    message = f"""
+        Subject: Hello from Sean.
+
+        This message is the wikipedia page you requested:
+        {links[0]}"""
+
+    context = ssl.create_default_context()
+    with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+        server.login(sender_email, pw)
+        server.sendmail(sender_email, receiver_email, message)
 # Defines the global lists necessary to run
 response = ''
 incorrect_guesses = ''
@@ -146,13 +163,11 @@ while True:
     # If game is over, win or lose
     if win_condition == True:
         print(f"Yes! The secret word was {random_word}")
-        info = input(f"Do you want me to text Sean more info about {random_word}? (y/n)\n")
+        info = input(f"Do you want me to send you more info about {random_word}? (y/n)\n")
         if info == 'y':
-            message = client.messages.create(
-            to="+19717209423",
-            from_="+17722223079",
-            body=f"{links[0]}")
+            email()    
         again = PlayAgain()
+
         if again == 'y':
             response = ''
             incorrect_guesses = ''

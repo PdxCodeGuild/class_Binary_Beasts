@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+*:not(:is(h1, h2, h3, h4, h5, h6)) {
+    font-size: 15pt;
+}
+
+:root {
+    --col1: #008000;
+    --col2: #BBE1C3;
+    --col3: #A7CDBD;
+    --col4: #faebd7;
+    --col5: #8B5D33;
+}
+
+html {
+    background-color: var(--col2);
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+header {
+  background-color: var(--col1);
+}
+
+nav ul {
+  width: min-content;
+  list-style: none;
+  display: flex;
+  position: relative;
+}
+
+nav li {
+  width: 100px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--col1);
+}
+
+nav li:not(:last-of-type):hover {
+  filter: hue-rotate(50deg);
+}
+
+nav input {
+    border: none;
+    width: 500px;
+    text-align: left;
+    background-color: aliceblue;
+    line-height: 30px;
+    margin: 10px 30px;
+    border-radius: 30px;
+    padding-left: 30px;
+    outline: none;
+}
+
+nav li:last-of-type {
+    width: 500px;
+}
+
+nav li:last-of-type::after {
+    content: "Go";
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 10px;
+    right: -52px;
+    background-color: lightgreen;
+    line-height: 30px;
+    padding: 0 10px;
+    border-radius: 20px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+aside {
+    margin-left: 10px;
+    padding: 70px 0;
+}
+
+aside div {
+    background-color: var(--col4);
+    padding: 30px 10px;
+    border: 5px double var(--col5);
+    height: min-content;
+}
+
+aside h3 {
+    margin-left: 15px;
+}
+
+aside ul {
+    list-style: none;
+}
+
+aside li {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+aside li:hover {
+    background-color: var(--col3);
+    border: 1px solid black;
+}
+
+aside li p {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+section {
+    margin: 70px 50px;
+    background-color: var(--col4);
+    padding: 30px;
+    overflow-y: scroll;
+    border: 2px solid var(--col5);
+}
+
+section div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+section div span {
+    cursor: pointer;
+}
+
+article p {
+    text-indent: 25px;
+    margin: 10px 0;
+}
+
+footer {
+    position: sticky;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #d3d3d3aa;
+}

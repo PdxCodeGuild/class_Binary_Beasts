@@ -1,50 +1,59 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+html {
+    background-color: aliceblue;
 }
 
 h1 {
-    font-size: 50pt;
+  font-size: 50pt;
 }
 
 main {
-   display: grid;
-   grid-template-columns: 1fr auto;
-   gap: 50px;
-   padding: 50px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 50px;
+  padding: 50px;
 }
 
 main section p {
-    font-size: 16pt;
-    margin: 15px 0;
+  font-size: 16pt;
+  margin: 15px 0;
+  text-indent: 20px;
 }
 
 aside {
-    border: 1px solid black;
-    padding: 20px;
-    height: min-content;
+  border: 1px solid black;
+  padding: 20px;
+  height: min-content;
+  background-color: #c9d6da;
 }
 
-aside figure img {
-    max-width: 350px;
+img {
+  max-width: 350px;
+  border-radius: 20px;
 }
 
 aside ul {
-    list-style: none;
-    font-size: 20pt;
-    text-align: center;
-}
-
-.container ul {
-    list-style: none;
-    font-size: 15pt;
-    margin: 10px 0;
+  list-style: none;
+  font-size: 20pt;
+  text-align: center;
 }
 
 .container {
-    margin-top: 40px;
-    display: flex;
-    gap: 10%;
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10%;
+  width: 100%;
+}
+
+.container ul {
+  list-style: none;
+  font-size: 15pt;
+  margin: 10px 0;;
 }

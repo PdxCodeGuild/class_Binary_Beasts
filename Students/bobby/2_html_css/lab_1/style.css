@@ -1,0 +1,37 @@
+p{
+    color: rgb(151, 23, 151);
+    font-size: 15px;
+    padding: 15px;
+    margin: 10px
+}
+h1{
+    color: rgb(117, 67, 67) !important
+}
+h2{
+    font-size: 20px
+}
+body{
+    background-color: rgb(219, 219, 208);
+}
+a{ color: rgb(38, 0, 255);
+
+}
+q{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+img{
+    border: 5px solid rgb(15, 245, 176);
+    border-radius: 50px 50px;
+}
+ul{
+    list-style-image: url("bullet_point.png");
+    color:rgb(248, 6, 6);
+    font-size: 15px;
+}
+h3{
+    font-size: 30px;
+}
+h5{
+    font-size: 17px;
+}

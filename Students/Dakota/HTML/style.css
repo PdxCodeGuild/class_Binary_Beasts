@@ -1,0 +1,10 @@
+p{
+    color:green;
+    font: 200px;
+    background-color: olive;
+    transform: rotate(180deg);
+    font-style: italic;
+}
+p:hover{
+    color: red;
+}

@@ -1,0 +1,65 @@
+body{
+    background-color: #1c2128;
+    color:#cdd9e5;
+    margin-left:auto;
+    margin-right:auto;
+    width:60em
+    
+}
+
+a{
+    color:rgb(45, 138, 17);
+}
+
+q{
+    color:burlywood;
+    font-family: "Lucida Handwriting",cursive;
+}
+
+.quote{
+    color:burlywood;
+}
+
+img{
+    width: 45%;
+    height: auto;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.profile-pic{
+    padding-left: 15%;
+}
+
+p{
+    margin-right: 30%;
+    color:rgb(79, 214, 214)
+}
+
+.page-title{
+    font-size: xx-large;
+}
+
+
+
+.image-right{
+    float:right;
+
+  
+}
+
+.bio-pic{
+    width: 20%;
+    height:auto;
+}
+
+.picture-caption{
+    color:cadetblue
+}
+
+ul{
+    color:rgb(79, 214, 214)
+}
+
+li{
+    list-style-type: "🤙";
+}

@@ -53,7 +53,7 @@ const getData = () => {
 
   l = randI(lowers, l);
   u = randI(uppers, u);
-  s = randI(special, s);
+  s = randI(specials, s);
   n = randI(numbers, n);
 
   let password = [...l, ...u, ...s, ...n];

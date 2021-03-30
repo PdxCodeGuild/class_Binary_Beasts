@@ -15,20 +15,9 @@ def get_card_number():
             card = int(card)
             card = str(card)
             if len(card) == 16:
-                return str(card)
+                return card
         except:
             continue
-        
-def break_into_list(c):
-    return list(c)
-
-def remove_last_digit(c):
-    c.pop()
-    return c
-
-def reverse_order(c):
-    c.reverse()
-    return c
 
 def double_numbers(c):
     i = 0
@@ -45,10 +34,9 @@ def reduce_high_numbers(c):
     return c
 
 def sum_all_digits(c):
-    sum = 0
-    for n in c:
-        sum += int(n)
-    return sum
+    for i in range(len(c)):
+        c[i] = int(c[i])
+    return sum(c)
 
 def get_last_digit(c):
     if type(c) is int:
@@ -67,9 +55,9 @@ def run_version1():
     if card == "":
         card = "4556737586899855"
     
-    c = break_into_list(card)
-    c = remove_last_digit(c)
-    c = reverse_order(c)
+    c = list(card)
+    c.pop()
+    c.reverse()
     c = double_numbers(c)
     c = reduce_high_numbers(c)
     c = sum_all_digits(c)
@@ -86,9 +74,6 @@ class Card:
     __number = "4556737586899855"
     __verify = "Verification Required"
     
-    def get_num(self):
-        return self.__number
-    
     def set_number(self, card):
         self.__number = card
         
@@ -99,13 +84,7 @@ class Card:
         
     def __break_into_list(self):
         self.__verify = list(self.__number)
-        return self.__remove_last_digit()
-
-    def __remove_last_digit(self):
         self.__verify.pop()
-        return self.__reverse_order()
-
-    def __reverse_order(self):
         self.__verify.reverse()
         return self.__double_numbers()
 

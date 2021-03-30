@@ -8,7 +8,7 @@ import random
 
 def random_list(n):
     nums = []
-    for i in range(n+1):
+    for _ in range(n+1):
         nums.append(random.randint(1, 100))
     return nums
     
@@ -23,8 +23,7 @@ def shuffle(nums):
 
 def is_sorted(nums):
     for n in nums:
-        if nums.index(n) < len(nums) - 1:
-            if n > nums[nums.index(n) + 1]:
+        if nums.index(n) < len(nums) - 1 and n > nums[nums.index(n) + 1]:
                 return False
     return True
 

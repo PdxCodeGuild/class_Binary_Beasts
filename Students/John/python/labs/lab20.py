@@ -9,52 +9,40 @@ import random
 #Version 1 and 2
 
 while True:
+    pick = 6
+    high = 0
     wins = []
-    while len(wins) < 6:
+    while len(wins) < pick:
         wins.append(random.randint(1, 99))
     balance = 0
     earnings = 0
     expenses = 0
     
-    i = 0
-    while i < 100000:
+    for _ in range(100_000):
         balance -= 2
         expenses += 2
         card = []
-        while len(card) < 6:
+        while len(card) < pick:
             card.append(random.randint(1, 99))
         
-        x = 0
         match = 0
-        while x < 6:
-            if wins[x] == card[x]:
-                match += 1
-            x += 1
+        for w, c in list(zip(wins, card)):
+            match += 1 if w == c else 0
         
-        if match == 1:
-            balance += 4
-            earnings += 4
-        elif match == 2:
-            balance += 7
-            earnings += 7
-        elif match == 3:
-            balance += 100
-            earnings += 100
-        elif match == 4:
-            balance += 50000
-            earnings += 50000
-        elif match == 5:
-            balance += 1000000
-            earnings += 1000000
-        elif match == 6:
-            balance += 25000000
-            earnings += 25000000
-            
-        i += 1
+        cashout = [(1, 4), (2, 7), (3, 100), (4, 50_000), (5, 1_000_000), (6, 25_000_000)]
+
+        for m, v in cashout:
+            if m == match:
+                if v > high:
+                    high = v
+                earnings += v
+                balance += v
         
     roi = (earnings - expenses) / expenses
             
     print(balance)
+    print(earnings)
+    print(high)
     print(roi)
     
     again = ""

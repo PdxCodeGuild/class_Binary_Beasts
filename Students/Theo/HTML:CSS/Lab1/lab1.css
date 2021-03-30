@@ -1,0 +1,38 @@
+body {
+    display: flex; 
+    text-align: center;
+    background-color: lightskyblue;
+
+}
+
+article {
+    margin: auto
+}
+
+p {
+    color:crimson
+}
+
+ul {
+    color:crimson
+}
+
+q {
+    color: crimson;
+}
+
+a {
+    color: yellow;
+}
+
+li {
+    list-style-type: square;
+}
+
+q {
+    font-style: italic;
+}
+
+img {
+    border-radius: 25px;
+}

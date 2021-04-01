@@ -1,6 +1,6 @@
 All solutions are written and created by John Robson Wed Mar 31, 2021
 
-These are the basic (MVP: minimal viable product) answers. Please see the advanced solutions for other answers.
+These are the basic MVP (minimal viable product) answers. Please see the advanced solutions for other answers.
 
 NOTES: You cannot use "div", ".table", or "div.table" to access the main container div.
 It will fail even if the code is right.

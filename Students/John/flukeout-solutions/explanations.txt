@@ -220,6 +220,8 @@ Level 14:
     :has(+):not(:first-child) apple     //selects all apples whose parent is not first child and has a sibling after
     :has(~):not(:first-child) apple     //exact same as above
     :has(+):not(:first-child) *     //same as above, but not limited to apples
+    :not(:first-child) apple        //selects all apples whose parent is not a first child
+    :not(:first-child) *        //selects all elements whose parent is not a first child
     * ~ :has(+) *       //selects all elements whose parents have a sibling after and is a sibling to an element before it
 
 Level 15:

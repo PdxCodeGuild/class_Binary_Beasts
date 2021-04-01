@@ -210,6 +210,8 @@ Level 14:
     :has(+):not(:first-child) apple
     :has(~):not(:first-child) apple
     :has(+):not(:first-child) *
+    :not(:first-child) apple
+    :not(:first-child) *
     * ~ :has(+) *
 
 Level 15:

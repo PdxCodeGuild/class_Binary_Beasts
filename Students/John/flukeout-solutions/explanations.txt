@@ -257,7 +257,7 @@ Level 16:
     :not(:last-of-type) > *     //selects all direct children of an element that is not the last of type
     :not(:last-of-type) >       //exact same as above, the * is not required
     :not(:last-of-type) *       //same as above, but includes grandchildren
-    :not(*~~) *     //selects all elements that have a parent of grandparent that does not have 2 siblings before it
+    :not(*~~) *     //selects all elements that have a parent or grandparent that does not have 2 siblings before it
     :has(+++) *     //selects all elements that have a parent or grandparent that has 3 siblings after it
     :has(+++) >     //same as above, but excludes grandparents
     :has(+++) > *   //exact same as above, the * is not required
@@ -388,3 +388,4 @@ Level 32:
     :not([for="Timmy"]):has(>)  //selects all elements that are not empty and does not have a FOR attribute set to Timmy
     :not([for="Timmy"]):has(*)  //same as above
     :not([for="Timmy"]):not(:empty)     //same as above
+    :not([for="Timmy"], :empty)     //same as above

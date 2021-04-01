@@ -378,3 +378,4 @@ Level 32:
     :not([for="Timmy"]):has(>)
     :not([for="Timmy"]):has(*)
     :not([for="Timmy"]):not(:empty)
+    :not([for="Timmy"], :empty)

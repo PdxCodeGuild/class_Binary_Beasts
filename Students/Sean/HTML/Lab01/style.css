@@ -1,0 +1,38 @@
+body {
+
+    background-image: url("https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+    background-color: rgb(117, 117, 117);
+    color:burlywood
+   }
+
+main {
+    text-align: center;
+}
+
+img {
+    float: right;
+    border-radius: 15px 50px;
+}
+
+h1 {
+    font-size: 45px;
+}
+
+p {
+    padding: 0px 0px 0px;
+    font-size: 30px;
+    line-height: 24px;
+    overflow: hidden;
+}
+
+ul {
+    list-style-type; none;
+    padding: 0px 0px 0px;
+    font-size: 30px;
+    text-align: center;
+    overflow: hidden;
+}
+
+a {
+    color:purple;
+}

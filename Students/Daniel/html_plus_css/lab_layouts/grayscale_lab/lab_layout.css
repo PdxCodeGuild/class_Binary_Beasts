@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@1&display=swap');
+
+*{
+    font-family: 'Source Code Pro', monospace;
+}
+
+body{
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/32/Black_and_white_beach.JPG');
+}
+
+#nav-link{
+    display: flex;
+}
+
+#nav-link li{
+    color:rgb(26,115,232);
+    padding: 20px;
+    list-style-type: none;
+}
+
+#contact-link{
+    margin-left: auto;
+}
+
+#page-content{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 300px;
+}
+
+#page-content li{
+    list-style-type: none;
+    padding: 15px;
+}
+
+.grayscale{
+    font-size: medium;
+    background: -webkit-linear-gradient( rgba(138, 135, 135, 0.089),rgb(0,0,0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.grayscale.gs-large{
+    font-size: 150px;
+}
+
+button{
+    background-color:rgb(26,115,232);
+    color: white;
+    border: none;
+    font-size:20px;
+    border-radius: 15px;
+    width: 150%;
+    height: 60px;
+}
+

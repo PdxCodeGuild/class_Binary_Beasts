@@ -3,16 +3,6 @@ def Fibon(n):
         return 1
     return Fibon(n-1) + Fibon(n-2)
 
-
-
-
-
-
-
-
-
-
-
 while True:
     try:
         print(Fibon(int(input("Please enter the number of numbers you'd like in your fibonacci sequence. \n> "))))

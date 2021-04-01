@@ -44,6 +44,7 @@ Level 12:
 
 Level 13:
     bento ~ pickle
+    pickle ~ pickle     //either answer is perfectly fine
 
 Level 14:
     plate > apple
@@ -53,6 +54,7 @@ Level 15:
 
 Level 16:
     plate :only-child
+    plate > :only-child   //either answer is perfectly fine
 
 Level 17:
     .small:last-child

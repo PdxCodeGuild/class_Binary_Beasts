@@ -1,0 +1,381 @@
+All solutions are written and created by John Robson Wed Mar 31, 2021.
+
+These are the advanced solutions. Multiple solutions are given for each level.
+
+Level 1:
+    plate
+    *
+    > *
+    >
+    > plate
+    *:not(:only-child)
+    :not(:only-child)
+    plate:not(:only-child)
+    :is(:first-child, :last-child)
+    plate:is(:first-child, :last-child)
+    :is(:first-of-type, :last-of-type)
+    :not(:only-of-type)
+    plate:is(:first-of-type, :last-of-type)
+    plate:not(:only-of-type)
+    :empty
+    * :empty
+    plate:empty
+    > :empty
+    :not(:has(*))
+
+Level 2:
+    bento
+    *:not(plate)
+    :not(plate)
+    :nth-child(odd)
+    :not(:nth-child(2))
+    :not(:nth-child(even))
+    :is(:first-child, :nth-child(3))
+    :is(:nth-child(1), :nth-child(3))
+    :is(:first-child, :last-child)
+    :not(:only-of-type)
+    :empty:not(plate)
+
+Level 3:
+    #fancy
+    plate#fancy
+    [id]
+    plate[id]
+    [id]:not([id=""])
+    [id="fancy"]
+    [id^="f"]
+    [id$="y"]
+    [id*="n"]
+    plate[id="fancy"]
+    #fancy:first-child
+    #fancy:nth-child(1)
+    #fancy:first-of-type
+    #fancy:nth-of-type(1)
+    #fancy:not(:last-child)
+    #fancy:not(:last-of-type)
+
+Level 4:
+    plate apple
+    plate > apple
+    :not(:empty)
+    * > apple
+    plate >
+    plate > *
+    plate *
+    plate > :first-child
+    plate :first-child
+    >>*
+    > > *
+    >>
+    >> apple
+    :only-child
+    * > :only-child
+    >> :only-child
+    >> :first-child
+    >> :last-child
+    :first-child:last-child
+    * > :first-child:last-child
+    >> :first-child:last-child
+    * > :only-of-type
+    >> :only-of-type
+    :not(* ~ *):not(bento)
+    :not(* ~ *)apple
+    apple:not(* ~ *)
+    :not(* ~ *):last-child
+
+Level 5:
+    #fancy pickle
+    #fancy > pickle
+    [id] *
+    [id] > *
+    [id] >
+    [id] pickle
+    [id] > pickle
+    plate[id] >
+    [id]:not([id=""]) >
+
+Level 6:
+    .small
+    apple.small
+    apple:last-of-type
+    :is(:nth-child(2), :only-child)
+    apple:is(:nth-child(2), :only-child)
+    :is(:nth-child(2), plate >)
+    :is(apple:not(:first-child), plate > *)
+    :is(* ~ apple, :only-child)
+    :is(* + apple, :only-child)
+    apple:is(* + *, :only-child)
+
+Level 7:
+    orange.small
+    :not(apple).small
+    >> .small
+    .small:only-child
+    .small:first-child:last-child
+    :is(bento, plate) .small
+    :last-of-type:not(:empty) *
+    :last-of-type:not(:empty) >
+    :not(:empty):last-of-type >
+    :not(:nth-child(4)) >
+    :not(:nth-child(4)) *
+    :last-of-type >
+    :last-of-type > *
+    :last-of-type *
+    :last-of-type .small
+    :last-of-type orange
+
+Level 8:
+    bento orange.small
+    bento > orange.small
+    >> orange.small
+    >> :not(apple).small
+    bento :not(apple).small
+    bento > :not(apple).small
+    :not(:first-of-type) orange
+    :not(:first-of-type) > orange
+    :nth-child(1n+2) orange
+    :nth-child(1n+2) > orange
+    :nth-child(2n+3) >
+    :nth-child(2n+3) *
+    :not(:first-child):nth-child(odd) >
+    :not(:first-child) > orange
+    :not(:first-child) orange
+    * ~ > orange
+    * ~ * orange
+
+Level 9:
+    :is(plate, bento)
+    plate, bento
+    :not(:empty)
+    :has(*)
+    :has(>)
+    :has(> pickle)
+    :has(pickle)
+    :is(:nth-child(3), :nth-child(4), :nth-child(5))
+
+Level 10:
+    *
+    >, >>
+    :is(*)
+    div > *
+    div >
+    :is(:first-child, :not(:first-child))
+    :is(:not(:only-child), :not(:only-child) > *)
+
+Level 11:
+    plate *
+    >>
+    > * >
+    :not(:empty) >
+    :not(:empty) > *
+    :not(:empty) *
+    :has(*) > *
+    :has(*) >
+    :has(*) *
+
+Level 12:
+    plate + apple
+    plate + *
+    plate +
+    > apple:is(:first-of-type, :nth-of-type(2))
+    > apple:not(apple + apple)
+    > apple:not(apple +)
+    > :not(apple +)apple
+    > + apple:not(apple +)
+    * ~ plate +
+    * ~ + :not(apple +)
+
+Level 13:
+    bento ~ pickle
+    pickle ~ pickle
+    pickle:not(:first-child)
+    :is(bento, pickle) + pickle
+    pickle:has(+ :is(pickle, plate))
+    :is(.small:not(:only-child), .small + *)
+    *++ :has(++)
+    * + + :has(+ +)
+    * + * + *:has(* + * + *)
+
+Level 14:
+    plate > apple
+    >> apple
+    * + * apple
+    plate + * apple
+    * :not(bento >)apple
+    * apple:not(bento >)
+    * ~ plate apple
+    plate:nth-child(2) apple
+    plate:nth-child(2) > apple
+    :not(:first-child, :last-child) *
+    :has(+):not(:first-child) apple
+    :has(~):not(:first-child) apple
+    :has(+):not(:first-child) *
+    :not(:first-child) apple
+    :not(:first-child) *
+    * ~ :has(+) *
+
+Level 15:
+    plate orange:first-child
+    orange:first-child
+    >> :first-child
+    >> :first-of-type
+    :last-of-type :first-child
+    orange:has(++)
+    orange:has(~~)
+    :first-child:not(:only-of-type)
+    :nth-child(3) :first-child
+    :has(*) :first-child
+    :has(~) :first-child
+    :has(+) :first-child
+    :not(:empty) :first-child
+    * ++ * :first-child
+    * ~~ * :first-child
+    * ++ * :has(++)
+    * ~~ * :has(++)
+    * ++ > :first-child
+    :has(*) :has(++)
+
+Level 16:
+    plate :only-child
+    plate > :only-child
+    plate :first-child:last-child
+    :not(bento) :only-child
+    :not(bento) :first-child:last-child
+    :not(:only-of-type) :only-child
+    plate:not(:last-of-type) *
+    plate:not(:last-of-type) >
+    :not(:last-of-type) > *
+    :not(:last-of-type) >
+    :not(:last-of-type) *
+    :not(*~~) *
+    :has(+++) *
+    :has(+++) >
+    :has(+++) > *
+
+Level 17:
+    .small:last-child
+    :only-of-type
+    .small:only-of-type
+    .small:not(:has(+))
+    .small:not(:has(~))
+
+Level 18:
+    plate:nth-child(3)
+    plate:nth-last-child(2)
+    :nth-child(3)
+    :nth-last-child(2)
+    :has(~):not(:has(~~,~~~))
+    :has(+):not(:has(++,+++))
+    :has(+[id])
+    :nth-of-type(3)
+    :nth-last-of-type(2)
+
+Level 19:
+    bento:nth-last-child(3)
+    bento:first-of-type
+    bento:nth-child(2)
+    bento:nth-last-of-type(2)
+    bento:nth-last-child(3)
+    bento:not(:last-of-type)
+    bento:not(:last-child)
+    bento:has(+)
+    bento:has(~)
+
+Level 20:
+    apple:first-of-type
+    orange + apple
+    :has(+ .small + apple)
+    apple:nth-child(2)
+    orange + :not(orange)
+    :nth-last-child(5)
+    * ~ :has(++++)
+
+Level 21:
+    :nth-of-type(even)
+    :nth-child(even)
+    :nth-last-of-type(odd)
+    :nth-last-child(odd)
+    :nth-of-type(2n)
+    :nth-of-type(2n+0)
+    :nth-child(2n)
+    :nth-child(2n+0)
+    :nth-last-of-type(2n+1)
+    :nth-last-child(2n+1)
+
+Level 22:
+    :nth-of-type(2n+3)
+    plate:has(apple)
+    plate:has(:not(pickle))
+    :is(:nth-child(3), :nth-child(5))
+    :is(:nth-of-type(3), :nth-of-type(5))
+    :is(:nth-last-child(2), :nth-last-child(4))
+    :is(:nth-last-of-type(2), :nth-last-of-type(4))
+
+Level 23:
+    apple:only-of-type
+    .small:only-child
+    apple:only-child
+    :not([id]) apple
+    :nth-child(2) apple
+
+Level 24:
+    .small:last-of-type
+    :not(pickle):last-of-type
+    :nth-child(4n+2)
+
+Level 25:
+    bento:empty
+    bento:not(:has(*))
+    :empty:not(:only-of-type)
+    bento:is(:first-of-type, :last-of-type)
+    bento:is(:first-child, :last-child)
+
+Level 26:
+    apple:not(.small)
+    apple:not(#fancy apple)
+
+Level 27:
+    [for]
+    *[for]
+
+Level 28:
+    plate[for]
+    :not(:first-child, :last-child)
+    :has(pickle, apple)
+    :has(:not(orange))
+    :not(:empty, :last-child)
+    [for]:not(bento)
+
+Level 29:
+    bento[for="Vitaly"]
+    :has(orange)
+    bento:last-of-type
+
+Level 30:
+    [for^="Sa"]
+    :has(:not(orange))
+    :first-of-type:has(*)
+    :first-of-type:not(:empty)
+    :has(pickle, apple)
+    :not(:last-child)
+    [for]:not([for="Mary"])
+
+Level 31:
+    [for$="ato"]
+    :has(*)
+    :not(:empty)
+    [for]:not(:empty)
+    [for]:has(>)
+
+Level 32:
+    [for*="obb"]
+    :not(:nth-child(2), :empty)
+    :not(:nth-child(2)):not(:empty)
+    :has(>):not(:nth-child(2))
+    :is(:first-child, :last-child):not(:empty)
+    :has(apple, orange)
+    [for]:not([for="Timmy"])
+    :not([for="Timmy"]):has(>)
+    :not([for="Timmy"]):has(*)
+    :not([for="Timmy"]):not(:empty)
+    :not([for="Timmy"], :empty)

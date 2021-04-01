@@ -1,0 +1,391 @@
+All solutions are written and created by John Robson Wed Mar 31, 2021.
+
+These are the advanced solutions. Multiple solutions are given for each level with explanations.
+
+NOTES: You cannot use "div", ".table", or "div.table" to access the main container div.
+It will fail even if the code is right.
+There are many other solutions that were skipped because they are duplicates or superfluous.
+
+TYPES: when using type pseudo-selectors (:first-of-type, :nth-of-type(x), :last-of-type, :nth-last-of-type(x), :only-of-type) type refers to the element tag. so ":first-of-type" will select all elements that are the first of that element within the parent. When finding elements based on type, only direct siblings are counted towards that type, elements with a different parent will not be counted as a type.
+
+:is(): this is used for multiple selectors, it almost the same as a comma (,)
+:is(A, B) is the same as A, B
+:is(A, B):hover is the same as A:hover, B:hover
+
+
+Level 1:
+    plate   //best answer
+    *       //selects all elements
+    > *     //selects all children of everything
+    >       //same as above, the * is not required
+    > plate     //selects all plates that are children
+    *:not(:only-child)  //selects all elements that are not an only child
+    :not(:only-child)   //same as above, the * is not required
+    plate:not(:only-child)  //selects all plates that are not only-children
+    :is(:first-child, :last-child)  //selects all elements that are either a first child or last child
+    plate:is(:first-child, :last-child) //selects all plates that are either a first or last child
+    :is(:first-of-type, :last-of-type)  //selects all elements that are either the first or last of type
+    :not(:only-of-type)     //selects all elements that are not the only of type
+    plate:is(:first-of-type, :last-of-type) //selects all plates that are either first or last of type
+    plate:not(:only-of-type)    //selects all plates that are not the only of type
+    :empty      //selects all empty (no children or text nodes) elements
+    * :empty    //same as above, the * is not required
+    plate:empty //selects all plates that are empty
+    > :empty    // selects all children that are empty
+
+Level 2:
+    bento   //best answer
+    *:not(plate) //selects everything that is not a plate
+    :not(plate)  //same as above, the * is not required
+    :nth-child(odd) //selects odd children (1st, 3rd)
+    :not(:nth-child(2)) //selects all children except 2nd
+    :not(:nth-child(even)) //selects all not-even children (aka: odd children)
+    :is(:first-child, :nth-child(3)) //selects 1st and 3rd child
+    :is(:nth-child(1), :nth-child(3)) //selects 1st and 3rd child
+    :is(:first-child, :last-child) //selects 1st and 3rd child
+    :not(:only-of-type) //selects all elements that are not the only one of that type
+    :empty:not(plate)   //selects all elements that are empty and not a plate
+
+Level 3:
+    #fancy  //best answer
+    plate#fancy     //selects all plates with ID of "fancy"
+    [id]    //selects all elements with an ID attribute
+    plate[id]   //selects all plates with an ID attribute
+    [id]:not([id=""])   //selects all plates with an ID attribute that is not empty
+    [id="fancy"]    //selects all elements with an ID of "fancy"
+    [id^="f"]       //selects all elements with an ID that starts with "f"
+    [id$="y"]       //selects all elements with an ID that ends with "y"
+    [id*="n"]      //selects all elements with an ID that contains the letter "n"
+    plate[id="fancy"]   //selects all plates with an ID of "fancy"
+    #fancy:first-child  //selects the element with ID fancy if it is a first-child
+    #fancy:nth-child(1) //same as above
+    #fancy:first-of-type    //selects the element with ID fancy if it is the first of type
+    #fancy:nth-of-type(1)   //same as above
+    #fancy:not(:last-child) //selects the element with the ID fancy if it is NOT the last child
+    #fancy:not(:last-of-type)   //selects the element with ID fancy if it is NOT the last of type
+
+Level 4:
+    plate apple     //best answer
+    plate > apple   //selects all apples that are direct children of plate elements
+    :not(:empty)    //selects all elements that are not empty (has children or text node)
+    * > apple   //selects all apples that are direct children of any other element (THIS SHOULD NOT WORK, BUT DOES)
+    plate >     //selects all direct children of all plate elements
+    plate > *   //same as above
+    plate *     //selects all children and grandchildren of all plate elements
+    plate > :first-child    //selects all plate elements' first child
+    plate :first-child      //selects all plate elements' first child and grandchildren
+    >>*     //selects all grandchildren (can also be written as > > * with a space)
+    >>      //same as above, the * is not required (can also be written as > > with a space)
+    >> apple    //selects all apples that are grandchildren
+    :only-child     //selects all elements that are the only child of their parent
+    * > :only-child   //selects all children that are the only child of their parent (the * is required)
+    >> :only-child      //selects all grandchildren that are the only child of a child of the parent
+    >> :first-child     //selects all grandchildren that are the first child of a child of the parent
+    >> :last-child      //selects all grandchildren that are the last child of a child of the parent
+    :first-child:last-child     //selects all elements that are the first and last (only) child of the parent
+    * > :first-child:last-child //selects all elements direct children that are the first and last (only) child
+    >> :first-child:last-child  //selects all elements that are grandchildren and the first and last (only) child
+    * > :only-of-type   //selects all elements that are the only of type and a direct child of any parent (* required)
+    >> :only-of-type    //selects all elements that are the only of type and a grandchild of any grandparent
+    :not(* ~ *):not(bento)  //selects all elements that do not have a sibling before them and is not of type bento
+    :not(* ~ *)apple    //selects all apples that do not have a sibling before them
+    :not(* ~ *):last-child  //selects all elements that are the last child and do not have a sibling before them
+    *note: you can also substitute all variants of child and type pseudo-selectors (ex: :nth-child(1), :nth-of-type(1))
+
+Level 5:
+    #fancy pickle   //best answer
+    #fancy > pickle     //selects all pickles that are a direct child of all elements with an ID of fancy
+    [id] *      //selects all children and grandchildren of elements with an ID attribute
+    [id] > *    //selects all direct children of all elements with an ID attribute
+    [id] >      //same as above (the * is optional)
+    [id] pickle //selects all pickles that are a child or grandchild of an element with an ID attribute
+    [id] > pickle   //selects all pickles that are a direct child of an element with an ID attribute
+    plate[id] >     //selects all direct children of all plate elements with an ID attribute
+    [id]:not([id=""]) >     selects all direct children of all elements that have an ID attribute that is not empty
+    *there are many other solutions, but I only included a few solutions that directly use the ID
+
+Level 6:
+    .small  //best answer
+    apple.small     //selects all apples with a class of "small"
+    apple:last-of-type  //selects all apples that are the last of type for that parent
+    :is(:nth-child(2), :only-child) //selects all elements that are either the 2nd child or the only child
+    apple:is(:nth-child(2), :only-child)    //selects all apples that are either the 2nd child or the only child
+    :is(:nth-child(2), plate >) //selects all apples that are either the 2nd child or the only child
+    :is(apple:not(:first-child), plate > *) //selects all elements that are either an apple that is not first child or is a direct child of plate
+    :is(* ~ apple, :only-child) //selects all elements that are either an apple that has a sibling before it or is an only child
+    :is(* + apple, :only-child) //selects all elements that are either an apple that has a sibling directly before it or is an only child
+    apple:is(* + *, :only-child)    //selects all apples that either have a sibling before it or is an only child
+
+Level 7:
+    orange.small    //best answer
+    :not(apple).small   //selects all elements that are not an apple and has a class of small
+    >> .small       //selects all elements that have a class of small and are grandchildren
+    .small:only-child   //selects all elements that are a class of small and an only child
+    .small:first-child:last-child   //selects all elements that are a class of small and a first and last (only) child
+    :is(bento, plate) .small    //selects all elements that are either "bento .small" or "plate .small"
+    :last-of-type:not(:empty) *     //selects all elements that are children or grandchildren of an element that is the last of type and not empty
+    :last-of-type:not(:empty) >     //same as above but direct children only
+    :not(:empty):last-of-type >     //same as above, just written backwards -- can also use * instead of >
+    :not(:nth-child(4)) >       //selects all direct children of elements that are not a 4th child
+    :not(:nth-child(4)) *       //same as above but includes grandchildren
+    :last-of-type >             //selects all children of elements that are the last of their type
+    :last-of-type > *           //exactly the same as above, the * is not required
+    :last-of-type *             //similar to the above, but includes grandchildren
+    :last-of-type .small        //selects all elements with a class of small and whose parent is the last of type
+    :last-of-type orange        //selects all oranges that have parents that are the last of type
+
+Level 8:
+    bento orange.small  //best answer
+    bento > orange.small    //same as above, but limits the selection to only direct children
+    >> orange.small     //selects all oranges with a class of small and are grandchildren
+    >> :not(apple).small    //selects all elements that are not an apple and have a class of small and are grandchildren
+    bento :not(apple).small     //selects all elements that are not an apple and have a class of small and are grandchildren or children of bento
+    bento > :not(apple).small   //same as above, but must be a direct child of bento
+    :not(:first-of-type) orange   //selects all oranges that are children or grandchildren of elements that are not the first of type
+    :not(:first-of-type) > orange   //same as above, but direct children only
+    :nth-child(1n+2) orange     //selects all oranges that are children or grandchildren of elements that are not the first or 2nd child (1n+2 = any number greater than 2)
+    :nth-child(1n+2) > orange     //same as above, but direct children only
+    :nth-child(2n+3) >      //selects all direct children of parents that are an odd child starting at 3 (3, 5, 7, etc)
+    :nth-child(2n+3) *      //same as above, but includes grandchildren
+    :not(:first-child):nth-child(odd) > //same as above, children of parents that are odd children excluding first child
+    :not(:first-child) > orange     //selects all oranges that are direct children to parents that are not the first child
+    :not(:first-child) orange       //same as above, but oranges can be grandchildren
+    * ~ > orange    //selects all oranges that are children of any element that has a sibling before it (not a first child)
+    * ~ * orange    //selects all oranges that are children or grandchildren of any element that is not a first child
+
+Level 9:
+    :is(plate, bento)   //newer solution (my preferred way)
+    plate, bento        //traditional solution
+    :not(:empty)        //select all elements that are not empty (have children or text nodes)
+    :has(*)             //selects all parents with children (:has() is not supported by all browsers)
+    :has(> pickle)      //this selects all elements that have a direct child of pickle
+    :has(pickle)        //same as above but includes grandchildren
+    :is(:nth-child(3), :nth-child(4), :nth-child(5))    //selects 3rd, 4th, and 5th children
+
+Level 10:
+    .table > *    //this is the best solution, but it DOES NOT WORK in Flukeout
+    *       //this is the desired solution in Flukeout
+    >, >>   //selects all children and grandchildren    (note: :is(>, >>) is not proper syntax and does not work)
+    :is(*)  //this works, but is redundant. Don't do it!
+    div > *     //THIS DOES NOT WORK IN FLUKEOUT: selects all direct children of div elements
+    div >       //same as above, the * is not required
+    :is(:first-child, :not(:first-child))   //this is a long way of selecting all children (root elements excluded)
+    :is(:not(:only-child), :not(:only-child) > *)   //long way of selecting all children and parents that aren't only children
+
+Level 11:
+    plate *     //best answer
+    >>          //selects all grandchildren
+    > * >       //the same as above, the * is not required
+    :not(:empty) >  //selects all children of parents that are not empty (not practical in the real world)
+    :not(:empty) > *    //exactly the same as above, the * is not required
+    :not(:empty) *      //same as above, but includes grandchildren
+    :has(*) > *     //selects all children of parents that have children
+    :has(*) >       //exactly the same as above, the * is not required
+    :has(*) *       //same as above, but includes all grandchildren too
+
+Level 12:
+    plate + apple      //best answer
+    plate + *       //this selects all elements that have a plate sibling directly before it
+    plate +         //exactly the same as above, the * is not required
+    > apple:is(:first-of-type, :nth-of-type(2))     //selects all apples that are direct children and first-of-type or 2nd of type
+    > apple:not(apple + apple)  //selects all children that are apples and do not have an immediate apple sibling
+    > apple:not(apple +)  //same as above, the 2nd apple is redundant
+    > :not(apple +)apple    //same as above, different variation
+    > + apple:not(apple +)  //almost the same as above, but only targets child that are apples with a sibling before it that is not an apple
+    * ~ plate +         //selects all elements that have a plate sibling before it and plate is not a first child
+    * ~ + :not(apple +) //selects all elements that do has a sibling before it which is not an apple and the sibling is not a first child
+
+Level 13:
+    bento ~ pickle      //good answer
+    pickle ~ pickle     //equally good answer
+    pickle:not(:first-child)    //selects all pickles that are not a first-child
+    :is(bento, pickle) + pickle     //selects all pickles that come after a sibling bento or sibling pickle
+    pickle:has(+ :is(pickle, plate))    //selects all pickles that have a next sibling as a pickle or plate
+    :is(.small:not(:only-child), .small + *)    //selects all elements that are either a .small but not an only child or is an element that has a .small sibling before them
+    *++ :has(++)   //selects any element that has at least 2 siblings before it and at least 2 siblings after it
+    * + + :has(+ +)   //exactly the same as above
+    * + * + *:has(* + * + *)    //same thing, different variation, only the first * is required
+
+Level 14:
+    plate > apple       //best answer
+    >> apple    //selects all grandchildren that are apples
+    * + * apple //selects all apples that are children or grandchildren of any element that has a sibling before it
+    plate + * apple     //same as above, but the sibling must be a plate
+    * :not(bento >)apple    //selects all apples that do not have a bento parent, the * is required
+    * apple:not(bento >)    //same as above, different order
+    * ~ plate apple     //selects all apples with a parent plate that has a sibling before it
+    plate:nth-child(2) apple    //selects all apples of a parent or grandparent plate that is the 2nd child
+    plate:nth-child(2) > apple  //same as above, but only excludes grandparents
+    :not(:first-child, :last-child) *   //selects everything whose parent is not first or last child
+    :has(+):not(:first-child) apple     //selects all apples whose parent is not first child and has a sibling after
+    :has(~):not(:first-child) apple     //exact same as above
+    :has(+):not(:first-child) *     //same as above, but not limited to apples
+    :not(:first-child) apple        //selects all apples whose parent is not a first child
+    :not(:first-child) *        //selects all elements whose parent is not a first child
+    * ~ :has(+) *       //selects all elements whose parents have a sibling after and is a sibling to an element before it
+
+Level 15:
+    plate orange:first-child    //best answer
+    orange:first-child      //also acceptable
+    >> :first-child     //selects all grandchildren that are a first child
+    >> :first-of-type   //selects all grandchildren that are the first of type
+    :last-of-type :first-child  //selects the first child whose parent is the last of it's type
+    orange:has(++)      //selects all oranges that have 2 siblings afterwards
+    orange:has(~~)      //exactly the same as above
+    :first-child:not(:only-of-type)     //selects all elements that are the first child but not the only of type
+    :nth-child(3) :first-child      //selects the first child of a parent who is the 3rd child
+    :has(*) :first-child    //selects the first child of all elements that are not empty
+    :has(~) :first-child    //selects the first child of all elements that have a sibling
+    :has(+) :first-child    //exact same as above
+    :not(:empty) :first-child   //selects the first child of any elements that are not empty
+    * ++ * :first-child     //selects the first child of any elements that have two siblings after it
+    * ~~ * :first-child     //selects the first child of any elements that have two siblings before it
+    * ++ * :has(++)         //selects any element that has two siblings after it and whose parent has 2 siblings after it
+    * ~~ * :has(++)         //selects any element that has two siblings after it and whose parent has 2 siblings before it
+    * ++ > :first-child     //same as above but exclusive to children (the above can include grandchildren)
+    :has(*) :has(++)    //selects any element that has 2 siblings after whose parent is not empty
+
+Level 16:
+    plate :only-child   //great answer
+    plate > :only-child   //also equally acceptable
+    plate :first-child:last-child      //selects all children that are the first and last (only) child of a parent plate
+    :not(bento) :only-child         //selects all elements that are an only child to an element that is not a bento
+    :not(bento) :first-child:last-child     //same as above, requires the child to be first and last child (only)
+    :not(:only-of-type) :only-child     //selects any element that is an only-child of a parent who is not the only of type
+    plate:not(:last-of-type) *  //select all children and grandchildren of a plate that is not the last of type
+    plate:not(:last-of-type) >  //select all direct children of a plate that is not the last of type
+    :not(:last-of-type) > *     //selects all direct children of an element that is not the last of type
+    :not(:last-of-type) >       //exact same as above, the * is not required
+    :not(:last-of-type) *       //same as above, but includes grandchildren
+    :not(*~~) *     //selects all elements that have a parent or grandparent that does not have 2 siblings before it
+    :has(+++) *     //selects all elements that have a parent or grandparent that has 3 siblings after it
+    :has(+++) >     //same as above, but excludes grandparents
+    :has(+++) > *   //exact same as above, the * is not required
+
+Level 17:
+    .small:last-child   //most appropriate answer
+    :only-of-type       //selects all elements that are the only of that type (per parent)
+    .small:only-of-type    //selects all .small elements that are the only-of-type
+    .small:not(:has(+))     //selects all .small elements that do not have siblings
+    .small:not(:has(~))     //same as above
+
+Level 18:
+    plate:nth-child(3)      //best answer
+    plate:nth-last-child(2)      //equally good
+    :nth-child(3)       //selects all children that are the 3rd child
+    :nth-last-child(2)      //selects all children that are 2nd to last child
+    :has(~):not(:has(~~,~~~))   //selects all elements that have 1 sibling after, but not 2 or 3 siblings
+    :has(+):not(:has(++,+++))   //exact same as above
+    :has(+[id])     //selects all elements that have a sibling with an ID attribute after them
+    :nth-of-type(3)     //selects all elements that are the 3rd of type
+    :nth-last-of-type(2)    //selects all elements that are the 2nd to last of type
+
+Level 19:
+    bento:nth-last-child(3)     //best answer
+    bento:first-of-type     //selects the first bento
+    bento:nth-child(2)      //selects all bentos that are the 2nd child
+    bento:nth-last-of-type(2)   //selects all bentos that are the 2nd to last of type
+    bento:nth-last-child(3)     //selects all bentos that are the 3rd to last child
+    bento:not(:last-of-type)    //selects all bentos that are not the last of type
+    bento:not(:last-child)      //selects all bentos that are not the last child
+    bento:has(+)        //selects all bentos that have a sibling after it
+    bento:has(~)        //exactly the same as above
+
+Level 20:
+    apple:first-of-type     //best answer
+    orange + apple      //selects all apples that have an orange sibling before them
+    :has(+ .small + apple)  //selects all elements that are followed by a .small and then an apple sibling
+    apple:nth-child(2)  //selects all apples that are a 2nd child
+    orange + :not(orange)      //selects all elements that are not an orange and have an orange sibling before it
+    :nth-last-child(5)      //selects all elements that are the 5th from last child
+    * ~ :has(++++)      //selects all elements that have 4 siblings after it and is not the first child
+
+Level 21:
+    :nth-of-type(even)  //best method
+    :nth-child(even)    //selects all even children
+    :nth-last-of-type(odd)  //selects all odd elements starting with the last of type
+    :nth-last-child(odd)    //selects all odd children starting with the last child
+    :nth-of-type(2n)      //selects all elements, but even numbers of type (2, 4, 6...)
+    :nth-of-type(2n+0)      //exactly the same as above
+    :nth-child(2n)        //selects all even children
+    :nth-child(2n+0)        //exactly the same as above
+    :nth-last-of-type(2n+1) //selects all elements, odd numbered started with last of type
+    :nth-last-child(2n+1)   //selects all odd children starting with last child
+
+Level 22:
+    :nth-of-type(2n+3)  //desired answer
+    plate:has(apple)    //my preferred answer (selects all plates that have an apple in them)
+    plate:has(:not(pickle)) //selects all plates that have a child but is not a pickle
+    :is(:nth-child(3), :nth-child(5))   //selects all elements that are either a 3rd or 5th child
+    :is(:nth-of-type(3), :nth-of-type(5))   //selects all elements that are either 3rd or 5th of type
+    :is(:nth-last-child(2), :nth-last-child(4))   //selects all elements that are either a 2nd or 4th to last child
+    :is(:nth-last-of-type(2), :nth-last-of-type(4))   //selects all elements that are either 2nd or 4th of type from last
+
+Level 23:
+    apple:only-of-type  //their preferred answer
+    .small:only-child   //my preferred solution
+    apple:only-child   //selects all apples that are an only child
+    :not([id]) apple    //selects all apples that are children of a parent without an ID attribute
+    :nth-child(2) apple     //selects all apples that are children of a parent that is a 2nd child
+
+Level 24:
+    .small:last-of-type     //best answer
+    :not(pickle):last-of-type   //selects all elements that are not a pickle and are last of type
+    :nth-child(4n+2)    //selects all 2nd and 6th children (and ever 4th after that, 10th, 14th, 18th...)
+
+Level 25:
+    bento:empty     //best answer
+    bento:not(:has(*))  //selects all bentos that do not have children (empty)
+    :empty:not(:only-of-type)   //selects all elements that are empty and not the only of type
+    bento:is(:first-of-type, :last-of-type)     //selects all bentos that are either first of type or last of type
+    bento:is(:first-child, :last-child)     //selects all bentos that are either first or last children
+
+Level 26:
+    apple:not(.small)   //best answer
+    apple:not(#fancy apple)     //selects all apples that are not children or grandchildren of #fancy
+
+Level 27:
+    [for]   //best answer
+    *[for]  //selects all items that have a FOR attribute, same as above, the * is not required
+
+Level 28:
+    plate[for]  //best answer
+    :not(:first-child, :last-child) //selects all elements that are not a first or last child
+    :has(pickle, apple)     //selects all elements that have a pickle or apple child
+    :has(:not(orange))      //selects all elements that have a child and the child is not an orange
+    :not(:empty, :last-child)   //selects all elements that are not empty or a last child
+    [for]:not(bento)        //selects all elements that have a FOR attribute and are not a bento
+
+Level 29:
+    bento[for="Vitaly"]     //best answer
+    :has(orange)        //selects all elements that have an orange child
+    bento:last-of-type  //selects all bentos that are the last of type
+
+Level 30:
+    [for^="Sa"]     //best answer
+    :has(:not(orange))      //selects all elements that have a child that is not an orange
+    :first-of-type:has(*)   //selects all elements that are the first of type and has a child
+    :first-of-type:not(:empty)  //selects all elements that are the first of type and are not empty
+    :has(pickle, apple)     //selects all elements that have a pickle or apple child
+    :not(:last-child)       //selects all elements that are not a last child
+    [for]:not([for="Mary"])     //selects all elements that have a FOR attribute that is not Mary
+
+Level 31:
+    [for$="ato"]    //best answer
+    :has(*)     //selects all elements that have a child
+    :not(:empty)    //selects all elements that are not empty
+    [for]:not(:empty)   //selects all elements that have FOR attribute and is not empty
+    [for]:has(>)    //selects all elements that have a FOR attribute and have direct children
+
+Level 32:
+    [for*="obb"]        //best answer
+    :not(:nth-child(2), :empty)     //selects all elements that are not a 2nd child and are not empty
+    :not(:nth-child(2)):not(:empty) //same as above, just written out longer
+    :has(>):not(:nth-child(2))  // same as above, different syntax
+    :is(:first-child, :last-child):not(:empty)  //selects all elements that are either a first or last child and are not empty
+    :has(apple, orange)     //selects all elements that have either an apple or orange child
+    [for]:not([for="Timmy"])    //selects all elements that have a FOR attribute and is not Timmy
+    :not([for="Timmy"]):has(>)  //selects all elements that are not empty and does not have a FOR attribute set to Timmy
+    :not([for="Timmy"]):has(*)  //same as above
+    :not([for="Timmy"]):not(:empty)     //same as above
+    :not([for="Timmy"], :empty)     //same as above

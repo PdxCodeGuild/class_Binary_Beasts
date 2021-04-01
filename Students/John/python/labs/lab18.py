@@ -21,7 +21,7 @@ class ATM:
         self.__add_to_history("Deposit: $" + str(amount))
         
     def check_withdrawal(self, amount):
-        return self.__balance - amount > 0
+        return self.__balance - amount >= 0
         
     def withdraw(self, amount):
         self.__balance -= amount

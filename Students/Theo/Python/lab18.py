@@ -1,41 +1,35 @@
 '''
 Theo Cocco
-Thursday March 25, 2021
+Thursday March 31, 2021
 Lab 18, ATM
 '''
 
 class ATM:
-    def __init__(self, balance, apr):
+    def __init__(self):
         self.balance = 0
         self.apr = 0.1
 
-    def balance(self):
+    def show_balance(self):
         return self.balance
 
     def deposit(self, x):
         self.balance += x
     
-    def __check_withdrawl__(self, x):
-        if self.balance - x >= 0:
-            return True
-        else: 
-            return False
+    def check_withdrawl(self, x):
+        return self.balance - x >= 0
          
     def withdraw(self, x):
-        if __check_withdrawl__(x) == True:
             self.balance -= x
-        else: 
-            False
     
     def calc_interest(self):
         return self.balance * self.apr
 
-atm = ATM(0, 0.1)
+atm = ATM()
 print('Welcome to the ATM')
 while True:
     command = input('Enter a command: ')
     if command == 'balance':
-        balance = atm.balance()
+        balance = atm.show_balance()
         print(f'Your balance is ${balance}')
     elif command == 'deposit':
         amount = float(input('How much would you like to deposit? '))
@@ -43,7 +37,7 @@ while True:
         print(f'Deposited ${amount}')
     elif command == 'withdraw':
         amount = float(input('How much would you like '))
-        if atm.withdraw(amount) == False:
+        if not atm.check_withdrawl(amount):
             print('Insufficient funds')
         else:
             atm.withdraw(amount)

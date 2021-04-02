@@ -10,10 +10,13 @@
     justify-content:start;
     flex-wrap: wrap;
     align-content:stretch;
+    flex: 1;
     
 }
 
 li{
+    display:flex;
+    flex: 1;
     list-style-type: none;
     padding: 15px;
     /* border: 1px solid black; */
@@ -25,6 +28,7 @@ li{
     flex-direction: row;
     align-content: start;
     background-color:#F5F3F4;
+    flex: 1;
 }
 
 
@@ -39,19 +43,25 @@ li{
     margin-top: -45px;
     padding-top: 3%;
     width:100%;
+    align-self: center;
+
 
 }
 
 #right-col{
+    display:flex;
     border: 1px solid black;
     width: 900px;
     overflow:hidden;
     height: 1200px;
     background-color:#1F1F1F;
+    flex: 1;
 }
 
 #left-col{
+    display:flex;
     padding-right: 10px;
+    flex: 1;
 }
 
 #two-col-box-content{
@@ -59,6 +69,7 @@ li{
     flex-direction: row;
     width: 100%;
     height:auto;
+    flex:1;
 }
 
 #large-muse{
@@ -68,7 +79,8 @@ li{
     -moz-transform: rotate(-90deg) scale(1, 1.5); /* Firefox */
     -ms-transform: rotate(-90deg) scale(1, 1.5); /* IE 9+ */
     -o-transform: rotate(-90deg) scale(1, 1.5); /* Opera */
-    margin-left:-60px;
+    margin-top: 300px;
+    margin-left:-550px;
     width:max-content;
 
 
@@ -118,4 +130,13 @@ body{
 #media-links li:nth-child(3) {
 margin-left:600px;
 
+}
+
+#nested-right{
+    margin-top: 45px;
+}
+
+#nested-right> p{
+    display:flex;
+    flex:1;
 }

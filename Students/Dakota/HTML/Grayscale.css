@@ -1,0 +1,64 @@
+body{
+    background: url("https://startbootstrap.github.io/startbootstrap-grayscale/assets/img/bg-masthead.jpg");
+    font-family: "Varela Round", -apple-system
+}   
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.center span{
+    cursor: pointer;
+    display: inline-block;
+    transition: 0.5s;
+}
+.Grayscale{
+    font-size: 105px;
+    text-align: center;
+    background: -webkit-linear-gradient( #333, #eee);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding:10px;
+} 
+.subtext{
+    font-size: 20;
+    text-align: center;
+    color: rgb(190, 190, 190);
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+ul{
+    display: flex;
+    list-style-type:none;
+    flex-direction: row;
+    padding: 20px;
+    justify-content:space-evenly;
+    color: white
+}
+ul li{
+    padding: 20px;
+    cursor: pointer
+}
+.StartBootstrap{
+    margin-right: auto;
+}
+button{
+    font-size: 15;
+    color: white;
+    background-color: rgb(76, 134, 134);
+    width: 200px;
+    height: 50px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(140,140,140,1);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(140,140,140,1);
+    box-shadow: 10px 10px 5px 0px rgba(140,140,140,1);
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    
+}
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    transition: 0.5s;
+}

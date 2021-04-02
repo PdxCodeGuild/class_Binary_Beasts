@@ -8,22 +8,24 @@ IMPORTANT! PLEASE READ
 Level 1:
     plate
     *
-    * > *
-    * > plate
+    * > *           (Flukeout ONLY accepts > or > *)
+    * > plate       (Flukeout ONLY accepts > plate)
     *:not(:only-child)
     :not(:only-child)
+    :not(:first-child:last-child)
     plate:not(:only-child)
     :is(:first-child, :last-child)
     plate:is(:first-child, :last-child)
     :is(:first-of-type, :last-of-type)
     :not(:only-of-type)
+    :not(:first-of-type:last-of-type)
     plate:is(:first-of-type, :last-of-type)
     plate:not(:only-of-type)
     :empty
-    * :empty
+    * :empty        (Flukeout ONLY accepts *:empty)
     plate:empty
-    * > :empty
-    :not(:has(*))
+    * > :empty      (Flukeout ONLY accepts > :empty)
+    :not(:has(*))   (Flukeout also accepts variants: :not(:has(* +)) and :not(:has(* ~)) but those are improper)
 
 Level 2:
     bento
@@ -49,44 +51,44 @@ Level 3:
     [id$="y"]
     [id*="n"]
     plate[id="fancy"]
-    #fancy:first-child
-    #fancy:nth-child(1)
-    #fancy:first-of-type
-    #fancy:nth-of-type(1)
-    #fancy:not(:last-child)
-    #fancy:not(:last-of-type)
+    :first-child
+    :nth-child(1)
+    :first-of-type:not(:only-of-type)
+    :not(:last-of-type)
 
 Level 4:
     plate apple
     plate > apple
-    :not(:empty)
+    :not(:empty) *
+    :not(:empty) > *    (Flukeout will accept :not(:empty) >)
     * > apple
-    plate > *
+    plate > *       (Flukeout will accept plate >)
     plate *
     plate > :first-child
     plate :first-child
-    * > * > *
-    * > * > apple
+    * > * > *       (Flukeout will ONLY accept >>, >*>, >>*, or >*>* (with or without spaces))
+    * > * > apple   (Flukeout will ONLY accept >> apple or >*> apple (with or without spaces))
     :only-child
     * > :only-child
-    * > * > :only-child
-    * > * > :first-child
-    * > * > :last-child
+    * > * > :only-child     (Flukeout will ONLY accept >> :only-child or >*> :only-child (with or without spaces))
+    * > * > :first-child    (Flukeout will ONLY accept >> :first-child or >*> :first-child (with or without spaces))
+    * > * > :last-child     (Flukeout will ONLY accept >> :only-child or >*> :last-child (with or without spaces))
     :first-child:last-child
     * > :first-child:last-child
-    * > * > :first-child:last-child
+    * > * > :first-child:last-child (Flukeout will ONLY accept >> :first-child:last-child or >*> :first-child:last-child (with or without spaces))
     * > :only-of-type
-    * > * > :only-of-type
-    :not(* ~ *):not(bento)
-    :not(* ~ *)apple
-    apple:not(* ~ *)
-    :not(* ~ *):last-child
+    * > * > :only-of-type   (Flukeout will ONLY accept >> :only-of-type or >*> :only-of-type (with or without spaces))
+    :not(* ~ *):not(bento)  (Flukeout will also accept :not(*~):not(bento), :not(*~*, bento), or :not(*~, bento) (with or without spaces))
+    :not(* ~ *)apple        (Flukeout will also accept :not(*~)apple (with or without spaces))
+    apple:not(* ~ *)        (Flukeout will also accept apple:not(*~) (with or without spaces))
+    apple:not(* + *)        (Flukeout will also accept apple:not(*+) (with or without spaces))
+    :not(* ~ *):last-child  (Flukeout will also accept :not(* ~):last-child (with or without spaces))
 
 Level 5:
     #fancy pickle
     #fancy > pickle
     [id] *
-    [id] > *
+    [id] > *        (Flukeout also accepts [id] >)
     [id] pickle
     [id] > pickle
     plate[id] > *
@@ -107,16 +109,16 @@ Level 6:
 Level 7:
     orange.small
     :not(apple).small
-    * > * > .small
+    * > * > .small      (Flukeout will ONLY accept >> .small or >*> .small (with or without spaces))
     .small:only-child
     .small:first-child:last-child
     :is(bento, plate) .small
     :last-of-type:not(:empty) *
-    :last-of-type:not(:empty) > *
-    :not(:empty):last-of-type > *
-    :not(:nth-child(4)) > *
+    :last-of-type:not(:empty) > *       (Flukeout will also accept without the *)
+    :not(:empty):last-of-type > *       (Flukeout will also accept without the *)
+    :not(:nth-child(4)) > *     (Flukeout will also accept without the *)
     :not(:nth-child(4)) *
-    :last-of-type > *
+    :last-of-type > *       (Flukeout will also accept without the *)
     :last-of-type *
     :last-of-type .small
     :last-of-type orange
@@ -124,20 +126,20 @@ Level 7:
 Level 8:
     bento orange.small
     bento > orange.small
-    * > * > orange.small
-    * > * > :not(apple).small
+    * > * > orange.small        (Flukeout will ONLY accept >> orange.small or >*> orange.small (with or without spaces))
+    * > * > :not(apple).small   (Flukeout will ONLY accept >> :not(orange).small or >*> :not(orange).small (with or without spaces))
     bento :not(apple).small
-    bento > :not(apple).small
+    bento > :not(apple).small   (Flukeout will also accept * > :not(apple).small)
     :not(:first-of-type) orange
     :not(:first-of-type) > orange
     :nth-child(1n+2) orange
     :nth-child(1n+2) > orange
-    :nth-child(2n+3) > *
+    :nth-child(2n+3) > *        (Flukeout will also accept without the *)
     :nth-child(2n+3) *
-    :not(:first-child):nth-child(odd) > *
+    :not(:first-child):nth-child(odd) > *       (Flukeout will also accept without the *)
     :not(:first-child) > orange
     :not(:first-child) orange
-    * ~ > orange
+    * ~ * > orange          (Flukeout will also accept *~> orange (with or without spaces))
     * ~ * orange
 
 Level 9:
@@ -152,29 +154,29 @@ Level 9:
 
 Level 10:
     *
-    * > *, * > * > *
+    * > *, * > * > *        (Flukeout will accept with any or all * removed, >, >>)
     :is(*)
     :is(:first-child, :not(:first-child))
     :is(:not(:only-child), :not(:only-child) > *)
 
 Level 11:
     plate *
-    * > * > *
-    :not(:empty) > *
+    * > * > *       (Flukeout will accept with any or all * removed, >, >>)
+    :not(:empty) > *        (Flukeout will also accept without the *)
     :not(:empty) *
-    :has(*) > *
+    :has(*) > *         (Flukeout will also accept without the *)
     :has(*) *
 
 Level 12:
     plate + apple
-    plate + *
-    * > apple:is(:first-of-type, :nth-of-type(2))
-    * > apple:not(apple + apple)
-    * > apple:not(apple + *)
-    * > :not(apple + *)apple
-    * > + apple:not(apple + *)
-    * ~ plate + *
-    * ~ * + :not(apple + *)
+    plate + *           (Flukeout will also accept without the *)
+    * > apple:is(:first-of-type, :nth-of-type(2))       (Flukeout will ONLY accept without the *)
+    * > apple:not(apple + apple)        (Flukeout will ONLY accept without the *)
+    * > apple:not(apple + *)        (Flukeout will ONLY accept without the *)
+    * > :not(apple + *)apple        (Flukeout will ONLY accept without the first *, the 2nd * is optional)
+    * > + apple:not(apple + *)      (Flukeout will ONLY accept without the first *, the 2nd * is optional)
+    * ~ plate + *           (Flukeout will also accept without the final *, the first * is required)
+    * ~ * + :not(apple + *)     (Flukeout will also accept with the 2nd and/or 3rd * removed, the first is required)
 
 Level 13:
     bento ~ pickle
@@ -183,47 +185,48 @@ Level 13:
     :is(bento, pickle) + pickle
     pickle:has(+ :is(pickle, plate))
     :is(.small:not(:only-child), .small + *)
-    * + * + :has(+ * + *)
-    * + * + *:has(+ * + *)
+    * + * + :has(+ * + *)       (Flukeout will also accept with any * removed except 1st, only the first * is required)
+    * + * + *:has(+ * + *)      (Flukeout will also accept with any * removed except 1st, only the first * is required)
 
 Level 14:
     plate > apple
-    * > * > apple
-    * + * apple
-    plate + * apple
-    * :not(bento > *)apple
-    * apple:not(bento > *)
+    * > * > apple           (Flukeout will also accept with no *)
+    * + * apple             (Flukeout will also accept with no *)
+    plate + * apple         (Flukeout will also accept plate + > apple too)
+    * :not(bento > *)apple      (Flukeout will also accept without the final *, the first * is required)
+    * apple:not(bento > *)      (Flukeout will also accept without the final *, the first * is required)
     * ~ plate apple
     plate:nth-child(2) apple
     plate:nth-child(2) > apple
     :not(:first-child, :last-child) *
-    :has(+ *):not(:first-child) apple
-    :has(~ *):not(:first-child) apple
-    :has(+ *):not(:first-child) *
+    :has(+ *):not(:first-child) apple       (Flukeout will also accept with no *)
+    :has(~ *):not(:first-child) apple       (Flukeout will also accept with no *)
+    :has(+ *):not(:first-child) *       (Flukeout will also accept without the first *, the last * is required)
     :not(:first-child) apple
     :not(:first-child) *
-    * ~ :has(+ *) *
+    * ~ :has(+ *) *         (Flukeout will also accept without the middle *)
 
 Level 15:
     plate orange:first-child
     orange:first-child
-    * > * > :first-child
-    * > * > :first-of-type
+    * > * > :first-child        (Flukeout will ONLY accept without the first *)
+    * > * > :first-of-type      (Flukeout will ONLY accept without the first *)
     :last-of-type :first-child
-    orange:has(+ * + *)
-    orange:has(~ * ~ *)
+    orange:has(+ * + *)         (Flukeout will also accept with no *)
+    orange:has(~ * ~ *)         (Flukeout will also accept with no *)
     :first-child:not(:only-of-type)
     :nth-child(3) :first-child
     :has(*) :first-child
-    :has(~ *) :first-child
-    :has(+ *) :first-child
+    :has(~ *) :first-child      (Flukeout will also accept with no *)
+    :has(+ *) :first-child      (Flukeout will also accept with no *)
     :not(:empty) :first-child
-    * + * + * :first-child
-    * ~ * ~ * :first-child
-    * + * + * :has(+ * + *)
-    * ~ * ~ * :has(+ * + *)
-    * + * + > :first-child
-    :has(*) :has(+ * + *)
+    * + * + * :first-child      (Flukeout will also accept with no *)
+    * ~ * ~ * :first-child      (Flukeout will also accept without the middle *)
+    * + * + * :has(+ * + *)     (Flukeout will also accept with no *)
+    * ~ * ~ * :has(+ * + *)     (Flukeout will also accept with only the first * and third *, the others are optional)
+    * + * + > :first-child      (Flukeout will also accept with no *)
+    :has(*) :has(+ * + *)       (Flukeout will also accept with only the first *, the others are optional)
+    * ~ :has(+ *) :first-child     (Flukeout will also accept without the final *) 
 
 Level 16:
     plate :only-child
@@ -233,27 +236,27 @@ Level 16:
     :not(bento) :first-child:last-child
     :not(:only-of-type) :only-child
     plate:not(:last-of-type) *
-    plate:not(:last-of-type) > *
-    :not(:last-of-type) > *
+    plate:not(:last-of-type) > *        (Flukeout will also accept with no *)
+    :not(:last-of-type) > *     (Flukeout will also accept with no *)
     :not(:last-of-type) *
-    :not(* ~ * ~ *) *
-    :has(+ * + * + *) *
-    :has(+ * + * + *) > *
+    :not(* ~ * ~ *) *       (Flukeout will also accept with only the final *)
+    :has(+ * + * + *) *     (Flukeout will also accept with only the final *)
+    :has(+ * + * + *) > *       (Flukeout will also accept with no *)
 
 Level 17:
     .small:last-child
     :only-of-type
     .small:only-of-type
-    .small:not(:has(+ *))
-    .small:not(:has(~ *))
+    .small:not(:has(+ *))       (Flukeout will also accept with no *)
+    .small:not(:has(~ *))       (Flukeout will also accept with no *)
 
 Level 18:
     plate:nth-child(3)
     plate:nth-last-child(2)
     :nth-child(3)
     :nth-last-child(2)
-    :has(~ *):not(:has(~ * ~ *, ~ * ~ * ~ *))
-    :has(+ *):not(:has(+ * + *, + * + * + *))
+    :has(~ *):not(:has(~ * ~ *, ~ * ~ * ~ *))       (Flukeout will also accept with no *) = :has(~):not(:has(~~,~~~))
+    :has(+ *):not(:has(+ * + *, + * + * + *))       (Flukeout will also accept with no *) = :has(+):not(:has(++,+++))
     :has(+ [id])
     :nth-of-type(3)
     :nth-last-of-type(2)
@@ -266,8 +269,8 @@ Level 19:
     bento:nth-last-child(3)
     bento:not(:last-of-type)
     bento:not(:last-child)
-    bento:has(+ *)
-    bento:has(~ *)
+    bento:has(+ *)      (Flukeout will also accept with no *)
+    bento:has(~ *)      (Flukeout will also accept with no *)
 
 Level 20:
     apple:first-of-type
@@ -276,7 +279,7 @@ Level 20:
     apple:nth-child(2)
     orange + :not(orange)
     :nth-last-child(5)
-    * ~ :has(+ * + * + * + *)
+    * ~ :has(+ * + * + * + *)       (Flukeout will also accept with only the first *, all others are optional)
 
 Level 21:
     :nth-of-type(even)
@@ -353,17 +356,17 @@ Level 31:
     :has(*)
     :not(:empty)
     [for]:not(:empty)
-    [for]:has(> *)
+    [for]:has(> *)      (Flukeout will also accept with no *)
 
 Level 32:
     [for*="obb"]
     :not(:nth-child(2), :empty)
     :not(:nth-child(2)):not(:empty)
-    :has(> *):not(:nth-child(2))
+    :has(> *):not(:nth-child(2))        (Flukeout will also accept with no *)
     :is(:first-child, :last-child):not(:empty)
     :has(apple, orange)
     [for]:not([for="Timmy"])
-    :not([for="Timmy"]):has(> *)
+    :not([for="Timmy"]):has(> *)        (Flukeout will also accept with no *)
     :not([for="Timmy"]):has(*)
     :not([for="Timmy"]):not(:empty)
     :not([for="Timmy"], :empty)

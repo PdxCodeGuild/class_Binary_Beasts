@@ -21,11 +21,13 @@ Level 1:
     * plate     //selects all plates that are children or grandchildren
     *:not(:only-child)  //selects all elements that are not an only child
     :not(:only-child)   //same as above
+    :not(:first-child:last-child)   //same as above, selects all elements that are not first and last child (not only child)
     plate:not(:only-child)  //selects all plates that are not only-children
     :is(:first-child, :last-child)  //selects all elements that are either a first child or last child
     plate:is(:first-child, :last-child) //selects all plates that are either a first or last child
     :is(:first-of-type, :last-of-type)  //selects all elements that are either the first or last of type
     :not(:only-of-type)     //selects all elements that are not the only of type
+    :not(:first-of-type:last-of-type)   //same as above, selects all elements that are not first and last of type (not only of type)
     plate:is(:first-of-type, :last-of-type) //selects all plates that are either first or last of type
     plate:not(:only-of-type)    //selects all plates that are not the only of type
     :empty      //selects all empty (no children or text nodes) elements
@@ -57,18 +59,17 @@ Level 3:
     [id$="y"]       //selects all elements with an ID that ends with "y"
     [id*="n"]      //selects all elements with an ID that contains the letter "n"
     plate[id="fancy"]   //selects all plates with an ID of "fancy"
-    #fancy:first-child  //selects the element with ID fancy if it is a first-child
-    #fancy:nth-child(1) //same as above
-    #fancy:first-of-type    //selects the element with ID fancy if it is the first of type
-    #fancy:nth-of-type(1)   //same as above
-    #fancy:not(:last-child) //selects the element with the ID fancy if it is NOT the last child
-    #fancy:not(:last-of-type)   //selects the element with ID fancy if it is NOT the last of type
+    :first-child    //selects the element with ID fancy if it is a first-child
+    :nth-child(1)   //same as above
+    :first-of-type:not(:only-of-type)    //selects the element with ID fancy if it is the first of type
+    :not(:last-of-type)   //selects the element with ID fancy if it is NOT the last of type
 
 Level 4:
     plate apple     //best answer
     plate > apple   //selects all apples that are direct children of plate elements
-    :not(:empty)    //selects all elements that are not empty (has children or text node)
-    * > apple   //selects all apples that are direct children of any other element (THIS SHOULD NOT WORK, BUT DOES)
+    :not(:empty) *    //selects all children or grandchildren of any element that is not empty (has children or text node)
+    :not(:empty) > *    //same as above, but exclusive to children only
+    * > apple   //selects all apples that are direct children of any other element (THIS SHOULD NOT WORK!!)
     plate > *    //selects all direct children of all plate elements
     plate *     //selects all children and grandchildren of all plate elements
     plate > :first-child    //selects all plate elements' first child
@@ -233,6 +234,7 @@ Level 15:
     * ~ * ~ * :has(+ * + *)         //selects any element that has two siblings after it and whose parent has 2 siblings before it
     * + * + > :first-child     //same as above but exclusive to children (the above can include grandchildren)
     :has(*) :has(+ * + *)    //selects any element that has 2 siblings after whose parent is not empty
+    * ~ :has(+ *) :first-child      //selects all first children whose parents have a sibling after and is a sibling to an element before it
 
 Level 16:
     plate :only-child   //great answer

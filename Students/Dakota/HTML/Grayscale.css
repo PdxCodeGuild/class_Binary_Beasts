@@ -55,10 +55,5 @@ button{
     border-radius: 10px 10px 10px 10px;
     -moz-border-radius: 10px 10px 10px 10px;
     -webkit-border-radius: 10px 10px 10px 10px;
-    
-}
-.button span {
-    cursor: pointer;
-    display: inline-block;
-    transition: 0.5s;
+    cursor: pointer;   
 }

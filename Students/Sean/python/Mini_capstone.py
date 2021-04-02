@@ -67,10 +67,8 @@ x-----
 |   / \\
 x-------''',]
 
-# random wikipedia article hangman, with description info as reward?
-
 def RetrieveWord():
-    # Pull a random animal from wikipedia
+    # Pull a random page from wikipedia
     url = "https://en.wikipedia.org/wiki/Special:Random"
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
@@ -86,7 +84,7 @@ def RetrieveWord():
     return random_word, links
 
 def ShowBoard(incorrect_guesses,correct_guesses):
-    # Creates and prints a blank space for every character in the random word from Wikipedia
+    # Creates and prints a blank space for every character in the random page
     blank = '_' * len(random_word)
     print(f"{hangman[len(incorrect_guesses)]}")
     print(f"Incorrect guesses: {incorrect_guesses}")

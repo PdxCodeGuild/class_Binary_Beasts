@@ -31,10 +31,12 @@ body{
     width: 200px;
     background-color: white;
     position: relative;
-    /* animation-name: move-around;
+    animation-name: move-around;
     animation-duration: 2s;
-    animation-fill-mode: forwards; */
-    /* animation: */
+    /* animation-timing-function: ease-in; */
+    /* animation-iteration-count: 2 | infinite */
+    /* animation-fill-mode: forwards;  */
+   
 }
 
 @keyframes move-around{

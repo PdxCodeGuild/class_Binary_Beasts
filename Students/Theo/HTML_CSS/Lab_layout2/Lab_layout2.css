@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+ul.header {
+    display: flex;
+    list-style-type: none;
+    justify-content: flex-start;
+}
+
+.header li {
+    padding: 20px;
+}
+
+main {
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+}
+
+div {
+    display: flex;
+    align-items: center;
+}
+
+h1, h4 {
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    display: block;
+}
+
+ul.footer {
+    list-style-type: none;
+}

@@ -29,6 +29,18 @@ h1, h4 {
     transform: rotate(-90deg);
     white-space: nowrap;
     display: block;
+    margin-left: -100px;
+}
+
+h1 {
+    font-size: 100pt;
+    margin-left: -250px;
+    margin-right: -150px;
+}
+
+aside {
+    max-width: 400px;
+    margin-left: 10vw;
 }
 
 ul.footer {

@@ -1,0 +1,95 @@
+/* iframe/embed/object questions? */
+
+/* bad practice to use units for 0 measurements (0px, 0em, 0%), the only required is 0deg */
+
+/* div {
+  transform: rotate(90deg) translate(20px, 50px) scale(2);
+}
+
+div {
+  transition: all 2s ease;
+}
+
+div {
+  background-image: url();
+}
+
+div:is(:hover, :active, :focus) {
+  width: 200px;
+}
+
+div {
+  filter: blur(50px);
+  filter: brightness(1.5);
+  filter: grayscale(0.5);
+} */
+
+@keyframes change {
+  0%,
+  100% {
+    color: blue;
+  }
+
+  50% {
+    color: red;
+  }
+}
+
+/* @media questions? */
+
+/* custom attributes
+data-attributes, attr() 
+attr() only for content, ::before, ::after*/
+
+/* :root vs html-- in normal dom, :host for shadow dowm*/
+:root {
+  --col1: #125512;
+  --font1: "Courier New", Courier, monospace;
+  --cur1: URL("link-to-cursor"), default;
+}
+
+/* font: import, custom, add in html */
+
+/* contenteditable */
+
+div {
+  resize: both;
+  resize: vertical;
+  resize: horizontal;
+  overflow: auto; /* HAVE TO HAVE */
+}
+
+/* specificity */
+
+:is(), :where() { /* :is() arguments are based on their unique specificity, :where() arguments have 0 specificity */
+    color: red;
+}
+
+[data-choice="1"]:hover {
+    background-color: yellow;
+    text-anchor: end;
+    rotate: 45deg;
+}
+
+
+div {
+    background-color: red;
+    height: 200px;
+    width: 200px;
+    margin: 20px;
+}
+
+nav {
+    position: relative;
+}
+
+nav .nav-ul-left {
+    display: flex;
+}
+
+nav .nav-ul-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+}

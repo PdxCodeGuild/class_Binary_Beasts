@@ -1,28 +1,41 @@
+:root {}
+html {}
+
+* {
+    color: #ad102f;
+}
+
 body {
-    display: flex; 
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: lightskyblue;
-
+    justify-content: center;
+    width: 100vw;
 }
 
-article {
-    margin: auto
+h1 {
+    display: block;
 }
 
-p {
-    color:crimson
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-ul {
-    color:crimson
-}
-
-q {
-    color: crimson;
+p:first-of-type {
+    width: 400px;
 }
 
 a {
-    color: yellow;
+    color: #775801;
+}
+
+img {
+    width: 400px;
+    border-radius: 25px;
 }
 
 li {
@@ -31,8 +44,4 @@ li {
 
 q {
     font-style: italic;
-}
-
-img {
-    border-radius: 25px;
 }

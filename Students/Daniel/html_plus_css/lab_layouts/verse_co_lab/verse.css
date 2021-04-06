@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+
+*{
+    font-family: 'Oswald', sans-serif;
+}
+
+.two-col-box{
+    display:flex;
+    background-color:#F5F3F4;
+    justify-content:start;
+    flex-wrap: wrap;
+    align-content:stretch;
+    flex: 1;
+    
+}
+
+li{
+    display:flex;
+    flex: 1;
+    list-style-type: none;
+    padding: 15px;
+    /* border: 1px solid black; */
+    flex-basis: 1.2%;
+}
+
+#nav-list{
+    display:flex;
+    flex-direction: row;
+    align-content: start;
+    background-color:#F5F3F4;
+    flex: 1;
+}
+
+
+#ham-btn{
+    width: 30px;
+    height:30px;
+    margin-left: -19px;
+}
+
+#face{
+    height:auto;
+    margin-top: -45px;
+    padding-top: 3%;
+    width:100%;
+    align-self: center;
+
+
+}
+
+#right-col{
+    display:flex;
+    border: 1px solid black;
+    width: 900px;
+    overflow:hidden;
+    height: 1200px;
+    background-color:#1F1F1F;
+    flex: 1;
+}
+
+#left-col{
+    display:flex;
+    padding-right: 10px;
+    flex: 1;
+}
+
+#two-col-box-content{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height:auto;
+    flex:1;
+}
+
+#large-muse{
+    font-size: 900%;
+    transform: rotate(-90deg) scale(1, 1.5);
+    -webkit-transform: rotate(-90deg) scale(1, 1.5); /* Safari and Chrome */
+    -moz-transform: rotate(-90deg) scale(1, 1.5); /* Firefox */
+    -ms-transform: rotate(-90deg) scale(1, 1.5); /* IE 9+ */
+    -o-transform: rotate(-90deg) scale(1, 1.5); /* Opera */
+    margin-top: 300px;
+    margin-left:-550px;
+    width:max-content;
+
+
+}
+
+body{
+    background-color:#F5F3F4;
+}
+
+#two-col-box-content{
+    background-color:#F5F3F4;
+    height:740px;
+}
+
+#p-heading{
+    color:#8B898A;
+    font-style: italic;
+    font-size: 29px;
+    text-decoration: underline;
+    margin-top: -40px;
+    margin-bottom: 90px;
+    width:max-content;
+}
+
+#p-title{
+    font-weight: bold;
+    font-size:29px;
+    width:max-content;
+}
+
+#p-content{
+    max-width: 250px;
+}
+
+
+#media-links{
+    display: flex;
+    flex-direction: row;
+
+
+}
+#media-links li{
+    min-width: fit-content;
+    
+}
+
+#media-links li:nth-child(3) {
+margin-left:600px;
+
+}
+
+#nested-right{
+    margin-top: 45px;
+}
+
+#nested-right> p{
+    display:flex;
+    flex:1;
+}

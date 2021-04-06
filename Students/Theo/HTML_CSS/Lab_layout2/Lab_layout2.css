@@ -1,0 +1,44 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+ul.header {
+    display: flex;
+    list-style-type: none;
+    justify-content: flex-start;
+}
+
+.header li {
+    padding: 20px;
+}
+
+main {
+    display: flex;
+    /* display: grid;   OPTIONAL
+    grid-template-columns: auto 1fr 1fr;  OPTIONAL */
+}
+
+div {
+    display: flex;
+}
+
+h1, h4 {
+    writing-mode: tb-rl;    /* This rotates it 180deg without messing up the layout */
+    transform: rotate(180deg);   /* This just flips it another 180deg but height and width aren't affected */
+    text-align: center;   /* This will vertically center the text */
+}
+
+h1 {
+    font-size: 100pt;
+}
+
+h4 {
+    font-size: 16pt;
+}
+
+ul.footer {
+    list-style-type: none;
+}

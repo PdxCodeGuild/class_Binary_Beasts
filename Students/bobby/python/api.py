@@ -1,10 +1,11 @@
 import requests
+from secrets import op_weather_api # imports the key
 
 print ("Welcome to find the weather")
-city = input("Enter the city: ").capitalize()
-country = input("Enter the country: ").upper()
+city = "McMinnville" #input("Enter the city: ").capitalize()
+country = "USA" #input("Enter the country: ").upper()
 
-response = requests.get(f"http://api.openweathermap.org/data/2.5/weather?q={city},{country}&appid=306d729ea7af7b631b2aa2b9cf6654a6")
+response = requests.get(f"http://api.openweathermap.org/data/2.5/weather?q={city},{country}&appid={op_weather_api}")
 
 data = response.json()
 

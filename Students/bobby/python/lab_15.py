@@ -12,7 +12,7 @@ string.punctuation
 for punc in string.punctuation:
     lower_string = lower_string.replace(punc, "")
 
-word_list = lower_string.split(" ") # This tells it ot split the string at the spaces
+word_list = lower_string.split(" ") # This tells it to split the string at the spaces
 banned = [""]
 
 word_dict = {}

@@ -1,0 +1,48 @@
+body {
+    background-image: url("grayscale.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+nav {
+    display:flex;
+    color: #ffffff;
+    justify-content: space-between;
+}
+
+li {
+    list-style-type: none;
+    margin: 10px;
+}
+
+.nav-right {
+    display:flex;
+    padding: 8px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    padding-bottom:120px;
+    color: #ffffff94;
+    font-size: 100px;
+}
+
+p {
+    padding-bottom: 40px;
+    color: #000000b6;
+    font-size: 30px;
+}
+
+div button {
+    font-size: 30px;
+    background-color: #50cecea9;
+    border-radius: 5px;
+}
+
+

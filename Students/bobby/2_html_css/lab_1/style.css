@@ -1,37 +1,62 @@
-p{
-    color: rgb(151, 23, 151);
+p {
+    color: #971797;
     font-size: 15px;
     padding: 15px;
-    margin: 10px
+    margin: 10px;
 }
-h1{
-    color: rgb(117, 67, 67) !important
-}
-h2{
-    font-size: 20px
-}
-body{
-    background-color: rgb(219, 219, 208);
-}
-a{ color: rgb(38, 0, 255);
 
+h1 {
+    color: #754343;
 }
-q{
+
+h2 {
+    font-size: 20px;
+}
+
+body {
+    background-color: #dbdbd0;
+}
+
+a { 
+    color: #2600ff;
+}
+
+q {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
 }
-img{
-    border: 5px solid rgb(15, 245, 176);
-    border-radius: 50px 50px;
+
+img {
+    border: 5px solid #0ff5b0;
+    border-radius: 50px;
 }
-ul{
+
+ul {
     list-style-image: url("bullet_point.png");
-    color:rgb(248, 6, 6);
+    color: #f80606;
     font-size: 15px;
 }
-h3{
+
+h3 {
     font-size: 30px;
 }
-h5{
+
+h5 {
     font-size: 17px;
+}
+
+.content {
+    max-width: 500px;
+    margin: auto;
+}
+
+.img-float{
+    height: 100px;
+    width: 100px;
+    float: left;
+}
+
+.img-hof {
+    height: 400px;
+    width: 600px;
 }

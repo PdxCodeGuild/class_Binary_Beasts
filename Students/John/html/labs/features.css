@@ -78,18 +78,3 @@ div {
     width: 200px;
     margin: 20px;
 }
-
-nav {
-    position: relative;
-}
-
-nav .nav-ul-left {
-    display: flex;
-}
-
-nav .nav-ul-right {
-    position: absolute;
-    right: 0;
-    top: 0;
-    display: flex;
-}

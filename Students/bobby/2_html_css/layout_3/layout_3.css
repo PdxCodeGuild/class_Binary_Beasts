@@ -1,0 +1,109 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: black;
+    background: #f7f5f3;
+    height: 100%;
+    padding: 20px 50px;
+    display: flex;
+    width: 90%;
+    margin: 10px;
+}
+
+main {
+    width: 90%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin: 10px;
+    margin-bottom: 40px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: rgba(185, 185, 190, 0.24);
+}
+
+.nav-left {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 310px;   
+}
+
+.nav-left div {
+    margin: 10px;
+}
+
+.nav-right {
+    display: flex;
+    flex-direction: row;
+    display: inline-block;
+    justify-content: flex-end;
+}
+
+.nav-right img {
+    padding: 10px;
+}
+
+.background-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+    height: 90vh;
+    align-items: center;
+    overflow: hidden;
+    background-image: url("./water-bubbles.png");
+}
+
+.title {
+    grid-column: 1 / span 1;
+    font-weight: bolder;
+    font-size: xx-large;
+}
+
+.search{
+    grid-column: 1;
+    grid-row: 2 / 2;
+    align-self: center;    
+}
+
+.paragraph {
+    grid-column: 1 / span 1;
+    font-weight: bolder;
+}
+
+#search {
+    width: 100%;
+    height: 50%;   
+}
+
+.lower_pics {
+    display: flex;
+    justify-content: space-between;
+    grid-column: 2;
+    grid-row: 4 / 6;
+    align-items: baseline;   
+}
+
+.lower_pics :first-child {
+    margin-left: 30px;
+    width: 150px;
+    height: 100px;
+}
+
+.lower_pics :last-child {
+    margin-right: 30px;
+    width: 150px;
+    height: 100px;
+}

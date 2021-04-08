@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><!--This is metadata this is not rendered on the page-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="Robert Estes">
+    <title>Practice Page</title><!--Title goes on the tab of the web page-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body><!--This contains the document's content and will be displayed to the user-->
+    <nav>
+        <ul><!--Unordered lists are shown with bullet points-->
+            <h3>Unordered List</h3>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+        <ol><!--Ordered lists are shown with numbers-->
+            <h3>Ordered List</h3>
+            <li>Hello</li>
+            <li>How are you</li>
+            <li>Goodbye all</li>
+        </ol>
+    </nav>
+    <main>
+        <article>
+            <h1>h1=This is my header 1</h1>
+            <h2>h2=This is my header 2</h2>
+            <p>p=The paragraph tag alows us to define a paragraph</p>
+            <q>q=This is a quote</q>
+            <blockquote>blockesquoteThis is a blocked quote</blockquote>
+            <pre>pre=This is pre-formatted text and preserves spaces and line breaks
+                so we can write
+                on multiple 
+                lines
+            </pre>
+        </article>
+        <a href='https://google.com' target="blank">Click here to go to google </a><!--Target ="blank" opens new tab when link is clicked-->
+        <a href="#myheading">go to My Heading</a>
+        <h2 id="myheading">My Heading</h2>
+        <img src="https://picsum.photos" alt="Randonm Daily Photo" width="400" height="400"/>
+        <div>This is a generic block-level container</div>
+        <span>Represents a generic inline-level container</span>
+        <table>
+            <tr>
+                <td>This is my A table</td>
+                <td>This is my B table</td>
+            </tr>
+            <tr>
+                <td>This is my C table</td>
+                <td>This is my D table</td>
+            </tr>
+            <tr>
+                <td>Month</td><!--These are table headings-->
+                <td>Savings</td>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>$500</td>
+            </tr>
+        <h3>The following are inputs</h3>
+        </table>
+        <button>this is a button</button>
+        <input type="Name"/>
+        <input type="Date"/>
+        <input type="Number"/><br>
+        <input type="submit" value="sumbmit"><br>
+        <br>
+        <input type="radio"name="gender"value="male"><br>
+        <label></label>
+        <input type="radio"name="gender"value="female"><br>
+        <label></label>
+        <input type="radio"name="gender"value="other"><br>
+        <label></label>
+        <form>
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname"><br>
+        </form>
+        <form>
+            <input type="checkbox" id="vehicle" name="vehicle1" value="bike">
+            <label for="vehicle1"></label>
+        </form>
+        <p>Text formatting elements are meant to be embedded within text and determine how the text is rendered. 
+            They allow you to create <b>bold text</b> and <strong>strong text</strong>, <i>italic</i> and <em>emphasized</em> text,
+             <mark>marked</mark>, <small>small</small>, <del>deleted</del>, <ins>inserted</ins>, <sub>subscript</sub>, <sup>superscript</sup>,
+              and time <time>11:23</time>.</p>
+
+
+            <!--How to add style-->
+
+            <!--Inline style-->
+            <p style="color: aqua"></p>
+            <!--Style tags-->
+
+            <!--Using CSS file-->
+            <style>
+                p{
+                    color: green;
+                    font-size: 200px;
+                    background-color: orange;
+                }
+                h1{
+                    color: red
+                }
+            </style>
+    </main>
+    <footer>Bottom of the page</footer>
+</body>
+</html>

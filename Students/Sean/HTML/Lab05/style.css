@@ -1,0 +1,21 @@
+#header{
+    background: rgb(243,255,0);
+    background: radial-gradient(circle, rgba(243,255,0,1) 0%, rgba(255,181,0,1) 33%, rgba(255,117,0,1) 66%, rgba(255,0,0,1) 100%);
+    text-align: center;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 3rem;
+    border-radius: 10%;
+}
+
+.col-sm-8{
+    margin:auto;
+}
+
+.col-sm-2 img{
+    align-items: left;
+}
+
+#total{
+    border: 1px solid grey;
+    border-radius: 3px;
+}

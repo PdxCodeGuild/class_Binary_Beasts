@@ -66,7 +66,8 @@ setTimeout(() => {
 }, 0);
 console.log("Goodbye dear Promise");
 ```
-<!-- 
+
+<!--
 Let's take a closer look to a real API call with Promises using an XMLHttpRequest:
 
 ```javascript
@@ -139,16 +140,14 @@ const urls = [
 
 // map every url to the promise of the fetch
 const requests = urls.map(function(urls) {
-  return fetch(urls)
+  return fetch(urls).then(function(data){
+    return data.json()
+  })
 });
 
 // Promise.all waits until all jobs are resolved
 Promise.all(requests)
-  .then(function (responses) {
-    return Promise.all(responses.map(function (response) {
-      return response.json();
-    }));
-  }).then(function (data) {
+  .then(function (data) {
     console.log(data);
   }).catch(function (error) {
     console.log(error);
@@ -160,10 +159,6 @@ You can shorten it using arrow functions
 ```Javascript
 Promise.all(requests)
   .then((data => {
-    return Promise.all(data.map(response => {
-      return response.json();
-    }));
-  })).then((data => {
     console.log(data);
   })).catch((error) => {
     console.log(error);

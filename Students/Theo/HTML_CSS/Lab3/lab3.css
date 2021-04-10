@@ -40,16 +40,20 @@ div div div {
     object-fit: cover;
 }
 
+.my-col {
+    width: 200px;
+    height: 200px;
+    background-size: 10px;
+
+    background: url("https://i.kym-cdn.com/photos/images/original/001/330/845/f24.jpg") no-repeat center;
+
+}
 
 
-/* .background-image1 {
-    background: url("https://i.kym-cdn.com/photos/images/original/001/330/845/f24.jpg") no-repeat fixed center !important;
-    background-size: 100px;
-    height: 200px; 
-}*/
+
     
 
-.dog {
+/* .dog {
     max-height: 100%;
     max-width: 100%;
     object-fit: cover;
@@ -60,5 +64,5 @@ div div div {
     max-height: 100%;
     max-width: 100%;
     object-fit: cover;
-}
+} */
 

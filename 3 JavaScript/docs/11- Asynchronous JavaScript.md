@@ -32,8 +32,7 @@ This means that it executes code in the order in which it was written, and it mu
   </body>
 </html>
 ```
-
-This represents a limitation, especially working with HTTP requests. Let's imagine that you are visiting a page and in the background there's an HTTP request to the server that is taking too long to run. Imagine that the browser can load all the elements in the page, including buttons, text, images only after that the HTTP request has finished running. This would cause the visitor to leave and would be a terrible user experience. 
+In the example above before displaying the text in the page, we need to close the alert message. This represents a limitation, especially working with HTTP requests. Let's imagine that you are visiting a page and in the background there's an HTTP request to the server that is taking too long to run. Imagine that the browser can load all the elements in the page, including buttons, text, images only after that the HTTP request has finished running. This would cause the visitor to leave and would be a terrible user experience. 
 
 - asynchronous, non-blocking, concurrent
 

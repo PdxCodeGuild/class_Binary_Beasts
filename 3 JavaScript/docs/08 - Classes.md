@@ -16,11 +16,11 @@ class Atm {
     }
 }
 
-let wellsFargo = new Atm();
-console.log(wellsFargo.get_balance());
+const wellsFargo = new Atm();
+console.log(wellsFargo.getBalance());
 
 // using an object
-let atm = {
+const atm = {
   balance: 5.0,
   getBalance: function() {
     return this.balance;
@@ -63,7 +63,7 @@ class Dog extends Animal {
     }
 }
 
-let myDog = new Dog(4);
+const myDog = new Dog(4);
 
 console.log(myDog.legs); // logs 4
 myDog.move(); // logs 'walk', 'dog moving'
@@ -96,7 +96,7 @@ Dog.prototype.bark = function () {
     console.log(this.sound);
 };
 
-var myDog = new Dog(4);
+const myDog = new Dog(4);
 
 console.log(myDog.legs); // logs 4
 myDog.move(); // logs 'walk'

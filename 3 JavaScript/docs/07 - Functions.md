@@ -16,7 +16,7 @@ console.log(add(5, 2));
 You can also assign an anonymous function to a variable:
 
 ```JavaScript
-var add = function(a, b) {
+const add = function(a, b) {
     return a + b;
 }; // this is a statement, and needs a semi-colon
 console.log(add(5, 2));
@@ -34,7 +34,7 @@ function add(a, b) {
 
 // crashes
 console.log(add(5, 2));
-var add = function(a, b) {
+const add = function(a, b) {
     return a + b;
 };
 ```

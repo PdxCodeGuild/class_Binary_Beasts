@@ -78,7 +78,6 @@ const y = parseFloat('4.2');
 const z = x.toString();
 ```
 
-
 ## Comments
 
 Use `//` for line-comments, `/* ... */` for block-comments.

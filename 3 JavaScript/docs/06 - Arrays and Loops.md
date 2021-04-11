@@ -31,12 +31,14 @@ Below are some common operations that can be performed on arrays.
 - `splice()` This method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.
 
 `replace element`
+
 ```Javascript
 const months = ['Jan', 'March', 'April', 'June'];
 months.splice(1, 0, 'Feb');
 ```
 
 `remove 1 element at index 3`
+
 ```Javascript
 let myFish = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon']
 let removed = myFish.splice(3, 1)
@@ -47,15 +49,15 @@ let removed = myFish.splice(3, 1)
 - `slice(start, end)` returns an array containing a subset of the original array, starting at `start` and ending at `end`
 
 ```javascript
-const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+const animals = ["ant", "bison", "camel", "duck", "elephant"];
 
 console.log(animals.slice(2));
 // expected output: Array ["camel", "duck", "elephant"]
 
 console.log(animals.slice(2, 4));
 // expected output: Array ["camel", "duck"]
-
 ```
+
 - `sort()` sorts an array
 - `reverse()` reverses an array
 

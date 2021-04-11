@@ -4,7 +4,7 @@
 Objects are composed of primitive types. They look like Python Dictionaries, but have attributes (variable names) instead of keys (strings).
 
 ```javascript
-let library_user = {
+const library_user = {
     first_name: 'Jane',
     last_name: 'Smith',
     age: 20,

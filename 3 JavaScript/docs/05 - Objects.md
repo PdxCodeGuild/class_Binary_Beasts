@@ -43,3 +43,14 @@ console.log(library_user["first_name"]);
 console.log(library_user.books[0]["title"]);
 // A Wrinkle in Time
 ```
+## You've been using objects all along
+
+So when you used string methods like:
+
+```Javascript
+
+myString.split(',');
+
+```
+
+You were using a method available on an instance of the String class. Every time you create a string in your code, that string is automatically created as an instance of String, and therefore has several common methods and properties available on it.

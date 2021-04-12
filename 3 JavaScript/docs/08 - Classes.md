@@ -1,21 +1,80 @@
-# add Prototypes here
+# Prototypes
 
-Do you remember when we learned that in Python everything is an object? If you run the following command in Python, you'll see all the methods associated with the list object.
+JavsScript isn't a class based language. Classes are syntactic sugar built on top of prototypes. JavaScript is often described as a prototype-based language.
+
+
+Do you remember when we learned that in Python everything is an object? If you run the following command in Python, you'll see all the methods associated with the instance of the integer object.
 
 ```Python
-print(dir([]))
+x = 5
+print(dir(x))
 ```
 
 Javascript uses prototypes, which are the mechanism by which objects inherit features from one another. A prototype is a collection of methods that are are being used by any object type.
 
-Any object in Javascript has a prototype: arrays, sets, integers, custom classes, etc.
+Any object in Javascript has a prototype: arrays, date, integers, custom classes, etc.
+
+Let's take a look at the following example:
 
 ```Javascript
 const arr = [1,2,3]
 console.log(arr)
 ```
+If you open your browser window, look for `__proto__` in the JavaScript console. You'll see that it includes methods coming from the Array object. You can find all methods that JavaScript attached to the Array prototype with `Array.prototype or arr.__proto__`
 
-If you open your browser window, look for `__proto__` in the JavaScript console.
+let's try this:
+
+```Javascript
+function fun(){
+}
+```
+If you start typing `fun.` you'll see methods available to this function. But where these methods are coming from?
+
+Last example:
+
+```Javascript
+const obj = {
+  name: 'alex',
+  lastName: 'D'
+}
+console.log(obj)
+```
+
+You'll see again methods available in the __proto__ object. These methods are coming from the Object object.
+
+Every array, object, function, has a prototype, or a blueprint from which these types inherit methods. Try this in the console:
+```
+
+Array.prototype
+Function.prototype
+Object.prototype
+Set.prototype
+Boolean.prototype
+```
+
+You can modify add each blueprint's methods. For instance, you could add the following property to the Array prototype:
+
+```Javascript
+Array.prototype.hello = function(){alert('hello')}
+```
+Then try the following:
+
+```Javascript
+const myList = [1]
+myList.hello()
+```
+This means that every instance of the Array prototype can use this method. You have just discovered the prototype chain! Properties and methods of instances are found by walking up the chain of prototypes.
+
+## Delete 
+
+
+What's curious about JavaScript is that a these prototypes inherit from an ancestor prototype, which is the Object prototype. If you run `Array.prototype.__proto__` you'll see that the blueprint from which the Array takes.
+
+
+
+JavaScript has a blueprint in the background
+
+How JavaScript assig
 
 ## Classes, introductory Example
 

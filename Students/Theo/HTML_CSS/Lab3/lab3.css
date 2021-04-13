@@ -41,23 +41,22 @@ main {
   /* flex: 0 1 auto; */
 }
 
-.panel > img {
-  object-fit: cover;
-  max-height: 100%;
-  max-width: calc(33.333% - 12.5px);
-  
-  /* width: 200px; */
+.my-col {
+    width: 200px;
+    height: 200px;
+    background-size: 10px;
+
+    background: url("https://i.kym-cdn.com/photos/images/original/001/330/845/f24.jpg") no-repeat center;
+
 }
 
 
-/* 
-img:not(.main) {
-    width: 200px;
-} */
+
+    
 
 /* .dog {
-    max-height: 27vh;
-    max-width: 55vh;
+    max-height: 100%;
+    max-width: 100%;
     object-fit: cover;
 }
 
@@ -65,7 +64,7 @@ img:not(.main) {
     max-height: 33vh;
     max-width: 55vh;
     object-fit: cover;
-}
+} */
 
 .people {
     max-height: 33vh;

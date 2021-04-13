@@ -65,7 +65,12 @@ myList.hello()
 ```
 This means that every instance of the Array prototype can use this method. You have just discovered the prototype chain! Properties and methods of instances are found by walking up the chain of prototypes.
 
-## Delete 
+You can also delete the `.concat()` method from the Array prototype! You can try this:
+
+```Javascript
+delete Array.prototype.concat
+```
+
 
 
 What's curious about JavaScript is that a these prototypes inherit from an ancestor prototype, which is the Object prototype. If you run `Array.prototype.__proto__` you'll see that the blueprint from which the Array takes.

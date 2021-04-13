@@ -1,0 +1,68 @@
+* {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+body {
+    display: flex;
+}
+
+nav {
+    max-width: 15vw;
+    max-height: 100%;
+    font-size: 1.5vw;
+    text-align: center;
+}
+
+
+nav img {
+    max-width: inherit;
+}
+
+main {
+    margin-top: 50px;
+    margin-left: 40px;
+    max-width: 85vw;
+    margin-right: 40px;
+}
+
+div {
+    background-color: aquamarine;
+}
+
+div div div {
+    border: solid black;
+}
+
+.main {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.my-col {
+    width: 200px;
+    height: 200px;
+    background-size: 10px;
+
+    background: url("https://i.kym-cdn.com/photos/images/original/001/330/845/f24.jpg") no-repeat center;
+
+}
+
+
+
+    
+
+/* .dog {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    padding: 0;
+}
+
+.cat {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+} */
+

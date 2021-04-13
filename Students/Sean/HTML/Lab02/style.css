@@ -1,0 +1,41 @@
+body {
+    text-align: center;
+  }
+  
+  main {
+  /*  Because it's only one column, it automatically resizes itself for mobile views.  */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 8fr;
+    grid-column-gap: 1px;
+    grid-row-gap: 1px;
+  }
+  
+  #TopBar {
+      grid-column: 1;
+      display: flex;
+      list-style-type: none;
+      margin: 0.25rem;
+      padding: 1rem;
+      justify-content: space-evenly;
+      
+  }
+  
+  li {
+      padding: 0.50rem;
+  }
+  
+  li:hover {
+      color:grey;
+      transition-duration: 0.5s;
+  }
+  
+  h1 {
+      grid-row: 2;
+      align-items: center;
+  }
+  
+  .pics {
+      grid-row: 3;
+      justify-content: space-evenly;
+  }

@@ -1,0 +1,24 @@
+body {
+    background-color: rgba(192, 245, 227, 0.397);
+}
+
+nav {
+    background-color: rgb(252, 245, 238);
+}
+
+h1 {
+    color: #076677
+}
+
+section {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+section h3 {
+    color: #7a15b4;
+}
+
+p {
+    color: rgb(167, 20, 76);
+}

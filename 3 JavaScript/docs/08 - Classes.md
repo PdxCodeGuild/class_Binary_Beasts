@@ -166,6 +166,43 @@ console.log(atm.getBalance());
 ## Inheritance
 
 ```javascript
+function Animal(legs) {
+  this.legs = legs || 0; // use default value if needed
+}
+
+Animal.prototype.move = function () {
+  if (this.legs > 0) {
+    console.log("walk");
+  } else {
+    console.log("slither");
+  }
+};
+
+function Dog(legs, sound) {
+  Animal.call(this, legs); // parent 'constructor'
+  this.sound = sound || "ruff";
+}
+
+Dog.prototype = Object.create(Animal.prototype);
+//Dog.prototype = new Animal; ??
+
+
+Dog.prototype.bark = function () {
+  console.log(this.sound);
+};
+
+const myDog = new Dog(4);
+
+console.log(myDog.legs); // logs 4
+myDog.move(); // logs 'walk'
+myDog.bark(); // logs 'ruff'
+```
+
+## Syntactic sugar : Classes
+
+## Inheritance
+
+```javascript
 class Animal {
   constructor(legs = 0) {
     this.legs = legs;
@@ -202,107 +239,4 @@ const myDog = new Dog(4);
 console.log(myDog.legs); // logs 4
 myDog.move(); // logs 'walk', 'dog moving'
 myDog.bark(); // logs 'ruff'
-```
-
-The way to do classes is ES5 is much more awkward, but you may see it in the wild, so it's worth knowing.
-
-```javascript
-function Animal(legs) {
-  this.legs = legs || 0; // use default value if needed
-}
-
-Animal.prototype.move = function () {
-  if (this.legs > 0) {
-    console.log("walk");
-  } else {
-    console.log("slither");
-  }
-};
-
-function Dog(legs, sound) {
-  Animal.call(this, legs); // parent 'constructor'
-  this.sound = sound || "ruff";
-}
-
-Dog.prototype = Object.create(Animal.prototype);
-
-Dog.prototype.bark = function () {
-  console.log(this.sound);
-};
-
-const myDog = new Dog(4);
-
-console.log(myDog.legs); // logs 4
-myDog.move(); // logs 'walk'
-myDog.bark(); // logs 'ruff'
-```
-
-## Syntactic sugar
-
-Functions and classes are objects. Functions inherit from the Object prototype and they can be assigned key: value pairs. These pairs are referred to as _properties_ and can themselves be functions (i.e., _methods_).
-
-The most important thing to remember is that classes are just normal JavaScript functions and could be completely replicated without using the class syntax. It is special syntactic sugar added in ES6 to make it easier to declare and inherit complex objects. Let's see an example:
-
-```javascript
-function createNewPerson(name) {
-  const obj = {};
-  obj.name = name;
-  obj.greeting = function () {
-    console.log("Hi! I'm " + obj.name + ".");
-  };
-  return obj;
-}
-const john = createNewPerson("John");
-john.name;
-john.greeting();
-```
-
-To simplify, the same can be written as the following:
-
-```javascript
-function Person(name) {
-  this.name = name;
-  this.greeting = function () {
-    console.log("Hi! I'm " + this.name + ".");
-  };
-}
-
-const person1 = new Person("Bob");
-console.log(person1.greeting());
-```
-
-Which becomes:
-
-```javascript
-class Person {
-  constructor(name) {
-    this.name = name;
-  }
-  greeting() {
-    return this.name;
-  }
-}
-
-const person1 = new Person("Bob");
-console.log(person1.greeting());
-```
-
-Here's how inheritance looks like using functions:
-
-```javascript
-function Brick() {
-  this.width = 10;
-  this.height = 20;
-}
-
-function BlueGlassBrick() {
-  Brick.call(this);
-
-  this.opacity = 0.5;
-  this.color = "blue";
-}
-
-let shape = new BlueGlassBrick();
-
-console.log(shape.width);
 ```

@@ -7,14 +7,14 @@ Arrays are ordered, linear collections of elements. They can hold elements of an
 Array literals are designated by square-brackets and commas:
 
 ```javascript
-let nums = [2, 1, 3];
-let fruits = ["apple", "bananana", "pear"];
+const nums = [2, 1, 3];
+const fruits = ["apple", "bananana", "pear"];
 ```
 
 You can access or set an element by using its index:
 
 ```javascript
-let fruits = ["apple", "bananana", "pear"];
+const fruits = ["apple", "bananana", "pear"];
 console.log(fruits[0]); // apple
 fruits[0] = "cherry";
 console.log(fruits[0]); // cherry
@@ -40,8 +40,8 @@ months.splice(1, 0, 'Feb');
 `remove 1 element at index 3`
 
 ```Javascript
-let myFish = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon']
-let removed = myFish.splice(3, 1)
+const myFish = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon']
+const removed = myFish.splice(3, 1)
 ```
 
 - `join(delimeter)` turns the array into a string, with elements separated by `delimeter`
@@ -78,7 +78,7 @@ while (i < 10) {
 For loops have three parts, separated by semi-colons. The first is the **initialization**, the second is the **condition** and the third is the **increment**.
 
 ```javascript
-let fruits = ["apple", "banana", "pear"];
+const fruits = ["apple", "banana", "pear"];
 fruits.push("cherry");
 for (let i = 0; i < fruits.length; ++i) {
   console.log(fruits[i]);
@@ -103,7 +103,7 @@ for (const element of array1) {
 The for...in statement iterates over all enumerable properties of an object that are keyed by strings (ignoring ones keyed by Symbols), including inherited enumerable properties.
 
 ```javascript
-let car = {
+const car = {
   engine: "honda",
   wheels: 4,
   color: "grey",

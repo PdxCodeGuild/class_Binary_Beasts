@@ -29,8 +29,8 @@ console.log(arr)
 If you open your browser window, look for `__proto__` in the JavaScript console. You'll see that it includes methods coming from the Array object. You can find all methods that JavaScript attached to the Array prototype with `Array.prototype or arr.__proto__`
 
 ```Javascript
-arr.__proto__ === Array.prototype; 
-arr.__proto__.__proto__ === Object.prototype;
+arr.__proto__ === Array.prototype;
+arr.__proto__.__proto__ === Object.prototype; 
 ```
 
 We can also use the isPrototypeOf() method to accomplish this.

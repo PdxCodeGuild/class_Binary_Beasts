@@ -116,9 +116,9 @@ ford.run = function(){
   console.log('going fast!')
 }
 console.log(ford.run()) //going fast!
-console.log(fiar.run()) //undefined
+console.log(fiat.run()) //undefined
 ```
-To have this method available to all my instanced, I'll need to add it to the prototype Car:
+To have this method available to all my instances, I'll need to add it to the prototype Car:
 ```Javascript
 
 Car.prototype.run = function(){

@@ -30,17 +30,18 @@ If you open your browser window, look for `__proto__` in the JavaScript console.
 
 ```Javascript
 arr.__proto__ === Array.prototype;
-arr.__proto__.__proto__ === Object.prototype; 
+arr.__proto__.__proto__ === Object.prototype;
 ```
 
 We can also use the isPrototypeOf() method to accomplish this.
 
 ```Javascript
-Array.prototype.isPrototypeOf(arr);      
+Array.prototype.isPrototypeOf(arr);
 Object.prototype.isPrototypeOf(Array);
 
 arr instanceof Array;
 ```
+
 let's try this:
 
 ```Javascript
@@ -82,7 +83,7 @@ Then try the following:
 
 ```Javascript
 const myList = [1]
-Object.getPrototypeOf(x); //
+Object.getPrototypeOf(myList); //
 myList.hello()
 ```
 
@@ -96,29 +97,29 @@ delete Array.prototype.concat
 
 ## Constructor Functions
 
-Constructor functions are functions that are used to construct new objects.
+Constructor functions are functions that are used to construct new objects. This syntax here allows functions to create objects `(){}`
 
 ```Javascript
 function Car(color, model, year){  //capitalized for convention, so we use the keyword 'new'
   this.color = color,
   this.model = model,
   this.age = year
+  this.run = function(){
+    console.log('going fast!')
+  }
 }
+
 
 const ford = new Car('red', 'sport', '1945')
 const fiat = new Car('red', 'convertible', '1960')
+
+console.log(ford,fiat)
+// Car {color: "red", model: "sport", age: "1945", run: ƒ}
+// Car {color: "red", model: "convertible", age: "1960", run: ƒ}
 ```
 
-If i add a method to my ford car, it won't be shared with the fiat car:
+We notice above that all instances of Car bear the method 'run', which is a memory waste and is redundant. To optimize this, we can add this method to the Car prototype and walk up the chain.
 
-```Javascript
-ford.run = function(){
-  console.log('going fast!')
-}
-console.log(ford.run()) //going fast!
-console.log(fiat.run()) //undefined
-```
-To have this method available to all my instances, I'll need to add it to the prototype Car:
 ```Javascript
 
 Car.prototype.run = function(){
@@ -127,10 +128,11 @@ Car.prototype.run = function(){
 Car.prototype.me = function(){
   return this
 }
+
 console.log(ford.run()) //going fast!
-console.log(ford.me()) //Car {color: "red", model: "model", age: "1945", run: ƒ}
+console.log(ford.me()) //Car {color: "red", model: "sport", age: "1945"}
 console.log(fiat.run()) //going fast!
-console.log(fiat.me()) Car {color: "red", model: "convertible", age: "1960"}
+console.log(fiat.me()) //Car {color: "red", model: "convertible", age: "1960"}
 ```
 
 ## Classes, introductory Example
@@ -185,7 +187,6 @@ function Dog(legs, sound) {
 
 Dog.prototype = Object.create(Animal.prototype);
 //Dog.prototype = new Animal; ??
-
 
 Dog.prototype.bark = function () {
   console.log(this.sound);

@@ -2,6 +2,11 @@
 
 JavsScript isn't a class based language. Classes are syntactic sugar built on top of prototypes. JavaScript is often described as a prototype-based language.
 
+- Prerequisite:
+  [Objects in Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+
+- Resources:
+  Read more [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain) and [here](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
 
 Do you remember when we learned that in Python everything is an object? If you run the following command in Python, you'll see all the methods associated with the instance of the integer object.
 
@@ -20,14 +25,29 @@ Let's take a look at the following example:
 const arr = [1,2,3]
 console.log(arr)
 ```
+
 If you open your browser window, look for `__proto__` in the JavaScript console. You'll see that it includes methods coming from the Array object. You can find all methods that JavaScript attached to the Array prototype with `Array.prototype or arr.__proto__`
 
+```Javascript
+arr.__proto__ === Array.prototype; 
+arr.__proto__.__proto__ === Object.prototype;
+```
+
+We can also use the isPrototypeOf() method to accomplish this.
+
+```Javascript
+Array.prototype.isPrototypeOf(arr);      
+Object.prototype.isPrototypeOf(Array);
+
+arr instanceof Array;
+```
 let's try this:
 
 ```Javascript
 function fun(){
 }
 ```
+
 If you start typing `fun.` you'll see methods available to this function. But where these methods are coming from?
 
 Last example:
@@ -40,11 +60,11 @@ const obj = {
 console.log(obj)
 ```
 
-You'll see again methods available in the __proto__ object. These methods are coming from the Object object.
+You'll see again methods available in the **proto** object. These methods are coming from the Object object.
 
 Every array, object, function, has a prototype, or a blueprint from which these types inherit methods. Try this in the console:
-```
 
+```
 Array.prototype
 Function.prototype
 Object.prototype
@@ -57,12 +77,15 @@ You can modify add each blueprint's methods. For instance, you could add the fol
 ```Javascript
 Array.prototype.hello = function(){alert('hello')}
 ```
+
 Then try the following:
 
 ```Javascript
 const myList = [1]
+Object.getPrototypeOf(x); //
 myList.hello()
 ```
+
 This means that every instance of the Array prototype can use this method. You have just discovered the prototype chain! Properties and methods of instances are found by walking up the chain of prototypes.
 
 You can also delete the `.concat()` method from the Array prototype! You can try this:
@@ -71,15 +94,44 @@ You can also delete the `.concat()` method from the Array prototype! You can try
 delete Array.prototype.concat
 ```
 
+## Constructor Functions
 
+Constructor functions are functions that are used to construct new objects.
 
-What's curious about JavaScript is that a these prototypes inherit from an ancestor prototype, which is the Object prototype. If you run `Array.prototype.__proto__` you'll see that the blueprint from which the Array takes.
+```Javascript
+function Car(color, model, year){  //capitalized for convention, so we use the keyword 'new'
+  this.color = color,
+  this.model = model,
+  this.age = year
+}
 
+const ford = new Car('red', 'sport', '1945')
+const fiat = new Car('red', 'convertible', '1960')
+```
 
+If i add a method to my ford car, it won't be shared with the fiat car:
 
-JavaScript has a blueprint in the background
+```Javascript
+ford.run = function(){
+  console.log('going fast!')
+}
+console.log(ford.run()) //going fast!
+console.log(fiar.run()) //undefined
+```
+To have this method available to all my instanced, I'll need to add it to the prototype Car:
+```Javascript
 
-How JavaScript assig
+Car.prototype.run = function(){
+  console.log('going fast!')
+}
+Car.prototype.me = function(){
+  return this
+}
+console.log(ford.run()) //going fast!
+console.log(ford.me()) //Car {color: "red", model: "model", age: "1945", run: ƒ}
+console.log(fiat.run()) //going fast!
+console.log(fiat.me()) Car {color: "red", model: "convertible", age: "1960"}
+```
 
 ## Classes, introductory Example
 
@@ -110,6 +162,43 @@ const atm = {
 
 console.log(atm.getBalance());
 ```
+
+## Inheritance
+
+```javascript
+function Animal(legs) {
+  this.legs = legs || 0; // use default value if needed
+}
+
+Animal.prototype.move = function () {
+  if (this.legs > 0) {
+    console.log("walk");
+  } else {
+    console.log("slither");
+  }
+};
+
+function Dog(legs, sound) {
+  Animal.call(this, legs); // parent 'constructor'
+  this.sound = sound || "ruff";
+}
+
+Dog.prototype = Object.create(Animal.prototype);
+//Dog.prototype = new Animal; ??
+
+
+Dog.prototype.bark = function () {
+  console.log(this.sound);
+};
+
+const myDog = new Dog(4);
+
+console.log(myDog.legs); // logs 4
+myDog.move(); // logs 'walk'
+myDog.bark(); // logs 'ruff'
+```
+
+## Syntactic sugar : Classes
 
 ## Inheritance
 
@@ -150,107 +239,4 @@ const myDog = new Dog(4);
 console.log(myDog.legs); // logs 4
 myDog.move(); // logs 'walk', 'dog moving'
 myDog.bark(); // logs 'ruff'
-```
-
-The way to do classes is ES5 is much more awkward, but you may see it in the wild, so it's worth knowing.
-
-```javascript
-function Animal(legs) {
-  this.legs = legs || 0; // use default value if needed
-}
-
-Animal.prototype.move = function () {
-  if (this.legs > 0) {
-    console.log("walk");
-  } else {
-    console.log("slither");
-  }
-};
-
-function Dog(legs, sound) {
-  Animal.call(this, legs); // parent 'constructor'
-  this.sound = sound || "ruff";
-}
-
-Dog.prototype = Object.create(Animal.prototype);
-
-Dog.prototype.bark = function () {
-  console.log(this.sound);
-};
-
-const myDog = new Dog(4);
-
-console.log(myDog.legs); // logs 4
-myDog.move(); // logs 'walk'
-myDog.bark(); // logs 'ruff'
-```
-
-## Syntactic sugar
-
-Functions and classes are objects. Functions inherit from the Object prototype and they can be assigned key: value pairs. These pairs are referred to as _properties_ and can themselves be functions (i.e., _methods_).
-
-The most important thing to remember is that classes are just normal JavaScript functions and could be completely replicated without using the class syntax. It is special syntactic sugar added in ES6 to make it easier to declare and inherit complex objects. Let's see an example:
-
-```javascript
-function createNewPerson(name) {
-  const obj = {};
-  obj.name = name;
-  obj.greeting = function () {
-    console.log("Hi! I'm " + obj.name + ".");
-  };
-  return obj;
-}
-const john = createNewPerson("John");
-john.name;
-john.greeting();
-```
-
-To simplify, the same can be written as the following:
-
-```javascript
-function Person(name) {
-  this.name = name;
-  this.greeting = function () {
-    console.log("Hi! I'm " + this.name + ".");
-  };
-}
-
-const person1 = new Person("Bob");
-console.log(person1.greeting());
-```
-
-Which becomes:
-
-```javascript
-class Person {
-  constructor(name) {
-    this.name = name;
-  }
-  greeting() {
-    return this.name;
-  }
-}
-
-const person1 = new Person("Bob");
-console.log(person1.greeting());
-```
-
-Here's how inheritance looks like using functions:
-
-```javascript
-function Brick() {
-  this.width = 10;
-  this.height = 20;
-}
-
-function BlueGlassBrick() {
-  Brick.call(this);
-
-  this.opacity = 0.5;
-  this.color = "blue";
-}
-
-let shape = new BlueGlassBrick();
-
-console.log(shape.width);
 ```

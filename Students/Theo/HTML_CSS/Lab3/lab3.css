@@ -1,43 +1,44 @@
-* {
-    padding: 0px !important;
-    margin: 0px !important;
-}
-
 body {
-    display: flex;
+  display: flex;
+  max-width: 100vw;
 }
 
 nav {
-    max-width: 15vw;
-    max-height: 100%;
-    font-size: 1.5vw;
-    text-align: center;
+  max-width: 13vw;
+  max-height: 100%;
+  font-size: 1.5vw;
+  text-align: center;
 }
 
-
 nav img {
-    max-width: inherit;
+  max-width: inherit;
 }
 
 main {
-    margin-top: 50px;
-    margin-left: 40px;
-    max-width: 85vw;
-    margin-right: 40px;
+  margin-top: 50px;
+  margin-left: 40px;
+  max-width: 85vw;
+  margin-right: 40px;
 }
 
-div {
-    background-color: aquamarine;
-}
-
-div div div {
-    border: solid black;
+.container {
+    max-width: 100% !important;
 }
 
 .main {
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: cover;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.panel {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  width: 100%;
+  gap: 20px;
+  margin-top: 20px;
+  /* flex: 0 1 auto; */
 }
 
 .my-col {
@@ -57,12 +58,20 @@ div div div {
     max-height: 100%;
     max-width: 100%;
     object-fit: cover;
-    padding: 0;
 }
 
 .cat {
-    max-height: 100%;
-    max-width: 100%;
+    max-height: 33vh;
+    max-width: 55vh;
     object-fit: cover;
 } */
 
+.people {
+    max-height: 33vh;
+    max-width: 55vh;
+    object-fit: cover;
+} */
+
+.secondary {
+  padding-top: 40px;
+}

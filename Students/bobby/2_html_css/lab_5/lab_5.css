@@ -1,0 +1,55 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.burrito-img {
+    width: 200px;
+}
+
+.row1 {
+    display: flex;
+    justify-content:center;
+    width: 100%;
+    height:fit-content;
+    font-size: xx-large;
+    background-color: crimson;
+    margin: 10px;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.row {
+    display: flex;
+    justify-content:center;
+}
+
+#order-form {
+    font-size: larger;
+    font-weight: bold;
+}
+
+#order-details {
+    display: flex;
+    justify-content:flex-start;
+    align-self: flex-start;
+    margin: 10px;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#side-image {
+    display: flex;
+    justify-content:flex-start;
+    align-self: flex-start;
+    width: 90%;
+}
+
+#side-div {
+    width: 10%;
+}
+
+
+
+

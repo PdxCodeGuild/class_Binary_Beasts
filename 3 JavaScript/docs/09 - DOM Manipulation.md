@@ -15,10 +15,10 @@ You can access the elements of the DOM from JavaScript using several functions. 
 | function                             | description                                        |
 | ------------------------------------ | -------------------------------------------------- |
 | `document.getElementById(id)`        | get an element with the given id                   |
-| `document.getElementsByTagName(tag)` | get all elements of the given tag                  |
-| `document.getElementsByName(name)`   | get all elements with the given name               |
+| `document.getElementsByTagName(tag)` | get all elements of the given tag | Returns a collection of all elements                               | 
+| `document.getElementsByName(name)`   | get all elements with the given name | Returns a collection of all elements                               |
 | `document.querySelector(selector)`   | get an element that matches the given CSS selector |
-| `document.querySelectorAll(pattern)` | get all elements that match the given CSS selector | Returns a NodeList containing all matching Element nodes. |
+| `document.querySelectorAll(pattern)` | get all elements that match the given CSS selector | Returns a NodeList.
 
 The following code demonstrates how each of these are used:
 
@@ -184,11 +184,18 @@ We can also create elements from scratch.
 <script>
   //two identical ways to find children starting from the parent. This is an example of document traversal
 
-  const ul = document.getElementsByTagName("ul");
-  //because it returns an array, we have to select the index first.
+  const ul = document.getElementsByTagName("ul"); // returns a HTMLCollection
   console.log(ul[0].children);
 
-  children = document.querySelectorAll("ul li");
+  const children = document.querySelectorAll("li");
   console.log(children);
+
+
+  //want to do some magic?
+  for (let i = 0; i < children.length; i++){
+  children[i].addEventListener('click', function(e){
+    e.target.style.color = 'green'
+  })
+}
 </script>
 ```

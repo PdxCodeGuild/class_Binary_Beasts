@@ -28,7 +28,7 @@ The target property of the Event interface is a reference to the object onto whi
         event.target.style.visibility = 'hidden';
         console.log(event.target, event.target.tagName)
     }
-    let list = document.querySelector('#my-list');
+    const list = document.querySelector('#my-list');
     list.addEventListener('click', hide);
 </script>
 </body>

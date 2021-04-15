@@ -80,7 +80,7 @@ For loops have three parts, separated by semi-colons. The first is the **initial
 ```javascript
 const fruits = ["apple", "banana", "pear"];
 fruits.push("cherry");
-for (let i = 0; i < fruits.length; ++i) {
+for (let i = 0; i < fruits.length; i++) {
   console.log(fruits[i]);
 }
 console.log(fruits.indexOf("banana")); // 1

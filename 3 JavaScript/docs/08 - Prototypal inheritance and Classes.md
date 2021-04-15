@@ -135,36 +135,6 @@ console.log(fiat.run()) //going fast!
 console.log(fiat.me()) //Car {color: "red", model: "convertible", age: "1960"}
 ```
 
-## Classes, introductory Example
-
-ES6 introduced a much easier way of writing classes. Below is an example comparing the use of a class to that of an object. The object behaves similarly, except you'll have to re-write the entire structure every time you create an instance. Also, each instance will have its own copy of the `getBalance` function, resulting in greater memory overhead.
-
-```javascript
-// using a class
-class Atm {
-  constructor(balance = 0) {
-    this.balance = balance;
-  }
-  getBalance() {
-    return this.balance;
-  }
-}
-
-const wellsFargo = new Atm();
-const chase = new Atm();
-console.log(wellsFargo.getBalance());
-
-// using an object
-const atm = {
-  balance: 5.0,
-  getBalance: function () {
-    return this.balance;
-  },
-};
-
-console.log(atm.getBalance());
-```
-
 ## Inheritance
 
 ```javascript
@@ -186,7 +156,7 @@ function Dog(legs, sound) {
 }
 
 Dog.prototype = Object.create(Animal.prototype);
-//Dog.prototype = new Animal; ??
+
 
 Dog.prototype.bark = function () {
   console.log(this.sound);
@@ -201,7 +171,7 @@ myDog.bark(); // logs 'ruff'
 
 ## Syntactic sugar : Classes
 
-## Inheritance
+ES6 introduced a much easier way of writing classes.
 
 ```javascript
 class Animal {

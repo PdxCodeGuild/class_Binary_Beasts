@@ -1,14 +1,27 @@
 const readline = require('readline-sync');
 const alphabet = "abcdefghijklmnopqrstuvwxyz"
+const keepSpecial = " 1234567890!@#$%^&*()_+=-,./;\\:'\"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 let alphabetArray = Array.from(alphabet);
 
 let userString = readline.question("Please enter a string to be encoded: ");
+let userRotationChoice = parseInt(readline.question("Please enter desired rotation: "));
+let tempString = Array.from(userString);
+let charLocationInAlphabet = 0;
 
-console.log(userString);
-console.log(alphabetArray[25]);
-let tempString = "";
+
 for (i = 0; i < userString.length; i++){
-    console.log(userString.indexOf(userString[i]));
-    tempString = tempString + alphabetArray[alphabetArray.indexOf(userString[i]) + 13] ;
+    if (userString[i] == keepSpecial.){
+        charLocationInAlphabet = alphabetArray.indexOf(userString[i])
+        console.log("location 1 " + charLocationInAlphabet);
+    
+    
+        tempString[i] = alphabetArray[(charLocationInAlphabet + userRotationChoice)%26] ;
+        console.log("location 3 " + charLocationInAlphabet);
+    }
+
+
+        
+        
+
 }
-console.log(tempString);
+console.log(tempString.join(""));

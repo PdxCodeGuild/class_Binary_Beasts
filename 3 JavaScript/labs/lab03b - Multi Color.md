@@ -5,8 +5,8 @@ Write a function that generates a random color and applies that color to an H1 e
 
 What you'll need to complete this task:
 
-- event listeners
-- RGB color
+- Event listeners
+- CSS knowledge of the RGB color property 
 
 **Note**
 

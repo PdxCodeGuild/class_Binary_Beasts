@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="todo.css">
+
+    <title>TODO</title>
+</head>
+<body>
+    <h1>TO-DO</h1>
+
+    <span>
+        <label for="task">Task:</label>
+        <input type="text" id="task" name="task">
+        <button type="button" id="add-to-list">Add to list</button>
+        <button type="button" id="remove-from-list">Remove from list</button> 
+    </span>
+
+    <h2>In Work</h2>  
+
+    <ul id="todo-list">
+    </ul>
+
+    <h2>Completed Items</h2>
+
+    <ul id="completed-item-list">
+    </ul>
+
+    <script src="todo.js"></script>
+</body>
+</html>

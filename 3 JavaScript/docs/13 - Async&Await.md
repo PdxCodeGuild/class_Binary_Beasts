@@ -99,8 +99,12 @@ Async/await is just syntax sugar built on top of promises, so they can be writte
       }
 
       async function getAll() {
-        await addPost({ id: 3, title: "blog 3" });
-        getPosts();
+        try { //the try catch block is equivalent to the .catch and is specific to async/await syntax
+          await addPost({ id: 3, title: "blog 3" });
+          getPosts();
+        } catch (error) {
+          console.log(error);
+        }
       }
 
       getAll();

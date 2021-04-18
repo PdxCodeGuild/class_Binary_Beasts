@@ -1,5 +1,26 @@
+// Primitive values
+// String, Number, Boolean, Null, Undefined
+
+let letter = "r"
+console.log(letter.toLocaleUpperCase()) // Returns upper case
+
+// Objects
+const house = {
+    city : "Portland",
+    state : "Oregon"
+}
+console.log(house["city"])
+
+for (let key in house){
+    console.log(house[key], key) // for loop
+}
+
+
+
+
 const a = 5
 const fruits = ["apple", "rear"] // this is an array
+//.push adds to an array
 
 const person = {
     age = "5",
@@ -56,7 +77,7 @@ console.log(person.last_name)
 
 let i = 0
 
-While (i < 10){
+While (i < 10) {
     console.log(i)
     i++
 }
@@ -75,4 +96,71 @@ function add(a, b){
     return a + b
 }
 console.log(add)
+
+const video = {
+    title : "titanic",
+    name: function(){
+        console.log(this) // this by itself will return entire object, this.something will call that key
+    }
+}
+video.name()
+
+//----------------------------------------------------------------------------------------------------
+
+// DOM
+
+const myDiv = document.getElementById("myDiv")
+
+const allDivs = document.getElementsByTagName("div")
+console.log(allDivs)
+
+const byName = document.getElementsByName("adiv")
+console.log(byName)
+
+const withQuerySelector = document.querySelector("#mydiv")
+console.log(withQuerySelector)
+
+const withQuerySelectorAll = document.querySelectorAll(".myclass")
+console.log(withQuerySelector)
+
+div1.innerText = "hello world" // this adds to div1
+
+div2.innerHTML = `<p><b>Hello World!<b><p>` // this adds to div1
+
+// these change style
+myDiv.style.fontSize = "24px"
+myDiv.style.color = "red"
+myDiv.style.border = "1px solid black"
+myDiv.style.backgroundColor = "green"
+
+// Setting Attributes
+const example1 = document.getElementsByTagNameNS("h1") [0]
+example1.setAttribute("class", "myColor")
+console.log(example1)
+
+// Input Fields
+const text_field = document.getElementsById("user_input")
+
+trigger.addEventListener("click", function(){
+    console.log(text_field.value)
+    output.innerHTML = text_field.value // outputs to the html
+})
+
+const btn = document.createElement("button") // created button
+btn.style // style the button
+const container = document.getElementsById("") // Target the element
+container.appendChild(btn) // Append the element
+
+constul = documet.getElementsByTagName("ul") [0]
+for (let i = 0; i < ul.length; i++){ // for loop through ul (this needs fixed "It's in the notes")
+    console.log(ul[i]) // you can use .children
+}
+// Select the elements
+// varify the elemnts with console.log
+
+
+// set the attribute
+// get the element
+// has attribute
+
 

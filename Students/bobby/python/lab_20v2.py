@@ -43,7 +43,7 @@ for x in range(100000):
             match +=1
     total += earn_calc(match, earnings)
 expenses = total - (count * 2)
-roi = (total -expenses) / expenses
+roi = (total - expenses) / expenses
 print(f"earnings= {total}")
 print(f"expenses= {expenses}")
 print((f"ROI= {int(roi * 100)}"))

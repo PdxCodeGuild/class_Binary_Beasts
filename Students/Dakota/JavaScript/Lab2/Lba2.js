@@ -34,4 +34,9 @@ completeTrigger.addEventListener("click", function () {
     var node = document.createTextNode(text);
     li.appendChild(node);
     document.getElementById("completedList").appendChild(li);
+    const remove = document.getElementById("remove");
+    const removeTrigger = document.getElementById("removeTrigger");
+    removeTrigger.addEventListener("click", function () {
+        li.remove("li")
+    });
 });

@@ -1,0 +1,24 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    background-color: rgba(0, 0, 255, 0.329);
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    margin: 20px;
+}
+
+button {
+    height: 50px;
+    margin: 20px;
+    font-style: italic;
+}
+

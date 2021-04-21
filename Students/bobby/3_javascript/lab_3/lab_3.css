@@ -1,0 +1,19 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin: 20px;
+    text-align: center;
+    color: rgb(68, 0, 255);
+}
+
+button {
+    margin-left: 650px;
+}
+#timer {
+    margin-left: 670px;
+    margin-top: 20px;
+}

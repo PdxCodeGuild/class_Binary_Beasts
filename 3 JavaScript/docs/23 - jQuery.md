@@ -16,7 +16,7 @@ jQuery uses special 'wrappers' around elements in order to add additional functi
 
 ```javascript
 //element targeted in JS
-const mydiv = (document.getElementById("mydiv").innerText = "hello world!");
+const mydiv = document.getElementById("mydiv").innerText = "hello world!";
 //element targeted in jQuery
 $("#mydiv").text("hello world!");
 ```
@@ -157,11 +157,7 @@ $("li").show();
 ## Creating and Appending Elements
 
 ```javascript
-const div = $("<div>", { id: "foo", class: "a" }).css({
-  "background-color": "red",
-  width: "100px",
-  height: "100px",
-});
+const div = $("<div>", { id: "foo", class: "a" }).css({"background-color" : "red" , "width" : "100px", "height": "100px"});
 $("body").append(div);
 ```
 

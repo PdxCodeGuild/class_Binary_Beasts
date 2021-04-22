@@ -16,7 +16,7 @@ jQuery uses special 'wrappers' around elements in order to add additional functi
 
 ```javascript
 //element targeted in JS
-const mydiv = (document.getElementById("mydiv").innerText = "hello world!");
+const mydiv = document.getElementById("mydiv").innerText = "hello world!";
 //element targeted in jQuery
 $("#mydiv").text("hello world!");
 ```

@@ -1,0 +1,38 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    background-color: aquamarine;
+    margin: 10px;
+    border-style: dashed;
+    border-color: rgba(207, 25, 25, 0.575);
+}
+
+h1 {
+    margin: 20px;
+}
+
+h2 {
+    margin: 20px;
+}
+
+input {
+    margin: 5px;
+    margin-left: 20px;
+    width: 200px;
+}
+
+.todos li {
+    margin-left: 80px;
+    margin-top: 5px;
+    
+}
+
+.completed li {
+    margin-left: 80px;
+    margin-top: 5px;
+    text-decoration: line-through;
+}

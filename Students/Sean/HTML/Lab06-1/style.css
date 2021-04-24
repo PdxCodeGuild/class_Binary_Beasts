@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font:inherit;
+    vertical-align: baseline;
+    list-style: none;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 0.5fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "home"
+      "photo"
+      "outro"
+      "end";
+  }
+  
+  .home {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.3fr 1.8fr 0.9fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "home-body"
+      "home-photos";
+    grid-area: home;
+  }
+  
+  .home-body { grid-area: home-body; }
+  
+  .home-photos {
+    grid-area: home-photos;
+    margin-top: 800px; }
+  
+  .photo {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 1.5fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "photo-body"
+      "photo-reel";
+    grid-area: photo;
+  }
+  
+  .photo-body { grid-area: photo-body; }
+  
+  .photo-reel { grid-area: photo-reel; }
+  
+  .outro { grid-area: outro; }
+  
+  .end {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      ". . . .";
+    grid-area: end;
+  }
+
+ul{
+    list-style-type: none;
+    overflow: hidden;
+}
+
+li{
+    float: left;
+}
+
+li a{
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    padding: 1rem 1rem; 
+}
+
+nav{
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.beyo{
+    border-radius: 50%;
+}
+
+h1{
+    font-size: 32pt;
+}
+
+.month{
+    padding-left: 8rem;
+    padding-top: 8rem;
+}
+
+.search{
+    opacity: 50%;
+}
+
+.body-img-large{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -2;
+}
+
+.body-img-med{
+    position: absolute;
+    right: 0;
+    margin-top: 300px;
+    z-index: -3;
+}
+
+.body-img-strip1{
+    position: absolute;
+    top: 750px;
+    right: 390px;
+}
+
+.body-img-strip2{
+    position: absolute;
+    top: 750px;
+    right: 120px;
+}
+
+.body-img-strip3{
+    position: absolute;
+    top: 750px;
+    right: 0px;
+}
+
+.diam1{
+    z-index: -3;
+    position: absolute;
+    top: -45px;
+    left: -45px;
+    transform: rotate(45deg);
+}
+
+.diam2{
+    z-index: -2;
+    position: absolute;
+    top: -25px;
+    left: -25px;
+    transform: rotate(45deg);
+}
+
+h2 {
+    font-size: 24pt;
+    padding: 0 8rem;
+}
+
+.cheese{
+    display:grid;
+    grid-template-columns: repeat(3,30px);
+    grid-template-rows: repeat(30px);
+    grid-row-gap: 15px;
+    position: absolute;
+    top: 850px;
+    left: 50px;
+}
+
+.cheese *{
+    border-radius: 50%;
+}

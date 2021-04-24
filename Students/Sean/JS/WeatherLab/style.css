@@ -1,0 +1,57 @@
+*{margin: 0; padding: 0;}
+
+body{
+    overflow: hidden;
+    font-family: sans-serif;
+    font-size: 1.5em;
+    color: #fff;
+    text-shadow: .1em .1em 0 rgba(0, 0, 0, 3);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to right top, #9fa9ad, #73a9c2, #0c8dc0);
+}
+
+i {
+    position: absolute;
+    top: 15px;
+    font-size: 100px;
+    animation-name: clouds;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#bar {
+    display: flex;
+    position: absolute;
+    top: 30%;
+    align-items: center;
+    justify-content: center;
+    width: 20rem;
+    height: 5rem;
+    background: whitesmoke;
+    border-radius: 50%;
+}
+
+input, button {
+    font-size: 16px;
+    background: none;
+    border: none;
+}
+
+h1 p {
+    margin: 25px;
+}
+
+h1 {
+    margin: 0 auto;
+    font-size: 5em;
+    text-align: center;
+}
+
+@keyframes clouds{
+    0% {right: 5%;}
+    100% {right: 85%;}
+}

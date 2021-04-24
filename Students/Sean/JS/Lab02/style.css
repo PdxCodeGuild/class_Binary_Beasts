@@ -1,0 +1,134 @@
+#completed li{text-decoration: line-through;}
+
+:root{
+    --topbuttons: #EFDC9E;
+    --topbuttonshv:#eed37b;
+
+    --clearhv:;
+    --donehv:;
+
+    --dne1: #F5CB5C;
+    --dne2: #d3b050;
+    --dnhv: #d4a82d;
+
+    --add1: #E8EDDF;
+    --add2: #c1c5ba;
+    --adhv: #848d89;
+
+    --brdr: 1px solid black;
+}
+
+body{
+    max-width: 75%;
+    margin: 1em auto;
+    background-color: #287271;
+}
+
+.top{
+    font-size: 28px;
+    color: #242423;
+    padding: 1rem 1rem;
+    text-align: center;
+}
+
+#addItem{
+    border: var(--brdr);
+    margin: 0;
+    padding: 10px;
+    width: 75%;
+    font-size: 16px;
+    background: ;
+}
+
+#addBtn{
+    border: var(--brdr);
+    margin: 0;
+    padding: 12px;
+    width: 10.6%;
+    background: var(--topbuttons);
+    cursor: pointer;
+}
+
+#addBtn:hover{ background: var(--topbuttonshv);}
+
+#clrBtn{
+    border: var(--brdr);
+    margin: 0;
+    padding: 12px;
+    width: 10.6%;
+    background: var(--topbuttons);
+    cursor: pointer;
+}
+
+#clrBtn:hover{ background: var(--topbuttonshv);}
+
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+ul li{
+    text-align: center;
+    position: relative;
+    padding: 1rem .5rem 1rem 3rem;
+    list-style-type: none;
+    font-size: 24px;
+    background: var(--add1);
+    border: var(--brdr);
+}
+
+ul li:nth-child(odd){
+    background: var(--add2);
+}
+
+#completed li{
+    background: var(--dne1);
+}
+
+#completed li:nth-child(odd){
+    background: var(--dne2);
+}
+
+#completed li:hover{
+    background: var(--dnhv);
+}
+
+ul li:hover{
+    background: var(--adhv);
+}
+
+.clear{
+    cursor: pointer;
+    position: absolute;
+    left: -1px;
+    top: 0px;
+    border-radius: 0;
+    border: none;
+    border-right: 1px solid black;
+    background: none;
+    height: 100%;
+    width: 5%;
+}
+
+.check{
+    cursor: pointer;
+    position: absolute;
+    right: -1px;
+    top: 0px;
+    border-radius: 0;
+    border: none;
+    border-left: 1px solid black;
+    background: none;
+    height: 100%;
+    width: 5%;
+}
+
+@media (max-width: 1304px) {
+    #addItem{width: 50%;}
+    button{font-size: 12px;}
+}
+
+@media (max-width: 600px) {
+    button{font-size: 8px;}
+}

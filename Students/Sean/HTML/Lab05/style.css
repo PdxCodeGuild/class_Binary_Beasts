@@ -1,3 +1,7 @@
+body{
+    background-color: gainsboro
+}
+
 #header{
     background: rgb(243,255,0);
     background: radial-gradient(circle, rgba(243,255,0,1) 0%, rgba(255,181,0,1) 33%, rgba(255,117,0,1) 66%, rgba(255,0,0,1) 100%);
@@ -18,4 +22,5 @@
 #total{
     border: 1px solid grey;
     border-radius: 3px;
+    background-color: whitesmoke;
 }

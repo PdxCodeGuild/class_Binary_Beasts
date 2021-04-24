@@ -1,9 +1,9 @@
 import requests
 
-API_key = "8af2aa7fa978da0c3dc608a85406875c"
+API_key = "e88c57203580be0fd0cdcacd5106a024"
 
 country_code = "us"
-zip_code = '97103'
+zip_code = '97217'
 
 response = requests.get(f"http://api.openweathermap.org/data/2.5/forecast?zip={zip_code},us&units=imperial&appid={API_key}")
 data = response.json()

@@ -1,0 +1,12 @@
+body{
+    display: flex;
+    padding-top: 5rem;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+button{
+    width: 75%;
+    height: 60rem;
+}

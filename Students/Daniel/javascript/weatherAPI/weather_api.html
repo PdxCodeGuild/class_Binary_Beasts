@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="weather_api.css">
+    <script src="https://kit.fontawesome.com/86921d6eae.js" crossorigin="anonymous"></script>
+    <title>Weather API</title>
+</head>
+<body id="color_change">
+    <h1>Weather API</h1>
+    <span id="weather-icons">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-wind"></i>
+        <i class="fas fa-cloud"></i>
+        <i class="fas fa-cloud-showers-heavy"></i>
+        <i class="far fa-snowflake"></i>
+    </span>
+
+
+    <span>
+        <label for="zip">Zip:</label>
+        <input type="text" id="entered-zip">
+        <button type="button" id="submit-zip" onclick="getWeather()">Submit</button>
+    </span>
+
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+
+
+<script src="key.js"></script>
+<script src="weather_api.js"></script>
+</body>
+</html>

@@ -15,7 +15,7 @@ As expected, the code above will be executed in the order in which is written or
 Promises are one of the methods that Javascript uses to solve this problem, they make code run _asynchronously_. That's how you write a promise:
 
 ```javascript
-let promise = new Promise(function (resolve, reject) {
+const promise = new Promise(function (resolve, reject) {
   // do a thing, possibly async, then…
 
   if (2 + 3 == 4) {
@@ -46,7 +46,7 @@ The code below is a good example of how promises allow asynchronous code to run:
 
 ```javascript
 console.log("Hello Promise");
-let p = new Promise((resolve, reject) => {
+const p = new Promise((resolve, reject) => {
   console.log("Promise started working");
   console.log("Promise is doing some important work…");
   console.log("Promise has completed, about to resolve");
@@ -69,34 +69,38 @@ console.log("Goodbye dear Promise");
 
 Let's take a closer look to a real API call with Promises using XMLHttpRequest (often abbreviated to "XHR"). These type of syntax has been replaced by Fetch.
 
-```javascript
-let promise = new Promise(function (resolve, reject) {
-  let req = new XMLHttpRequest();
-  req.open("GET", "https://api.thecatapi.com/v1/images/search?size=full");
-  req.onload = function () {
-    if (req.status == 200) {
-      let img = JSON.parse(this.responseText);
-      resolve(img);
-    } else {
-      reject("error" + req.status);
-    }
-  };
-  req.send();
-});
+```html
+<img id="demo" />
 
-promise
-  .then((result) => {
-    img = result[0].url;
-    displayImage(img);
-  })
-  .catch((error) => {
-    console.error("Catch Method: ", error);
+<script>
+  const promise = new Promise(function (resolve, reject) {
+    const req = new XMLHttpRequest();
+    req.open("GET", "https://api.thecatapi.com/v1/images/search?size=full");
+    req.onload = function () {
+      if (req.status == 200) {
+        const img = JSON.parse(this.responseText);
+        resolve(img);
+      } else {
+        reject("error" + req.status);
+      }
+    };
+    req.send();
   });
 
-function displayImage(some) {
-  let img;
-  document.getElementById("demo").src = some;
-}
+  promise
+    .then((result) => {
+      img = result[0].url;
+      displayImage(img);
+    })
+    .catch((error) => {
+      console.error("Catch Method: ", error);
+    });
+
+  function displayImage(some) {
+    let img;
+    document.getElementById("demo").src = some;
+  }
+</script>
 ```
 
 Here's a more modern way to handle API calls using promises with fetch:

@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+main {
+    background-color: cornflowerblue;
+}
+
+H1 {
+    display: flex;
+    justify-content: center;
+    color:blueviolet;
+    margin: 20px;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+}
+
+#infor {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 40px;
+    font-weight: bolder;
+}

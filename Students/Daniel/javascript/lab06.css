@@ -1,0 +1,7 @@
+body{
+    display:grid;
+    justify-content: center;
+}
+
+#mapid { height: 180px; }
+

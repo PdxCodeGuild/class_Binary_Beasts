@@ -9,8 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "readline-sync": "^1.4.10",
     "require": "^2.4.20"
   }
 }
-

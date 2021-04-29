@@ -1,0 +1,26 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    background-color: rgba(100, 148, 237, 0.486);
+}
+
+h1 {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    background-color: crimson;
+    font-style: italic;
+}
+#mapid {
+    height: 400px;
+    width: 500px;
+    margin: 20px;
+}
+
+#info {
+    margin: 20px;
+}

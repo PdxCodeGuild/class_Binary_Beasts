@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="Lab1Rot13.css">
+    </head>
+    <body>
+        <h1>
+            Javascript ROT13
+        </h1>
+        <p class = "english_list"></p>
+        <input id="user_input" type="text">
+        <button class="submitButton" id="button">Please enter a word to be decoded</button>
+        <div id="output"></div>
+        <div id="encoded"></div>
+        <script src="Lab1Rot13.js" async defer></script>
+    </body>
+</html>
+
+<!-- const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+const rot13Alphabet = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+const text_field = document.getElementById("user_input");
+const output = document.getElementById("output");
+const trigger = document.getElementById("button");
+const encodedOut = document.getElementById("encoded")
+let encoded = '';
+trigger.addEventListener("click", function () {
+    output.innerText = text_field.value;
+    for (let i=0; i<encodedOut.length; i++) {
+        console.log(i)
+        const index = alphabet.indexOf(encodedOut[i]);
+        console.log(index)
+        encoded += rot13Alphabet[index];
+        console.log(encoded)
+    }
+    encodedOut.innerText = encoded.value
+}) -->

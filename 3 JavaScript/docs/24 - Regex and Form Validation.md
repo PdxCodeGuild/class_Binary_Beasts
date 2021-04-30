@@ -7,9 +7,9 @@ It's important to note that regular expressions are _not_ a standardized languag
 
 
 ```js
-let regex = /hello, (\w+)/i;
+const regex = /hello, (\w+)/i;
 // The result is like an array, but has properties "index" and "input"
-let match = regex.exec('Why hello, Alice.');
+const match = regex.exec('Why hello, Alice.');
 // The position in the search string of the match.
 alert(match.index);  // 4
 // Captures starting at 1. 0 is the whole string matched.
@@ -22,14 +22,14 @@ Below is an example using input fields.
 <input id="username_input" type="text"/>
 <span id='username_info' style="display:none;color:red;">username must be between 1 and 15 lowercase characters</span>
 <script>
-    let username_input = document.querySelector('#username_input');
-    let username_info = document.querySelector('#username_info');
+    const username_input = document.querySelector('#username_input');
+    const username_info = document.querySelector('#username_info');
     
     // this event is triggered whenever the value in the input field is changed
     username_input.oninput = function() {
         
       // define a regex pattern
-      let pattern = /^[a-z]{1,15}$/;
+      const pattern = /^[a-z]{1,15}$/;
       
       // if the pattern doesn't the input value, indicate the error
       if (!pattern.test(this.value)) {

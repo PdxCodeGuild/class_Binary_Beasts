@@ -85,5 +85,8 @@ Below is an example using input fields.
       username_info.style.display = "none";
     }
   });
+
+  //here's a pattern for 1-15 characters, including spaces, symbols and numbers 
+  // const pattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-\s]{1,15}$/; 
 </script>
 ```

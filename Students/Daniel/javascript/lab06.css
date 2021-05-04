@@ -3,5 +3,11 @@ body{
     justify-content: center;
 }
 
-#mapid { height: 180px; }
+#mapid { 
+    height: 300px; 
+    width:500px;
+}
 
+h1{
+    padding-left: 160px;
+}

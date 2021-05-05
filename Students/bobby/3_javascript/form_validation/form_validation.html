@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./form_validation.css">
+    <title>Form Validation</title>
+</head>
+
+<body>
+    <main>
+        <form id="control">
+            <input id="fName" type="text" /> First Name<br>
+            <span id="fName_info" style="display:none;color:red;">First name must be all lowercase letters</span><br>
+            <input id="lName" type="text" /> Last Name<br>
+            <span id="lName_info" style="display:none;color:red;">Last name must be all lowercase letters</span><br>
+            <input id="email" type="text" /> E-mail<br>
+            <span id="email_info" style="display:none;color:red;">Must be a valid email</span><br>
+            <button id="submit">Submit</button>
+        </form>
+    </main>
+    <script src="form_validation.js"></script>
+    <!--This needs to be here to run your .js file-->
+</body>
+
+</html>

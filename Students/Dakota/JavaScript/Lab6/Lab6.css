@@ -1,0 +1,28 @@
+body {
+  background-color: #0d0c0a;
+  font-family: "Helvetica";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#mapid {
+  height: 400px;
+  width: 600px;
+}
+.maps {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  font-size: 42px;
+  text-align: center;
+  background: -webkit-linear-gradient(rgb(255, 255, 255), rgb(0, 0, 0));
+}
+.user {
+  font-size: 21px;
+  text-align: left;
+  color: rgb(201, 201, 201);
+}

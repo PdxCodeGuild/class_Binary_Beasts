@@ -1,0 +1,50 @@
+body{
+
+    background-image: url("https://images.pexels.com/photos/3168034/pexels-photo-3168034.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-size: 1920px 2399px;
+    background-color: grey;
+}
+
+#mapid {
+    height:1370px;
+    width:1020px;
+    border-radius: 26.5% 27% 33.5% 35.5%;
+}
+
+#container{
+    padding-top: 460px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+}
+
+h1{
+    padding-top: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    color: cornflowerblue;
+}
+
+#info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#info > *{
+    color: cornflowerblue;
+}
+
+@media (min-width: 2560px) {
+    body{
+            background-size: 100% 100%;
+    }
+    #mapid{
+        width: 1360px;
+    }
+
+}

@@ -1,0 +1,50 @@
+#clock {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 48px;
+}
+
+#stopwatch {
+	display: flex;
+	justify-content: center;
+}
+
+#lap {
+	display: flex;
+	justify-content: center;
+}
+.container {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	gap: 0px 0px;
+	grid-template-areas:
+		'.'
+		'watch'
+		'.';
+}
+
+.container > * {
+	margin: 8rem 1rem 3rem 1rem;
+}
+
+.buttons {
+	text-align: center;
+}
+
+button {
+	margin: 0rem 3rem 0rem 3rem;
+	padding: 4rem;
+}
+
+.watch {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr;
+	gap: 0px 0px;
+	grid-template-areas: '. .';
+	grid-area: watch;
+	text-align: center;
+	font-size: 48px;
+}

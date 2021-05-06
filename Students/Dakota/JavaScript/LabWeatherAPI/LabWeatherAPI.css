@@ -1,0 +1,23 @@
+body {
+    transition: background-color 0.5s ease;
+}
+body{
+    background-color:#0d0c0a;
+    font-family: 'Helvetica';
+}
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    font-size: 42px;
+    text-align: center;
+    background: -webkit-linear-gradient( rgb(255, 255, 255), rgb(0, 0, 0));
+} 
+img{
+    align-items: left;
+    height:150px;
+    width:150px;
+}

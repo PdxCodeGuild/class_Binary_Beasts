@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="LabFormValidation.css" />
+  </head>
+  <body>
+      <h1>Lab Form Validation</h1>
+    <p>Username:</p>
+    <input id="Username" type="text" required/>
+    <span id="username_info" style="display: none; color: red"
+      >The username must be between 1 and 6 characters long
+    </span>
+    <p>Password:</p>
+    <input id="Password" type="text" required/>
+    <span id="password_info" style="display: none; color: red"
+      >The password must be between 1 and 6 characters long
+    </span>
+    <p>First Name:</p>
+    <input id="firstName" type="text" required/>
+    <span id="firstName_info" style="display: none; color: red"
+      >The first name must be more than one character long
+    </span>
+    <p>Last Name:</p>
+    <input id="lastName" type="text" required/>
+    <span id="lastName_info" style="display: none; color: red"
+      >The last name must be more than one character long
+    </span>
+    <p>Email:</p>
+    <input id="email" type="text" required/>
+    <span id="email_info" style="display: none; color: red"
+      >The email must be in the appropriate email format.
+    </span>
+    <p>Phone Number:</p>
+    <input id="Phone" type="text" required/>
+    <span id="Phone_info" style="display: none; color: red"
+      >The Phone Number must be in the following format: 555-555-5555.
+    </span>
+    <p>Date of Birth:</p>
+    <input id="DOB" type="text" required/>
+    <span id="DOB_info" style="display: none; color: red"
+      >The Date of Birth must be in the following format: MM-DD-YYYY.
+    </span>
+    <p>Social Security Number:</p>
+    <input id="Social" type="text" required/>
+    <span id="Social_info" style="display: none; color: red"
+      >The Social Security Number must be 9 digits long.
+    </span>
+    <div>
+      <button class="submitButton" id="submit">Submit</button>
+    </div>
+    <script src="LabFormValidation.js" async defer></script>
+  </body>
+</html>

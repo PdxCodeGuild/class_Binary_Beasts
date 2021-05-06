@@ -1,0 +1,26 @@
+body{
+    background-color:#0d0c0a;
+    font-family: 'Helvetica';display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    font-size: 42px;
+    text-align: center;
+    background: -webkit-linear-gradient( rgb(255, 255, 255), rgb(0, 0, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    top:-100px;
+    animation-name: from-top;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+} 
+p{
+    display: flex;
+    list-style-type:none;
+    flex-direction: row;
+    padding: 10px;
+    justify-content:space-evenly;
+    color: rgb(255, 255, 255);
+}

@@ -3,7 +3,7 @@ document.getElementById("submit").addEventListener("click", function (event) {
   const userInput = document.querySelectorAll(".input");
 
   const nameRegex = new RegExp('(^[A-Za-z]+$)');
-  const emailRegex = new RegExp('(^[A-Za-z]+$)'); // need to create email regex
+  const emailRegex = new RegExp('([@])');
   fname = userInput[0].value;
   lname = userInput[1].value;
   email = userInput[2].value;

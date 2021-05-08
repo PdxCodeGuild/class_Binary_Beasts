@@ -1,0 +1,24 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    padding: 20px;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 150px;
+    background-color: rgba(129, 127, 255, 0.404);
+    border: 1px solid black;
+    margin: 20px;
+}
+
+#button {
+    margin: 20px;
+}

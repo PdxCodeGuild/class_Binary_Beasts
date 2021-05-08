@@ -26,7 +26,7 @@ deactivate ##to deactivate
 
 - Create a site/project: `django-admin startproject <project_name> .` Remember to add a . (dot at the end, after the project name)
 
-## Create an app inside the project.
+## Create an app and reference it in the project.
 
 - Create an app: `python manage.py startapp <app-name>`
 - Add your app to the `INSTALLED_APPS` in `settings.py`

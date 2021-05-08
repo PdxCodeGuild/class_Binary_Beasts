@@ -12,12 +12,6 @@ I usually set Pipenv to the latest Python version available on my machine, so I 
 
 Then I run: `pipenv install django`
 
-## Run server
-
--To verify that Django was installed correctly, run the server. In the terminal run `python manage.py runserver` (if you are using Python 3 you may run `python3 manage.py runserver`)
-
--To exit the server, press CONTROL + C.
-
 ## Set up Virtual Environment with Virtual ENV
 
 ```bash
@@ -45,6 +39,12 @@ deactivate ##to deactivate
   ```
 
   -Add `import os` at the top of the Settings.py page if you do not see it there.
+
+## Run server
+
+-To verify that Django was installed correctly, run the server. In the terminal run `python manage.py runserver` (if you are using Python 3 you may run `python3 manage.py runserver`)
+
+-To exit the server, press CONTROL + C.
 
 ## Setup your static files. Base.HTML, CSS and Javascript files.
 

@@ -7,7 +7,7 @@
         <a href="{%url 'add_authors'%}" class="btn btn-primary btn-lg" role="button">Register Authors</a>
         <a href="{%url 'add_books'%}" class="btn btn-primary btn-lg" role="button">Add Books</a>
         {%if user.is_authenticated%}
-        <a href="{%url 'list'%}" class="btn btn-primary btn-lg" role="button">Borow a Book</a>
+        <a href="{%url 'list'%}" class="btn btn-primary btn-lg" role="button">Borrow a Book</a>
         <a href="{%url 'my_boorowed_books'%}" class="btn btn-primary btn-lg" role="button">My Books</a>
         {%endif%}
     </div>

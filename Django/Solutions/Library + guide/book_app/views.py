@@ -47,9 +47,7 @@ def add_books(request):
             title = request.POST['title']
             quantity = request.POST['quantity']
             pub_date = request.POST['pub_date']
-            book = Book.objects.create(title=title,
-                                   author=Author(id=request.POST['author']),
-                                   pub_date=pub_date, quantity = quantity)
+            book = Book.objects.create(title=title, author=Author(id=request.POST['author']), pub_date=pub_date, quantity = quantity)
             messages.success(request, 'Book added in the Database!')
             return redirect('dashboard')
         else: ## Otherwise print error and stay in the form view
@@ -89,7 +87,7 @@ def return_book(request, id):
     borrowed_book_id = LandBook.objects.get(id = id)
     book_title = str(borrowed_book_id).split(' ')
     find_book = Book.objects.filter(title__contains = book_title[0]).first() ##finds the object starting from the queryset
-    find_book.quantity = find_book.quantity + 1
+    find_book.quantity += 1
     find_book.save()
     borrowed_book_id.delete()
     return redirect('my_boorowed_books')

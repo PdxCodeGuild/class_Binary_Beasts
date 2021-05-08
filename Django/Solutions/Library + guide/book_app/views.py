@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, HttpResponse
 from .models import Book, Author, LandBook 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 def dashboard(request):
     return render(request, 'pages/dashboard.html')
@@ -85,9 +86,9 @@ def borrowed_books_view(request):
 
 def return_book(request, id):
     borrowed_book_id = LandBook.objects.get(id = id)
-    book_title = str(borrowed_book_id).split(' ')
-    find_book = Book.objects.filter(title__contains = book_title[0]).first() ##finds the object starting from the queryset
-    find_book.quantity += 1
+    book_details = str(borrowed_book_id).split(' ')
+    find_book = Book.objects.filter(author__available_authors__contains= book_details[2]).first() ##filters by : foreignkey__field__searchfilter
+    find_book.quantity  = find_book.quantity + 1
     find_book.save()
     borrowed_book_id.delete()
     return redirect('my_boorowed_books')

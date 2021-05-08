@@ -128,7 +128,6 @@ In root directory of the **templates** folder, add a base.html file:
 
 ```python
 from django.shortcuts import render
-from django.http import HttpResponse
 
 def home(request):
     return render(request, 'pages/home.html')

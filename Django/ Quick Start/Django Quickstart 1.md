@@ -17,6 +17,7 @@ Then I run: `pipenv install django`
 ```bash
 python3 -m venv env
 source env/bin/activate
+python3 -m pip install django
 deactivate ##to deactivate
 ```
 

@@ -100,15 +100,10 @@ Create a few entries:
 - run `Blog.objects.create(title='I made my kittens bark', text='lorem ipsum', pub_date='2009-11-12')`
 - run `Blog.objects.create(title='The economy of the 20th century', text='another lorem ipsum', pub_date='2020-01-12')`
 
-You can also do (same as above):
-
-- run `b = Blog.objects.create(title='I made my kittens bark', text='lorem ipsum', pub_date='2009-11-12')`
-- run `b.save()`
-
 Filtering:
 
-- run `b = Blog.objects.filter(title = 'I made my kittens bark')`
-- run `b = Blog.objects.filter(id = 1)`
+- run `Blog.objects.filter(title = 'I made my kittens bark')`
+- run `Blog.objects.filter(id = 1)`
 - run `Blog.objects.filter(title__startswith='I made')`
 
 - run `a = Blog.objects.all()` to assign all posts to a variable

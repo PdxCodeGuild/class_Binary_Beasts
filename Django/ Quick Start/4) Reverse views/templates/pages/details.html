@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<p><a href=http://localhost:8000/posts>Back to main view</a></p>
+<p><a href="{% url 'posts'%}">Back to main view</a></p>
 <ul>
   <p>ID: {{ post.id }}</p>
   <p>Description: {{ post.text }}</p>

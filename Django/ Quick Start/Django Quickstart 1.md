@@ -10,9 +10,9 @@ If you do not have Pipenv, install it globally on your machine. In the terminal 
 
 I usually set Pipenv to the latest Python version available on my machine, so I run `pipenv --python 3.6`
 
-Then I run: `pipenv install django`
-
 Make sure that your virtual environment is running. You can run `pipenv shell`
+
+Then I run: `pipenv install django`
 
 ## Set up Virtual Environment with Virtual ENV
 

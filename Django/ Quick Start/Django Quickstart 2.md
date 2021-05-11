@@ -82,11 +82,7 @@ class Blog(models.Model):
 - Stage your migrations: `python manage.py makemigrations <appname>`
 - Perform migrations (synchronize your models with your database): `python manage.py migrate`
 
-2. Create superuser
-
-- run `python manage.py createsuperuser`
-
-3. The shell
+2. The shell
 
  Learn more about making queries [here](https://docs.djangoproject.com/en/3.1/topics/db/queries/) and [here](https://docs.djangoproject.com/en/3.1/topics/db/queries/)
 
@@ -112,7 +108,7 @@ Filtering:
 - run `a[0].delete()` to delete the first element
 
 
-## Part 4. Superuser
+## Superuser
 
 Exit the shell typing `exit()`. Let's discover the Admin panel and see all the blog posts that we have created. In my_app > admin.py page add the following:
 

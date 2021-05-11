@@ -12,6 +12,8 @@ I usually set Pipenv to the latest Python version available on my machine, so I 
 
 Then I run: `pipenv install django`
 
+Make sure that your virtual environment is running. You can run `pipenv shell`
+
 ## Set up Virtual Environment with Virtual ENV
 
 ```bash

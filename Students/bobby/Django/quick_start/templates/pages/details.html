@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<a href="{% url 'posts'%}">Back to main view</a>
+<ul>
+    <p>ID {{post.id}}</p>
+    <p>Description {{post.text}}</p>
+    <p>Pub Date {{post.pub_date}}</p>
+</ul>
+
+
+{% endblock %}

@@ -1,15 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form action="{% url 'update' todo.id %}" method="POST">
-    {% csrf_token %}
-    title: <br> <input type="text" name="title" value="{{ todo.title }}"><br>
-    description:<br> <textarea name="text" id="" cols="30" rows="10">{{ todo.text }}</textarea><br>
-    status: <br> <select name="status"><br>
-        <option value="True">True</option>
-        <option value="False" selected>False</option>
-      </select> 
-      <br>
-    <input type="submit" value="update">
+
+<form id='author-form' action="{% url 'update' todo.id %}" method="POST">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" name="title" id="title" aria-describedby="title"
+      placeholder="{{ todo.title }}">
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea class="form-control" name="text" id="description" placeholder="{{ todo.text }}" rows="3"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Example select</label>
+    <select class="form-control" name="status" id="status">
+      <option>True</option>
+      <option>False</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
 {% endblock %}

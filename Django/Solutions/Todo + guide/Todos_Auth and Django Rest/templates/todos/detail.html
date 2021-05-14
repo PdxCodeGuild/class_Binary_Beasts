@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <p>title: {{ todo.title }}</p>
-    <p>description: {{ todo.text }}</p>
-    <p>status: {{ todo.status }}</p>
-    <a href="{% url 'update' todo.id %}">update</a>
-    <a href="{%url 'remove' todo.id %}">remove</a>
-    <a href ="http://localhost:8000/todo/">Back to main todo list</a>
+<div class="container mt-3">
+    <p>Title: {{ todo.title }}</p>
+    <p>Description: {{ todo.text }}</p>
+    <p>Completed: {{ todo.status }}</p>
+    <a href="{% url 'update' todo.id %}" class="btn btn-secondary active" role="button" aria-pressed="true">Update</a>
+    <a href="{%url 'remove' todo.id %}" class="btn btn-secondary active" role="button" aria-pressed="true">Remove</a>
+    <a href="{%url 'list' %}" class="btn btn-secondary active" role="button" aria-pressed="true">Main List</a>
+</div>
+
 {% endblock %}

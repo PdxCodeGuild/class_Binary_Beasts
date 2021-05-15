@@ -1,3 +1,4 @@
 {
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "python.pythonPath": "C:\\Users\\Dutt1ez\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
 }

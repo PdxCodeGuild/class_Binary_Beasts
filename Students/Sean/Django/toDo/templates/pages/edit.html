@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Original todo:</h1>
+<p>{{edited.title}}</p>
+<p>Posted: {{edited.pub_date}}</p>
+<p>Due: {{edited.due_date}}</p>
+
+<form action="{% url 'replace' edited.id %}" method="post">
+  {% csrf_token %}
+  <p>To-do:</p>
+  <input type="text" name="title" placeholder="enter todo title" /><br />
+  <label for="pub">Start date:</label>
+  <input type="date" id="pub" name="pub_date" value="2018-07-22" min="2018-01-01" max="2030-12-31"><br />
+  <label for="due">Due date:</label>
+  <input type="date" id="due" name="due_date" value="2018-07-22" min="2018-01-01" max="2030-12-31">
+  <br />
+  <input type="submit" />
+</form>
+
+{% endblock %}

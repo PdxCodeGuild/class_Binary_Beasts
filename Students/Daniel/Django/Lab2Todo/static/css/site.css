@@ -1,0 +1,29 @@
+body{
+    display:grid;
+    justify-content: center;
+
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    background-attachment: fixed;
+
+}
+
+li{
+    list-style-type: none;
+    margin-left: -33px;
+}
+
+#form-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+}
+#form-left{
+    margin-left: -150px;
+}
+
+#details-container{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-gap: 2px;
+}

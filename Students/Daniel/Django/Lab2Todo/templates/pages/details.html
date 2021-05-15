@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<span><h1>Details</h1><a href="http://localhost:8001/">Go back</a></span>
+<div id="details-container">
+    <p>{{item.pub_date}}</p>
+    <p>{{item.text}}</p>
+    <p>{{item.completed_date}}</p>
+    <p>{{item.is_complete}}</p>
+    
+
+
+</div>
+
+
+
+{% endblock %}

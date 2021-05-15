@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-3">
+
+    <h1 class="text-center font-weight-light text-center text-lg-left mt-4 mb-5">
+        Thumbnail Gallery
+    </h1>
+
+    <div id="js-todos"></div>
+    <a id="serializer" class="btn btn-secondary active" role="button" aria-pressed="true">Display Todos</a>
+    
+    <script>
+        const sr = document.getElementById('serializer')
+        const container = document.getElementById('js-todos')
+        function getData() {
+            fetch("http://127.0.0.1:8000/api-data/")
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    for (let i = 0; i < data.length; i++) {
+                        console.log(data[i].title)
+                        document.body.innerHTML += 
+                        `<div class="container mt-3">
+                            <p>Title: ${data[i].title}<p>
+                            <p>Text: ${data[i].text}<p>
+                            <p>Status: ${data[i].status}<p>
+                            <p>User: ${data[i].user}<p>
+                        </div>`
+                    }
+                })
+        }
+        sr.addEventListener('click', () => {
+            getData()
+        })
+    </script>
+</div>
+{% endblock %}

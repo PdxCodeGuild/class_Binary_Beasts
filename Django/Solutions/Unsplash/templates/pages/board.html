@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1 class="text-center font-weight-light text-center text-lg-left mt-4 mb-5">
+  Thumbnail Gallery
+</h1>
+<div class="container gallery">
+  {%for image in my_board%}
+  <p>{{elem.thumb}}</p>
+  <div>
+    <a href="{{image.thumb}}">
+      <img class="img-fluid img-thumbnail" src="{{image.thumb}}" alt="" />
+    </a>
+  </div>
+  <div id="js-images"></div>
+</div>
+{%endfor%}
+<button id="btn">click me</button>
+<button id="serializer">Serializer</button>
+<script>
+  const btn = document.getElementById('btn')
+  const myImages = {{ serialized_board| safe }}
+  btn.addEventListener('click', () => {
+      console.log(myImages)
+  })
+  const sr = document.getElementById('serializer')
+  const container = document.getElementById('js-images')
+  function getData() {
+      fetch("http://localhost:8000/api-data/")
+          .then(res => res.json())
+          .then(data => {
+              let img = ''
+              for (let i = 0; i < data.length; i++) {
+                  console.log(data[i].thumb)
+                  document.body.innerHTML += `<img src=${data[i].thumb}>`
+              }
+          })
+  }
+  sr.addEventListener('click', () => {
+      getData()
+  })
+</script>
+{% endblock %}

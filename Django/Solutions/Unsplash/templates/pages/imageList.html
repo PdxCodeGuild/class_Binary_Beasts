@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h4 class='mt-3 text-center mt-3 mb-5'> Images</h4>
+{% for images in pics %}
+
+<form class='mt-3' action="{% url 'add_pictures' images.id %}" method="POST">
+  {% csrf_token %}
+  <div id='author-form' class="form-group">
+    <img name ='selected-picture' src={{images.thumb}}></img>
+    <button type="submit" class="btn btn-dark mt-3">Save to Board</button>
+    <a href="{{images.download}}" class="btn btn-dark mt-3" role="button">Download</a>
+  </div>
+</form>
+</br>
+</br>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,9 @@
+h1 {
+    color: firebrick;
+  }
+
+body {
+  margin: 20px;
+  background-color: rgba(146, 240, 240, 0.459);
+  font-style: oblique;
+}

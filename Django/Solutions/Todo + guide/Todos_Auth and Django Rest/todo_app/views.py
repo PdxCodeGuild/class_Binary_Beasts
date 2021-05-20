@@ -74,3 +74,6 @@ def remove_todo(request, id):
     todo = Todo.objects.get(id = id)
     todo.delete()
     return redirect('list')
+
+def serialized(request):
+    return render(request, 'todos/serialized.html')

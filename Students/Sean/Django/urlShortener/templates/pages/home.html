@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Enter URL to shorten:</h1>
+<form action="{% url 'add' %}" method="post">
+  {% csrf_token %}
+  <input type="text" name="link">
+  <input type="submit" value="Shorten">
+</form>
+
+<ul>
+  {% for link in link_infos reversed %}
+  <li>
+    <a href="{{link.link}}" target="_blank">{{link.link_id}}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

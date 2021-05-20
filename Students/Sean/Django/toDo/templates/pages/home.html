@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %}
+<form action="{% url 'add' %}" method="post">
+  {% csrf_token %}
+  To-do:
+  <input type="text" name="title" placeholder="enter todo title" /><br />
+  <label for="pub">Start date:</label>
+  <input type="date" id="pub" name="pub_date" value="2018-07-22" min="2018-01-01" max="2030-12-31"><br />
+  <label for="due">Due date:</label>
+  <input type="date" id="due" name="due_date" value="2018-07-22" min="2018-01-01" max="2030-12-31">
+  <br />
+  <input type="submit" />
+</form>
+
+<ul>
+  {% for post in todos %}
+  <li>
+    <p>{{post.title}}</p>
+    <p>Posted: {{post.pub_date}}</p>
+    <p>Due: {{post.due_date}}</p>
+    <a href="{% url 'delete' post.id %}"><button>Delete</button></a>
+    <a href="{% url 'edit' post.id %}"><button>Edit</button></a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

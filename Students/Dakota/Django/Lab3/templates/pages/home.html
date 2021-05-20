@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+<h1>URL Shortener</h1>
+<form action="{% url 'addURL' %}" method="POST">
+  {% csrf_token %} {{ form }}
+  <input type="text" name="content" placeholder="enter a URL to be shortened" />
+  <button type="submit">Submit</button>
+</form>
+<ul>
+  {% for u in urlLists %}
+  <li>
+      Original URL: {{u.urlItem}}</a>
+    <br/>
+    Shortened URL: 
+    <a name="urlRedirect" href="{% url 'urlRedirect' u.id %}">{{u.shortURL}}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

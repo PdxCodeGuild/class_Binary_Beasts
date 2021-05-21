@@ -1,0 +1,74 @@
+#CascadiaSkillSwap.com#
+
+##Overview##
+
+Americans are increasingly isolated, lacking resilient communities to provide a sense of belonging and to provide for them in times of crisis. With crisis on the horizon, Cascadia Skill Swap 
+seeks to bring people together to teach each other practical skills in the hopes of fostering communities that are able to support each other when their members are suffering.
+
+##Features##
+
+The first feature I'll implement is a user profile. Users can have a profile picture and can list skills they're able to teach and skills they want to learn. Users can add each other to
+their respective networks and can endorse each other's skills, as on LinkedIn. If users have worked in a specific field, they can write a short resume, and can provide verification.
+
+Next, I'll implement the central feature, a craigslist-style messageboard where users can post ads offering to teach skills or requesting a teacher. The handshake agreement of the site
+is that for each hour you spend learning a skill, you spend an hour teaching a skill. The messageboard will be sorted into categories like "food", "shelter", "medicine", "engineering",
+"fiber arts", "writing", etc.
+
+Third, I'll implement a discussion forum, divided into the same categories, where users can reach out to the community for advice in developing their skills. Users will be able to see other
+users' forum posts on their profile.
+
+Fourth, I'll add a direct messaging app so that users can contact each other internally, without having to use email. I will provide the option for users to receive email notifications when
+they are messaged on Cascadia Skill Swap.
+
+Fifth, I'll add a calendar of maker events in the same categories that users can view and subscribe to. If lockdown ever ends, this will allow people to meet up at skills-relevant events
+before any formal skill swapping.
+
+Sixth, my stretch goal is to use an API to include video chat in the direct messaging app, so that users can conduct classes without breaking quarantine. This could also video time logging to 
+verify time spent teaching others.
+
+###User Stories###
+
+As a learner, I want to be able to meet with qualified teachers because I want to make sure that I'm learning the proper way to do things
+
+###Tasks###
+--> implement a skill endorsement system where users can easily find teachers who have been recommended by others 
+--> implement a log of users' forum posts so that learners can see if a user is giving good advice
+--> provide a calendar of events so that users can meet up in a casual setting before agreeing to a class
+
+As a maker, I want to be able to get advice from professionals in my field because I won't know the answers to every problem
+
+###Tasks###
+--> Implement active forums sorted by fields
+--> Allow forums to be searchable
+
+As a community builder, I want to be able to have a network of diversely-skilled people to solve any problem I encounter
+
+###Tasks###
+-->Create a friends list so that people can interact repeatedly
+-->Create a calendar of events so that people can meet up
+-->Create direct messaging so that people can establish a personal rapport on the site
+
+##Data Model##
+
+for users, I will need to store their profile picture, the user's list of skills to teach and skills to learn, their resume, their post history on the forums, and a private list of their direct 
+messages
+
+For the advertising board and the forums, I'll need lists of posts for each category, and a list of categories.
+
+For the calendar, I'll need a list of events, possibly drawn from various APIs.
+
+##Schedule##
+My hopeful deadlines for each app are:
+
+Users: 8/31
+Ad Board: 9/3
+
+At this point, my minimum viable product will be complete, but the website will not be very supportive of creating community. So after the MVP is complete, I will focus on community-building
+features:
+
+Forums: 9/8
+Direct Messaging: 9/11
+Calendar: 9/16
+
+Debugging and Final touches: 9/17
+

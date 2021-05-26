@@ -5,13 +5,15 @@ ul{
 
 
 li{
-  display:inline-block;
+  display: inline-table;
   border: 1px solid grey;
   margin: 8px;
 }
 
 li{
   font-weight: bold;
+  width: 240px;
+  height: 200px;
 }
 
 li:nth-child(even){

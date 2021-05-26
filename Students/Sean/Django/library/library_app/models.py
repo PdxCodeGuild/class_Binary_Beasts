@@ -1,5 +1,7 @@
 from django.db import models
 from django.db.models.deletion import PROTECT
+import datetime
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -21,3 +23,12 @@ class book(models.Model):
 
   class Meta:
     ordering = ['title']
+
+class History(models.Model):
+  book = models.ForeignKey(book, on_delete=models.PROTECT)
+  user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+  timestamp = models.DateTimeField(default=datetime.datetime.now)
+  returned = models.DateTimeField(default=datetime.datetime.now)
+
+  def __str__(self):
+    return str(self.timestamp)

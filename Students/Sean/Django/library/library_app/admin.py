@@ -4,3 +4,4 @@ from . import models
 
 admin.site.register(models.author)
 admin.site.register(models.book)
+admin.site.register(models.History)

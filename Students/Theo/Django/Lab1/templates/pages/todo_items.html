@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<ul>
+<a href="http://localhost:8000/add">add a to do item</a>
+  {% for item in items %}
+  <p>ID: {{ item.id }}</p>
+  <p>Description: {{ item.description }}</p>
+  <p>Completed: {{ item.completed }}</p>
+  <p>Date Created: {{item.date_created}}</p>
+  {% empty %}
+  {% endfor %}
+</ul>
+{% endblock %}

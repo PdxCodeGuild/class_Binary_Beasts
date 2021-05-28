@@ -1,4 +1,5 @@
 {
     "python.pythonPath": "/usr/local/bin/python3",
     "python.languageServer": "Pylance",
+    "liveServer.settings.port": 5501,
 }

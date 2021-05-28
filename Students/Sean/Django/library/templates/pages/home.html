@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<ul>
+  {% for book in books %}
+  <li>
+    <p>{{book.title}}</p>
+    <p>By: {{book.author}}</p>
+    <p>Published: {{book.pub_date}}</p>
+    {% if book.borrowed == False %}
+      <a href="{% url 'borrow' book.id %}"><button>Borrow</button></a>
+
+    {% else %}
+      <br><p>Currently out of stock</p>
+    {% endif %}
+  </li>
+
+  {% endfor %}
+</ul>
+{% endblock %}

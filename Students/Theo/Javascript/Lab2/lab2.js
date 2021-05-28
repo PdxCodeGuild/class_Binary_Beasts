@@ -2,9 +2,12 @@
 Theo Rafael Cocco
 Sunday April 18, 2021
 Lab 2, Todo List
+Last Updated Wednesday April 21, 2021
 */
 
+// Version 1
 
+/* 
 const input = document.querySelector("input"),
   add = document.querySelector(".add"),
   todo = document.querySelector(".incomplete"),
@@ -38,4 +41,25 @@ document.addEventListener("click", (event) => {
       done.append(x);
     }
   });
+});
+ */
+
+// Version 2 JQuery
+
+$(".add").click(() => {
+  const li = $("<li>", { class: "todo" });
+  $(li).text($("input").val());
+  $(".incomplete").append(li);
+  $("input").val("");
+});
+
+$(".remove").click(() => {
+  // $("li").each(() => {
+  //   if ($("input").val() == $("li").text()) {
+  //     $("li").remove();
+  //     $("input").val("");
+  //   }
+  // });
+  let children = $(".incomplete").find("li");
+  children[0].remove();
 });

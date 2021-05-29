@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="{% url 'check_out' %}" method="POST">
+    {% csrf_token %}
+    <label for = "book">Choose an book to Checkout: </label> <br />
+    <select name="book" id="book">
+        {% for post in books %}
+        <option value="{{post.title}}">{{post.title}}</option> 
+        {% endfor %}
+    </select><br />
+    <input type = "checkbox" value="check" name="checkout">Check this box to Checkout this Book <br />
+    <label for = "Checkout Date">Choose a Checkout Date: </label> <br />
+    <input type="date" id="start" name="timestamp" value="2020-05-28" min="2020-01-01" max="2030-12-31">
+    <br />
+    <input type="submit" />
+</form>
+{% endblock %}

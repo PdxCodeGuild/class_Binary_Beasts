@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% csrf_token %}
+<a href="{% url 'available_books'%}">View Available Books</a>
+<ul>
+    {% for post in Books%}
+    {% if post.checkout == False %}
+    <p><a href="{% url 'see_details' post.id%}">Title: {{ post.title }}</a></p>
+    <p>ID: {{post.id}}</p>
+    <p>Title: {{post.title}}</p>
+    <p>Author: {{post.author.author}}</p>
+    <p>Pub Date: {{post.pub_date}}</p>
+    {% endif %}
+    {% endfor %}
+</ul>
+{% endblock %}
+
+    
+        

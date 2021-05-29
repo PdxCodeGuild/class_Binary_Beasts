@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+{% csrf_token %}
+<a href="{% url 'available_books'%}">Back to main view</a>
+<ul>
+    <p>ID: {{post.id}}</p>
+    <p>Title: {{post.title}}</p>
+    <p>Author: {{post.author.author}}</p>
+    <p>Pub Date: {{post.pub_date}}</p>
+</ul>
+
+
+{% endblock %}

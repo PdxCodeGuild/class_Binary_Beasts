@@ -3,10 +3,8 @@
 
 |   Bobby	|  Daniel 	|  Dakota 	|  John 	| Sean	| Theo |
 |---	|---	|---	|---	|---	|--- |
-| 	[Capstone](https://github.com/BobbyEstes/Capstone.git)   |   	|   [Capstone](https://github.com/dakotalowery42/DakotaLowery_Capstone)	|   	|    [Capstone](https://github.com/SeanDutt/EcoCapstone)	|  |
+| 	[Pillow](https://github.com/BobbyEstes/Capstone.git)   |  [IceBox](https://github.com/danielreyes61/IceBox/)  	|   [CDM Smith GIS](https://github.com/dakotalowery42/DakotaLowery_Capstone)	|   	|    [Eco Compete](https://github.com/SeanDutt/EcoCapstone)	|  |
 |   	|   	|   	|   	|   	| |
 |   	|   	|   	|   	|   	|  |
-
-
 
 

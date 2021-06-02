@@ -1,0 +1,10 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#author-form {
+  width: 50% !important;
+  margin: 50px auto !important;
+}

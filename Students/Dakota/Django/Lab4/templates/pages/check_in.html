@@ -1,0 +1,8 @@
+{% extends 'base.html' %} {% block content %}
+  {% for book in books%}
+  {% if book.checkout == True %}
+  <p>{{book.title}} Check In</p>
+  <a href="{% url 'get_check_in' book.id %}"><button>Check In Book</button></a>
+  {% endif %}
+  {% endfor %}
+{% endblock %}

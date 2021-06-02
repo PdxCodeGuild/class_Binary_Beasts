@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Welcome to our online library</h1>
+    <form action="{% url 'checkout' %}" method="post">
+        {% csrf_token %}
+        <label for="book">Choose a book to checkout:</label>
+        <select name="books" id="books">
+            <option value=""></option>
+            {% for book in in_list %}
+            <option value="{{ book.id }}">{{ book.title }}</option>
+            {% endfor %}
+        </select>
+        <label for="name">User Name:</label>
+        <input type="text" name="name" id="name">
+        <input type="submit" value="Submit">
+    </form>
+
+    <form action="{% url 'checkin' %}" method="post">
+        {% csrf_token %}
+        <label for="book">Choose a book to check-in:</label>
+        <select name="books" id="books">
+            <option value=""></option>
+
+            {% for book in out_list %}
+            <option value="{{ book.pk }}">{{ book.title }}</option>
+            {% endfor %}
+        </select>
+        <label for="name">User Name:</label>
+        <input type="text" name="name" id="name">
+        <input type="submit" value="Submit">
+    </form>
+
+{% endblock %}

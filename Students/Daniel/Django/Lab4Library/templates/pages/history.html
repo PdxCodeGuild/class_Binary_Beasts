@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Welcome to History</h1>
+<ul>
+    {% for entry in history %}
+    <li>{{ entry}}</li>
+    {% endfor %}
+</ul>
+
+
+
+
+
+{% endblock %}

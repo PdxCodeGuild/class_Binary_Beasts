@@ -1,0 +1,84 @@
+body {
+  background-color: white;
+  font-family: "Myriad Pro";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body:before,
+body:after {
+  content: "";
+  position: fixed;
+  background: rgb(0, 48, 135);
+  left: 0;
+  right: 0;
+  height: 10px;
+}
+body:before {
+  top: 0;
+}
+body:after {
+  bottom: 0;
+}
+body {
+  border-left: 10px solid rgb(0, 48, 135);
+  border-right: 10px solid rgb(0, 48, 135);
+}
+
+.img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: rgb(0, 48, 135);
+  font-family: "Myriad Pro";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 span {
+  background: rgb(0, 48, 135);
+  color: white;
+  padding: 21 42px;
+  display: inline-block;
+}
+
+h2 {
+  color: rgb(0, 48, 135);
+  font-family: "Myriad Pro";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 span {
+  background: rgb(0, 48, 135);
+  color: white;
+  padding: 0 10px;
+  display: inline-block;
+}
+
+#Project {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: medium;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 800;
+  height: 700;
+}

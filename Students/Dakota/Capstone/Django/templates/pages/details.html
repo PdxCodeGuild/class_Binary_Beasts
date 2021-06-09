@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block content %}
+{% csrf_token %}
+<a href="{% url 'proposals' %}">Back to Proposals</a>
+<p>Title: {{proposal.title}}</p>
+<p>Project Description: {{proposal.project_description}}</p>
+<p>Web Mapping Application URL: </p>
+<b>{{proposal.map_id}}</b>
+<form action="{% url 'add_task' add_taskID.id %}" method="POST">
+{% csrf_token %}
+<input
+    type="text"
+    name="gantt_title"
+    placeholder="Please Enter a Task for your Gantt Chart"
+  />
+  <br />
+<ul>
+  {% for t in tasks %}
+  <li>
+    {{t.gantt_title}}
+    <a name="delete_task" href="{% url 'delete_task' t.id %}">Remove Task</a>
+  </li>
+  {% endfor %}
+</ul>
+<a><button type="submit">Add Task</button></a>
+<br /><br />
+<input
+  type="date"
+  id="start"
+  name="gantt_date_start"
+  value="2021-06-03"
+  min="2021-01-01"
+  max="2030-12-31"
+/>
+<br />
+<input
+  type="date"
+  id="end"
+  name="gantt_date_end"
+  value="2021-06-03"
+  min="2021-01-01"
+  max="2030-12-31"
+/>
+<a><button type="submit">Add Dates</button></a>
+</ul>
+</form>
+{% endblock %}

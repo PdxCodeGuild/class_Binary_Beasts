@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block content %} {% csrf_token %}
+<a href="{% url 'add_proposal'%}">Add another Proposal</a>
+<ul>
+  {% for proposal in proposals%}
+  <p><a href="{% url 'see_details' proposal.id%}">Add Task and Dates: {{ proposal.title }}</a></p>
+  <p>Title: {{proposal.title}}</p>
+  <p>Project Description: {{proposal.project_description}}</p>
+  <p>Web Mapping Application URL: </p>
+  <b>{{proposal.map_id}}</b>
+  <b><p><a href="{% url 'proposal_view' proposal.id%}">View Final Proposal: {{ proposal.title }}</a></p></b>
+  {% endfor %}
+</ul>
+{% endblock %}

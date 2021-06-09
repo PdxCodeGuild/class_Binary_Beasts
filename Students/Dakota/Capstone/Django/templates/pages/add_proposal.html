@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %}
+<form action="{% url 'add_proposal' %}" method="POST">
+  {% csrf_token %} title: <br />
+  <input
+    type="text"
+    name="title"
+    placeholder="Please Enter a Title for your Proposal"
+  /><br /><br />
+  <textarea
+    name="project_description"
+    id=""
+    cols="30"
+    rows="10"
+    placeholder="Please Enter a Description for your Proposal"
+  ></textarea
+  ><br />
+  <input
+    type="url"
+    name="map_id"
+    placeholder="Please Enter a URL for your Web Mapping Application"
+  />
+  <br />
+  <input type="submit" />
+</form>
+{% endblock %}

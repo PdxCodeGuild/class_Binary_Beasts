@@ -4,6 +4,7 @@ import datetime
 
 
 class Proposal(models.Model):
+    test= models.CharField(max_length=200)
     title = models.CharField(max_length=200)
     project_description = models.TextField(max_length=1000)
     map_id = models.URLField(max_length=200)

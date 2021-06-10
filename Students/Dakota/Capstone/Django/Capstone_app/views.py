@@ -15,28 +15,30 @@ def add_proposal(request):
         project_description = request.POST['project_description']
         map_id = request.POST['map_id']
         gantt_title = request.POST['gantt_title']
-        gantt_date_start = request.POST['gantt_date_start']
-        gantt_date_end = request.POST['gantt_date_end']
         proposals = Proposal.objects.create(
-            title=title, project_description=project_description, map_id=map_id, gantt_title=gantt_title, gantt_date_start=gantt_date_start, gantt_date_end=gantt_date_end)
+            title=title, project_description=project_description, map_id=map_id, gantt_title=gantt_title)
         return redirect('add_proposal')
 
 
 def add_task(request, id):
     if request.method == 'GET':
-        add_taskID = Proposal.objects.get(id=id)
-        print("This is the task id ", add_taskID)
-        return(request, 'pages/add_proposal.html', {"add_taskID":add_taskID})
+        tasks = Task.objects.all()
+        details = Proposal.objects.get(id=id)
+        context = {
+            "details": details,
+            "tasks": tasks
+            }
+        return render(request, 'pages/details.html', context)
     elif request.method == 'POST':
+        details = Proposal.objects.get(id=id)
         gantt_title = request.POST['gantt_title']
-        print("Hello")
-        # Task.objects.create(taskItem=gantt_title,task_id=add_taskID).save()
-        return redirect('add_proposal')
+        Task.objects.create(taskItem=gantt_title, task_id=details)
+        return render(request, 'pages/details.html', {"details": details})
 
 
 def delete_task(request, id):
     Task.objects.get(pk=id).delete()
-    return HttpResponseRedirect(reverse('add_proposal'))
+    return render(request, 'pages/details.html', {"details": details})
 
 
 def proposals(request):
@@ -62,5 +64,3 @@ def proposal_view(request, id):
 def see_details(request, id):
     details = Proposal.objects.get(id=id)
     return render(request, 'pages/details.html', {"details": details})
-
-# create details url that has add task/dates

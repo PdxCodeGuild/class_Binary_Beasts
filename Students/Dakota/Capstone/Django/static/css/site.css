@@ -25,6 +25,8 @@ body:after {
 body {
   border-left: 10px solid rgb(0, 48, 135);
   border-right: 10px solid rgb(0, 48, 135);
+  border-bottom: 10px solid rgb(0, 48, 135);
+  border-top: 10px solid rgb(0, 48, 135);
 }
 
 .img {

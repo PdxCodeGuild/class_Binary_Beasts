@@ -1,11 +1,22 @@
 {% extends 'base.html' %} {% block content %}
 {% csrf_token %}
-<a href="{% url 'proposals' %}">Back to Proposals</a>
-<p>Title: {{proposal.title}}</p>
-<p>Project Description: {{proposal.project_description}}</p>
+
+<!-- Sidebar -->
+<div class="w3-sidebar w3-bar-block w3-card w3-rgb(0, 48, 135)" style="width:25%;right:0;">
+    <h3 class="w3-bar-item">Common GIS Tasks</h3>
+    <a class="w3-bar-item w3-button w3-card w3-hover-rgb(0, 48, 135)">Obtain GIS Data</a>
+    <a class="w3-bar-item w3-button w3-card w3-hover-rgb(0, 48, 135)">Design and Compile Data within ArcGIS Pro</a>
+    <a class="w3-bar-item w3-button w3-card w3-hover-rgb(0, 48, 135)">Create ArcGIS Online Web Mapping Application</a>
+    <a class="w3-bar-item w3-button w3-card w3-hover-rgb(0, 48, 135)">Test Web Mapping Application Functionality</a>
+    <a class="w3-bar-item w3-button w3-card w3-hover-rgb(0, 48, 135)">QC Web Mapping Application Functionality</a>
+    <a class="w3-bar-item w3-button w3-card w3-hover-rgb(0, 48, 135)">Submit Web App to Client</a>
+  </div>
+
+<p>Title: {{details.title}}</p>
+<p>Project Description: {{details.project_description}}</p>
 <p>Web Mapping Application URL: </p>
-<b>{{proposal.map_id}}</b>
-<form action="{% url 'add_task' add_taskID.id %}" method="POST">
+<b>{{details.map_id}}</b>
+<form action="{% url 'add_task' details.id %}" method="POST">
 {% csrf_token %}
 <input
     type="text"
@@ -16,12 +27,17 @@
 <ul>
   {% for t in tasks %}
   <li>
-    {{t.gantt_title}}
+    {{t.taskItem}}
     <a name="delete_task" href="{% url 'delete_task' t.id %}">Remove Task</a>
   </li>
   {% endfor %}
 </ul>
 <a><button type="submit">Add Task</button></a>
+<br /><br />
+<p>{{add_task.taskItem}}</p>
+{% for t in tasks %}
+<p>Test42</p>
+{% endfor %}
 <br /><br />
 <input
   type="date"

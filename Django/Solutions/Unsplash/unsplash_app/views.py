@@ -9,7 +9,6 @@ from .serializers import BoardSerializer
 from rest_framework import viewsets
 ##Rest----
 
-
 class BoardView(viewsets.ModelViewSet):
     serializer_class = BoardSerializer
     def get_queryset(self):

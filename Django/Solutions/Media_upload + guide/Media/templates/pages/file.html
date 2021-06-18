@@ -10,16 +10,16 @@
     <button type="submit" class="btn btn-dark mt-3">Submit</button>
 </form>
 
-
-    <h1 class="text-center font-weight-light text-center text-lg-left mt-4 mb-5">Thumbnail Gallery</h1>
-    <div class="container gallery">
-    {%for image in images%}
-    <div>
-        <a href="{{image.my_image.url}}">
-            <img class="img-fluid img-thumbnail" src="{{image.my_image.url}}" alt="">
-        </a>
-    </div>
-    {%endfor%}
+<h1 class="text-center font-weight-light text-center text-lg-left mt-4 mb-5">Thumbnail Gallery</h1>
+<div class="container gallery">
+{%for image in images%}
+<div>
+    <a href="{{image.my_image.url}}">
+        <img class="img-fluid img-thumbnail" src="{{image.my_image.url}}" alt="">
+    </a>
 </div>
+{%endfor%}
+</div>
+
 
 {%endblock%}

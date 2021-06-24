@@ -13,6 +13,7 @@ def about(request):
 @login_required
 def blog_posts(request):
     blogs = Blog.objects.filter(user=request.user)
+
     context = {
         'blogs' : blogs,
     }
@@ -20,18 +21,6 @@ def blog_posts(request):
 
 @login_required
 def add_post(request):
-    # if request.method == 'POST':
-    #     form = BlogForm(request.POST)
-    #     if form.is_valid():
-    #         profile= form.save(commit = False)
-    #         profile.user = request.user
-    #         profile.save()
-    #         blog = form.cleaned_data.get('title')
-    #         return redirect('posts')
-    # else:
-    #     form = BlogForm()
-    #     return render(request, 'add.html', {"form": form})
-
     user = request.user
     if request.method == 'GET':
         return render(request, 'add.html')

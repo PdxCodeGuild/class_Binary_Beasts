@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+{%block content%}
+
+<h1>POST request</h1>
+{% csrf_token %}
+
+<button id='btn'>Add product via API</button>
+<script>
+    const button = document.getElementById('btn')
+    const product = {
+        title: 'product 3',
+        image: 'dummy image',
+        likes: 20
+
+    }
+    function PostProduct(){
+        const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        fetch('http://127.0.0.1:8000/api/products/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrftoken,
+        },
+        body: JSON.stringify(product),
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+
+
+    button.addEventListener('click', PostProduct)
+
+</script>
+{%endblock%}

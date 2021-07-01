@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<a href="http://localhost:8000/todo/add">add task</a>
+
+{% for todo in todos %}
+</p>
+<p>ID: {{ todo.id }}</p>
+<p>Description: {{ todo.text }}</p>
+{% for author in todo.author_set.all%}
+<p>{{author.name}}</p>
+{% for task in author.task_set.all%}
+<p>{{task.description}}</p>
+{% endfor %}
+{% endfor %}
+{% endfor %}
+
+
+
+{% endblock %}
